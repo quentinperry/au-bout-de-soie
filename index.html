@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Au bout de soie — le film &amp; l’aventure</title>
+<meta name="description" content="Explorez l’univers du film Au bout de soie : 6000 km à vélo sur la Route de la Soie pour promouvoir la microfinance solidaire. Film, portraits de micro-entrepreneurs, newsletters et bande-son.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2322303f'/%3E%3Ccircle cx='50' cy='50' r='24' fill='none' stroke='%23c99a3f' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23c99a3f'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6f0e4; --paper:#fffdf7; --ink:#2a2118; --muted:#7a6f5f;
+    --accent:#b3502f; --gold:#c99a3f; --deep:#22303f; --deep2:#2e4155;
+    --line:#e4dac6; --shadow:0 10px 30px rgba(42,33,24,.10);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
+  h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--ink)}
+  a{color:var(--accent)}
+  img{max-width:100%}
+
+  /* Nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(34,48,63,.96);backdrop-filter:blur(6px);
+    display:flex;align-items:center;gap:18px;padding:0 22px;height:56px;
+    box-shadow:0 2px 14px rgba(0,0,0,.25)}
+  .nav .brand{color:#f4e8cf;font-family:var(--serif);font-size:19px;letter-spacing:.4px;
+    display:flex;align-items:center;gap:9px;white-space:nowrap;text-decoration:none}
+  .nav .brand svg{flex:none}
+  .nav .links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+  .nav .links::-webkit-scrollbar{display:none}
+  .nav .links a{color:#d8cdb4;text-decoration:none;font-size:13.5px;padding:6px 11px;border-radius:99px;white-space:nowrap;transition:.2s}
+  .nav .links a:hover{color:#fff;background:rgba(255,255,255,.12)}
+
+  /* Hero */
+  .hero{position:relative;background:
+    radial-gradient(1200px 500px at 85% -10%,rgba(201,154,63,.28),transparent 60%),
+    radial-gradient(900px 480px at -10% 110%,rgba(179,80,47,.30),transparent 55%),
+    linear-gradient(160deg,var(--deep) 0%,var(--deep2) 60%,#18222c 100%);
+    color:#f2e9d6;padding:88px 22px 96px;overflow:hidden}
+  .hero .threads{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+  .hero .wrap{position:relative;max-width:940px;margin:0 auto;text-align:center}
+  .hero .kicker{display:inline-block;font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--gold);border:1px solid rgba(201,154,63,.55);border-radius:99px;padding:5px 16px;margin-bottom:26px}
+  .hero h1{font-size:clamp(44px,8vw,84px);color:#f7efdc;font-weight:600;letter-spacing:.5px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p.pitch{max-width:640px;margin:22px auto 0;font-size:clamp(16px,2.2vw,19px);color:#e8dcc0}
+  .hero .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:38px}
+  .hero .stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+    border-radius:14px;padding:12px 20px;min-width:130px}
+  .hero .stat b{display:block;font-size:26px;font-family:var(--serif);color:var(--gold)}
+  .hero .stat span{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:#d9cba8}
+  .hero .cta{display:inline-flex;align-items:center;gap:10px;margin-top:40px;background:var(--gold);
+    color:#241c0d;font-weight:600;text-decoration:none;border-radius:99px;padding:14px 30px;
+    font-size:16px;transition:.2s;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .hero .cta:hover{transform:translateY(-2px);background:#d8a94e}
+  .hero .cta svg{flex:none}
+
+  /* Sections */
+  section{max-width:1080px;margin:0 auto;padding:76px 22px 30px}
+  .sec-head{margin-bottom:34px}
+  .sec-head .over{color:var(--accent);font-size:12.5px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(28px,4vw,40px);margin-top:6px}
+  .sec-head p.sub{color:var(--muted);max-width:680px;margin-top:10px}
+
+  /* Film player */
+  .player-frame{background:var(--deep);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+  .player-poster{position:relative;aspect-ratio:16/9;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(600px 300px at 70% 20%,rgba(201,154,63,.35),transparent 65%),
+      radial-gradient(500px 280px at 15% 90%,rgba(179,80,47,.4),transparent 60%),
+      linear-gradient(150deg,#22303f,#101820)}
+  .player-poster .play{display:flex;flex-direction:column;align-items:center;gap:16px;color:#f2e9d6}
+  .player-poster .play .btn-round{width:86px;height:86px;border-radius:50%;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:.2s}
+  .player-poster:hover .btn-round{transform:scale(1.06)}
+  .player-poster .play b{font-family:var(--serif);font-size:22px;font-weight:600}
+  .player-poster .play span{font-size:13.5px;color:#d8cdb4}
+  .player-frame iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+  .film-note{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;margin-top:16px;
+    color:var(--muted);font-size:14px}
+  .film-note a{font-weight:600}
+  .teaser{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;box-shadow:var(--shadow)}
+  .teaser h3{font-size:20px}
+  .teaser p{color:var(--muted);font-size:14px;flex:1 1 320px}
+  .teaser a.btn{flex:none}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--deep);color:#f2e9d6;text-decoration:none;
+    border-radius:99px;padding:11px 22px;font-size:14.5px;font-weight:600;transition:.2s;border:0;cursor:pointer}
+  .btn:hover{background:var(--deep2)}
+  .btn.gold{background:var(--gold);color:#241c0d}
+  .btn.gold:hover{background:#d8a94e}
+  .btn.ghost{background:transparent;color:var(--deep);border:1.5px solid var(--deep)}
+  .btn.ghost:hover{background:rgba(34,48,63,.08)}
+
+  /* Aventure */
+  .goal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+  .goal{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+  .goal .num{font-family:var(--serif);font-size:15px;color:var(--gold);font-weight:700;letter-spacing:1px}
+  .goal p{margin-top:8px}
+  .route-wrap{margin-top:46px}
+  .route-line{display:flex;align-items:center;gap:8px;margin:0 4px 22px;color:var(--accent);font-size:14px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+  .route-line svg{width:100%;height:24px;color:var(--accent)}
+  .route{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;counter-reset:step}
+  .step{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px 16px;box-shadow:var(--shadow)}
+  .step .flag{font-size:30px;line-height:1}
+  .step h4{margin-top:8px;font-size:17.5px}
+  .step p{font-size:13.5px;color:var(--muted);margin-top:5px}
+  .step .idx{position:absolute;top:14px;right:16px;font-family:var(--serif);font-size:14px;color:var(--gold);font-weight:700}
+  .team{margin-top:46px;background:var(--deep);border-radius:18px;color:#eee3c8;padding:34px 30px;
+    display:flex;flex-wrap:wrap;gap:26px;align-items:center;box-shadow:var(--shadow)}
+  .team .avatar{width:86px;height:86px;border-radius:50%;flex:none;background:
+    radial-gradient(circle at 30% 25%,#e9c06a,#b3502f);display:flex;align-items:center;justify-content:center;
+    font-size:40px;box-shadow:inset 0 -6px 14px rgba(0,0,0,.25)}
+  .team h3{color:#f7efdc;font-size:22px}
+  .team p{max-width:640px;font-size:15px;margin-top:8px;color:#d9cdb0}
+
+  /* Portraits */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+  .chip{border:1.5px solid var(--line);background:var(--paper);border-radius:99px;padding:8px 16px;
+    font-size:14px;cursor:pointer;font-weight:600;color:var(--ink);transition:.18s}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  .chip.on{background:var(--deep);border-color:var(--deep);color:#f2e9d6}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;transition:.2s}
+  .card:hover{transform:translateY(-3px)}
+  .card .top{display:flex;align-items:center;justify-content:space-between}
+  .card .where{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase}
+  .card .no{font-family:var(--serif);color:var(--gold);font-size:14px;font-weight:700}
+  .card h4{font-size:18.5px}
+  .card .act{color:var(--muted);font-size:14px;flex:1}
+  .card .watch{margin-top:12px;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;
+    color:var(--accent);font-weight:700;font-size:14px;cursor:pointer;background:none;border:0;padding:0}
+  .card .watch:hover{text-decoration:underline}
+
+  /* Newsletters */
+  .news-list{display:flex;flex-direction:column;gap:14px;max-width:860px}
+  details.nl{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  details.nl[open]{border-color:var(--gold)}
+  details.nl summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 22px;user-select:none}
+  details.nl summary::-webkit-details-marker{display:none}
+  details.nl .em{font-size:26px;flex:none}
+  details.nl .meta{flex:1}
+  details.nl .meta b{font-family:var(--serif);font-size:17.5px;font-weight:600;display:block}
+  details.nl .meta span{font-size:12.5px;color:var(--accent);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+  details.nl .chev{color:var(--muted);transition:.25s;flex:none}
+  details.nl[open] .chev{transform:rotate(180deg)}
+  .nl-body{padding:6px 26px 26px;border-top:1px dashed var(--line);font-size:15px;color:#3d3327}
+  .nl-body h2{font-size:20px;margin:26px 0 10px;color:var(--deep)}
+  .nl-body h3{font-size:16.5px;margin:22px 0 8px;color:var(--deep)}
+  .nl-body h2:first-child{margin-top:14px}
+  .nl-body p{margin:10px 0}
+  .nl-body ul{margin:10px 0 10px 22px}
+  .nl-body li{margin:4px 0}
+  .nl-body blockquote{border-left:3px solid var(--gold);background:#faf5e8;margin:12px 0;
+    padding:10px 16px;font-style:italic;color:#5c5240;border-radius:0 10px 10px 0}
+  .nl-body a{word-break:break-word}
+
+  /* Musique */
+  .music-groups{display:grid;gap:20px}
+  .mgroup h3{display:flex;align-items:center;gap:10px;font-size:18px;color:var(--deep);
+    border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:4px}
+  .mgroup h3 .cnt{font-family:var(--sans);font-size:12px;color:var(--gold);font-weight:700;
+    background:#f1e6cb;border-radius:99px;padding:2px 10px}
+  .track{display:flex;align-items:center;gap:14px;padding:11px 6px;border-bottom:1px dashed var(--line)}
+  .track:last-child{border-bottom:0}
+  .track .t{flex:1;font-size:15px}
+  .track .host{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;font-weight:700}
+  .track .pbtn{width:38px;height:38px;border-radius:50%;flex:none;border:0;cursor:pointer;
+    background:var(--paper);border:1.5px solid var(--deep);color:var(--deep);
+    display:flex;align-items:center;justify-content:center;transition:.18s}
+  .track .pbtn:hover{background:var(--deep);color:var(--gold)}
+  .track.ext .pbtn{border-color:var(--gold);color:var(--gold)}
+  .track.ext .pbtn:hover{background:var(--gold);color:#241c0d}
+
+  /* Partenaires & presse */
+  .partners{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+  .partner{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);
+    border-radius:14px;padding:18px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:.2s}
+  .partner:hover{transform:translateY(-3px);border-color:var(--gold)}
+  .partner .dot{width:44px;height:44px;flex:none;border-radius:50%;background:
+    linear-gradient(135deg,var(--gold),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:19px}
+  .partner b{font-size:15px}
+  .partner span{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+  .articles{display:flex;flex-direction:column;gap:12px;max-width:820px}
+  .article{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;background:var(--paper);
+    border:1px solid var(--line);border-radius:12px;padding:16px 20px;box-shadow:var(--shadow)}
+  .article a{font-weight:600;font-size:15.5px;text-decoration:none}
+  .article a:hover{text-decoration:underline}
+  .article .src{color:var(--muted);font-size:13px}
+
+  .more{margin-top:26px}
+  .more .btn{margin-right:10px;margin-top:6px}
+
+  /* Footer */
+  footer{margin-top:80px;background:var(--deep);color:#cfc2a2;padding:44px 22px 54px}
+  footer .wrap{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:center}
+  footer .brand{font-family:var(--serif);color:#f2e9d6;font-size:20px}
+  footer p{font-size:13.5px;max-width:560px;margin-top:6px}
+  footer a{color:var(--gold)}
+
+  /* Modal */
+  .backdrop{position:fixed;inset:0;background:rgba(20,15,8,.72);backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:22px}
+  .backdrop.open{display:flex}
+  .modal{background:var(--deep);border-radius:16px;max-width:920px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden}
+  .modal .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;color:#e8dcc0}
+  .modal .bar b{font-size:14.5px;font-weight:600;font-family:var(--serif)}
+  .modal .bar .x{background:none;border:0;color:#e8dcc0;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;border-radius:8px}
+  .modal .bar .x:hover{background:rgba(255,255,255,.14)}
+  .modal .stage{aspect-ratio:16/9;background:#10161e}
+  .modal .stage iframe{width:100%;height:100%;border:0;display:block}
+  .modal .stage .fallback{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#d8cdb4;padding:20px;text-align:center}
+  .modal .src{padding:12px 18px;font-size:13px;color:#b7ab8d}
+  .modal .src a{color:var(--gold)}
+
+  @media (max-width:640px){
+    .nav .links a{padding:6px 8px;font-size:12.5px}
+    .hero{padding:64px 18px 72px}
+    .nl-body{padding:6px 18px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="#top">
+    <svg width="22" height="22" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#c99a3f" stroke-width="6"/><circle cx="50" cy="50" r="10" fill="#c99a3f"/></svg>
+    Au bout de soie
+  </a>
+  <div class="links">
+    <a href="#film">Le film</a>
+    <a href="#aventure">L’aventure</a>
+    <a href="#portraits">Portraits</a>
+    <a href="#newsletters">Newsletters</a>
+    <a href="#musique">Bande-son</a>
+    <a href="#partenaires">Partenaires</a>
+    <a href="#presse">Presse</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="threads" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-50,520 C200,380 340,640 620,470 C900,300 1040,520 1250,380" fill="none" stroke="#c99a3f" stroke-width="1.6" stroke-dasharray="3 9" opacity=".8"/>
+    <path d="M-50,560 C220,420 380,680 660,510 C940,340 1080,560 1250,420" fill="none" stroke="#e9c06a" stroke-width="1.1" stroke-dasharray="2 12" opacity=".55"/>
+    <path d="M-50,470 C180,330 360,580 640,410 C920,240 1060,470 1250,320" fill="none" stroke="#b3502f" stroke-width="1.2" stroke-dasharray="1 8" opacity=".5"/>
+    <circle cx="620" cy="470" r="4" fill="#e9c06a"/><circle cx="340" cy="640" r="3" fill="#c99a3f" opacity=".6"/><circle cx="1040" cy="520" r="3" fill="#c99a3f" opacity=".6"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker">Le film &amp; l’aventure</span>
+    <h1>Au bout de <em>soie</em></h1>
+    <p class="pitch" id="heroPitch"></p>
+    <div class="stats">
+      <div class="stat"><b>6 000 km</b><span>à vélo</span></div>
+      <div class="stat"><b>8 pays</b><span>Route de la Soie</span></div>
+      <div class="stat"><b>7 mois</b><span>sur la route</span></div>
+      <div class="stat"><b>~50</b><span>micro-entrepreneurs</span></div>
+    </div>
+    <a class="cta" href="#film">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+      Voir le film
+    </a>
+  </div>
+</header>
+
+<main>
+  <section id="film">
+    <div class="sec-head">
+      <span class="over">Le film</span>
+      <h2>« Au bout de soie »</h2>
+      <p class="sub">Documentaire de l’aventure — sous-titres disponibles en français, à activer sur YouTube.</p>
+    </div>
+    <div class="player-frame" id="mainPlayer">
+      <div class="player-poster" id="mainPoster">
+        <div class="play">
+          <div class="btn-round"><svg width="30" height="30" viewBox="0 0 24 24" fill="#241c0d" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg></div>
+          <b>Lancer le film</b>
+          <span>Au bout de soie — version finale</span>
+        </div>
+      </div>
+    </div>
+    <div class="film-note">
+      <span>▶ <a id="filmLink" target="_blank" rel="noopener">Regarder directement sur YouTube</a></span>
+    </div>
+    <div class="teaser">
+      <h3>Le teaser 📼</h3>
+      <p>Sous-titres disponibles en français et en anglais, à activer sur YouTube.</p>
+      <button class="btn ghost" id="teaserBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+        Voir le teaser
+      </button>
+    </div>
+  </section>
+
+  <section id="aventure">
+    <div class="sec-head">
+      <span class="over">Le projet</span>
+      <h2>Deux objectifs, un vélo</h2>
+    </div>
+    <div class="goal-grid" id="goals"></div>
+
+    <div class="route-wrap">
+      <div class="route-line">
+        L’itinéraire
+        <svg viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 C100,12 120,4 200,12 C280,20 300,12 400,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 7"/></svg>
+      </div>
+      <p class="sub" style="color:var(--muted);margin:-10px 0 18px">6 000 km à vélo à travers 8 pays de la Route de la Soie — du Myanmar aux bords de la Mer Caspienne.</p>
+      <div class="route" id="route"></div>
+    </div>
+
+    <div class="team" id="team"></div>
+  </section>
+
+  <section id="portraits">
+    <div class="sec-head">
+      <span class="over">Témoignages</span>
+      <h2>Portraits de micro-entrepreneurs</h2>
+      <p class="sub">Les interviews complètes filmées au fil de la route — coiffeurs, éleveurs, restauratrices, tisseuses… ils racontent ce que le microcrédit a changé dans leur vie.</p>
+    </div>
+    <div class="chips" id="filters"></div>
+    <div class="cards" id="interviews"></div>
+  </section>
+
+  <section id="newsletters">
+    <div class="sec-head">
+      <span class="over">La newsletter</span>
+      <h2>Revivez le voyage, étape par étape</h2>
+      <p class="sub">9 numéros, du compte à rebours du départ à la ligne d’arrivée à Aktaou.</p>
+    </div>
+    <div class="news-list" id="newsList"></div>
+  </section>
+
+  <section id="musique">
+    <div class="sec-head">
+      <span class="over">La bande-son</span>
+      <h2>Les titres du film</h2>
+      <p class="sub">La playlist classée par séquence du film.</p>
+    </div>
+    <div class="music-groups" id="music"></div>
+  </section>
+
+  <section id="partenaires">
+    <div class="sec-head">
+      <span class="over">Sur le terrain</span>
+      <h2>Les partenaires de terrain</h2>
+    </div>
+    <div class="partners" id="partners"></div>
+  </section>
+
+  <section id="presse">
+    <div class="sec-head">
+      <span class="over">Pour aller plus loin</span>
+      <h2>Ils en ont parlé</h2>
+    </div>
+    <div class="articles" id="articles"></div>
+    <div class="more" id="more"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Au bout de soie</div>
+      <p>Site construit à partir de la page du projet. Pour toute question, contactez Guilhem ou Quentin via la <a id="notionLink" target="_blank" rel="noopener">page Notion du projet</a>.</p>
+    </div>
+    <a class="btn gold" id="footerFilm" target="_blank" rel="noopener">▶ Revoir le film</a>
+  </div>
+</footer>
+
+<div class="backdrop" id="backdrop">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="bar"><b id="modalTitle"></b><button class="x" id="modalClose" aria-label="Fermer">×</button></div>
+    <div class="stage" id="modalStage"></div>
+    <div class="src" id="modalSrc"></div>
+  </div>
+</div>
+
+<script type="application/json" id="abds-data">
+{
+ "film": {
+  "youtubeId": "DqpewFtuxPo",
+  "teaserId": "xmQPBo63Q8o",
+  "url": "https://youtu.be/DqpewFtuxPo",
+  "teaserUrl": "https://www.youtube.com/watch?v=xmQPBo63Q8o"
+ },
+ "pitch": "6000 km à vélo sur la Route de la Soie pour promouvoir la microfinance solidaire, du Myanmar au Bangladesh, du Kirghizistan à la Mer Noire.",
+ "team": {
+  "names": "Guilhem & Benjamin",
+  "desc": "Amis d'enfance, ils ont parcouru la Route de la Soie à vélo pendant 8 mois à la rencontre d'instituts de microfinance et des micro-entrepreneurs qu'ils soutiennent."
+ },
+ "route": [
+  {
+   "flag": "🇲🇲",
+   "country": "Myanmar",
+   "stage": "Yangon → Bagan — Sont Oo Tehtwin (Entrepreneurs du Monde)"
+  },
+  {
+   "flag": "🇹🇭",
+   "country": "Thaïlande",
+   "stage": "Bagan → Bangkok"
+  },
+  {
+   "flag": "🇧🇩",
+   "country": "Bangladesh",
+   "stage": "Dacca — la Grameen Bank & la Fondation Grameen Crédit Agricole"
+  },
+  {
+   "flag": "🇮🇳",
+   "country": "Inde",
+   "stage": "Calcutta → STEP & Oxus"
+  },
+  {
+   "flag": "🇰🇬",
+   "country": "Kirghizistan",
+   "stage": "Bichkek → Sary-Tash"
+  },
+  {
+   "flag": "🇹🇯",
+   "country": "Tadjikistan",
+   "stage": "Sary-Tash → Douchanbé, par les montagnes du Pamir"
+  },
+  {
+   "flag": "🇺🇿",
+   "country": "Ouzbékistan",
+   "stage": "Samarcande, Boukhara, Khiva"
+  },
+  {
+   "flag": "🇰🇿",
+   "country": "Kazakhstan",
+   "stage": "Déserts kazakhs → Aktaou, sur la Mer Caspienne"
+  }
+ ],
+ "goals": [
+  "Aider à sortir durablement 1 000 personnes de la pauvreté aux côtés de 4 professionnels de la microfinance (Entrepreneurs du Monde, Positive Planet, Oxus et FGCA).",
+  "S'inspirer de l'expérience de ces entrepreneurs et partager leurs success stories grâce à une web-série qui suit leurs rencontres et aventures."
+ ],
+ "newsletters": [
+  {
+   "n": 1,
+   "icon": "⏰",
+   "title": "J-60 avant le départ",
+   "body": "Chers amis,\n\nC'est officiel, dans un peu plus de deux mois nous serons sur la route.\nDe la Birmanie à l'Inde puis du Kirghizistan à la Mer Noire, nous arpenterons la Route de la Soie à vélo à la rencontre d'instituts de microfinance solidaires et des entrepreneurs qu'ils soutiennent.\nC'est donc avec grand plaisir que nous vous écrivons cette première newsletter et prenons rendez-vous avec vous pour vous tenir régulièrement informés de nos avancées, découvertes, rencontres et anecdotes de voyage. Montez en selle !\n\nNous inscrivons notre action dans la lignée de Microcrédit-Macroaction, une association étudiante loi 1901 qui soutient la microfinance\n\nLes deux objectifs avec lesquels nous partons ?\n- Aider à sortir durablement 1.000 personnes de la pauvreté aux côtés de 4 professionnels de la microfinance (Entrepreneurs du Monde, Positive Planet, Oxus et FGCA)\n- S'inspirer de l'expérience de ces entrepreneurs et partager leurs success stories au plus grand nombre grâce à une web-série qui suivra nos rencontres et aventures\n\nDe janvier à août, de la Birmanie à la Georgie, nous visiterons 7 projets solidaires portés sur l'accès à l'entrepreneuriat des plus démunis.\nNous en finançons certains, et nous conduirons pour d'autres analyses d'impact social et missions de communication\n\nEn pleine levée de fonds, nous travaillons actuellement d'arrache-pied pour démarcher de nouveaux sponsors et financer de nouvelles micro-entreprises. Comment nous aider?\nParlez de Microcrédit-Macroaction autour de vous, partagez et commentez nos contenus! Nous sommes convaincus que la clef de la réussite de ce projet réside dans notre capacité à mobiliser nos réseaux et à être introduits auprès des bonnes personnes.\n\nMerci de nous avoir lu et à bientôt pour de nouvelles aventures,"
+  },
+  {
+   "n": 2,
+   "icon": "🧳",
+   "title": "Trois semaines avant le départ",
+   "body": "Chers amis,\nÇa y est, les billets sont pris !\nNous sommes très heureux de vous annoncer que notre expédition se concrétise et débutera le 14 janvier prochain avec un vol sur Yangon (Birmanie). Ce sera alors à nous de trouver à vélo le chemin du retour jusqu'aux portes de notre vieille Europe !\n**3 semaines,** c'est donc ce qu'il nous reste pour finir nos préparatifs : faire gonfler nos mollets, fermer nos sacoches, valider les vaccins, faire floquer nos maillots et surtout **boucler notre campagne de crowdfunding** !\n## VACCINS ET VISAS ? ✔ FAIT\n\nHépatite A & B, rage, encéphalite japonaise, typhoïde, tout y passe ! On n'aura plus qu'à se méfier du palu, de la dengue et du chikungunya.\n\n## VELOS ? ✔ PRESQUE FAIT\n\nUn grand merci à notre partenaire  B'TWIN qui met à notre disposition deux beaux Hoprider 700 le temps du projet. Promis, ces deux là seront bien utilisés ! Nous organisons une expédition le 4 janvier à Lille pour les récupérer.\n\n## MICROFINANCE ? ✔ FAIT\n\nMerci à M. Jacques Attali, Président de Positive Planet, au Pr Latifee, bras droit du Pr Yunus (prix Nobel de la Paix 2006) et à Mme Maria Nowak, fondatrice de l'ADIE, d'avoir accepté de nous recevoir pour échanger sur la microfinance solidaire. On a hâte de vous faire partager leurs entretiens !\n\n## PARTENAIRES ? ✔ 75% FAIT !\nIls ont rejoint l'aventure pour soutenir à nos côtés un maximum de micro-entrepreneurs et nous les remercions pour leur confiance et leur enthousiasme quant à notre projet. A trois semaines du départ, nous sommes cependant toujours en recherche active de nouveaux partenariats, montez en selle !\n## CROWDFUNDING? ✘ PAS ENCORE\n\nNotre campagne de crowdfunding est lancée et en ligne, venez y faire un tour sur ce lien !\n[https://www.sponsorise.me/fr/projet-au-bout-de-soie#](https://www.sponsorise.me/fr/projet-au-bout-de-soie#)\nLes deux premiers tiers seront reversés aux micro-entrepreneurs soutenus, tandis que le dernier tiers nous aidera à boucler notre budget. On vous promet de belles contreparties à la clef !\nLa première semaine de campagne que nous vivons actuellement est la plus importante et son bon déroulement nous permettra de mettre le projet sur les réseaux sociaux.\n\nGrâce à nos premiers généreux contributeurs, nous atteignons aujourd'hui 24% du total !\nCependant, nous aurons besoin de vous tous pour aller plus loin... Et il n'y a pas de petits dons !\n## Bienvenue à l'association l'Enfant à l'Hôpital !\n\nNous n'avons pas souhaité faire le voyage tous les deux seuls et avons ainsi associé l'Enfant à l’Hôpital à notre périple. Cette association a pour objectif de redonner le goût d'apprendre aux enfants et adolescents handicapés ou en grande difficulté scolaire en les mettant en contact avec des voyageurs au long cours. Nous les rencontrerons avant le départ et correspondrons avec eux tout au long du voyage à raison d'un article par semaine. On a hâte d'échanger avec eux !\n\nMerci de nous avoir lu, nous vous souhaitons de très joyeuses fêtes,\nBenjamin & Guilhem\n*PS : Merci pour toutes vos réactions qui nous ont fait chaud au cœur suite à notre première newsletter. Nous sommes toujours ravis de vous répondre !*"
+  },
+  {
+   "n": 3,
+   "icon": "🚩",
+   "title": "Nos 800 premiers kilomètres !",
+   "body": "Chers amis,\nLe 15 janvier dernier et grâce à vous tous, nous nous envolions pour un périple de 8.000 km à vélo à la rencontre d'une cinquantaine de micro-entrepreneurs soutenus !\nAprès près d'un an de préparation et un peu plus d'un mois sur les routes birmanes voici l'heure pour nous de faire un premier bilan.\n\n## 1. Point vélo : déjà 800 kms !\n\nNos 800 kilomètres en Birmanie c'est :\n- Nos premières montées et grosses souffrances musculaires\n- Des milliers de chaleureux \"mingalarbar\" et de sourires, avec un contact toujours très chaleureux des birmans\n- Une grosse difficulté à trouver des endroits où dormir (nous sommes souvent accompagnés sous haute escorte aux hôtels)\n- Une grande pauvreté mais une totale sécurité.\n\n## 2. Un premier contact avec la microfinance sur le terrain\nRangoon, c'était avant tout le lieu où se tenait le premier projet de microfinance : [Sont Oo Tehtwin.](https://www.entrepreneursdumonde.org/fr/programme/sont-oo-tehtwin-microfinance-sociale-myanmar/)\nDepuis quelques années, plusieurs milliers de micro-entrepreneurs vivant dans une situation très précaire sont accompagnés et suivis par les équipes d'Entrepreneurs du Monde qui leur accordent des prêts sans garantie avec des taux d'intérêts plus bas que la moyenne (2,5% par mois contre 3 à 50% pour la concurrence) et surtout des formations et un véritable accompagnement dans le temps.\n## Vous les avez financés, découvrez leur histoire !\nIls sont coiffeurs, baristas, couturiers, recycleurs, vivaient avec moins de 5\\$ par jour et se sont lancés aux côté d'Entrepreneurs du Monde dans une aventure entrepreneuriale. Les premiers témoignages sont déjà disponibles ici !\n\n**Day Aye Aye Thein**\nPâtissière (100\\$)\n[lien vidéo](https://vimeo.com/201519806)\n> \"Grâce à un prêt de 100\\$, j'ai pu monter mon business et aide mon mari à payer le loyer\"\n\n**Mi Mi Lett**\nCoiffeuse (60\\$)\n[lien vidéo](https://vimeo.com/203705223)\n> \" Avec un prêt de 60\\$, j'ai pu quintupler mon revenu en diversifiant mon activité\"\n\n**Soe Win**\nCuisinier (200\\$)\n[lien vidéo](https://vimeo.com/203670015)\n> \"Grâce au prêt, j'ai pu stabiliser mes revenus et pourrai bientôt acheter mon terrain\"\n\n## 3. Plus besoin d'attendre la newsletter on a un site internet !\n\nCa y est, nous sommes en ligne !\nVous y trouverez nos dernières nouvelles (vidéos, articles, photos, carte), nos nouveaux témoignages de micro-entrepreneurs et la présentation du projet.\nAussi disponible en anglais bien sûr ;)\n\n## 4. Bienvenue à nos nouveaux partenaires : Suez et Salesforce !\n\nIls roulent pour le projet pour nous aider à financer davantage de micro-entrepreneurs. Merci à eux pour leur confiance !\n\n## 5. Petit changement d'itinéraire : pas d'entrée terrestre en Inde...\n## 6. Et enfin, un grand merci à vous qui rendez ce projet possible !\n### Nos partenaires\n### Nos généreux crowdfunders !\nCharles Henry Rouaud, Henry Bonner, René Mouterdien, Frederic Baschet, Marie-Aimée Dufour, Catherine Apra, Miho Funatsu, Véronique Baschet, Quentin Perry, Ambroise Idoine, Philippe Apra, Sébastien Méraud, Vincent Desvignes, Serge Bigotto, Antoine Tissier, Eriko Hagio, Inès Vallette, Jean-Louis Apra, Cécile Perry, Joachim Apra, Vianney Desvignes, Catherine Tordeur, Georges Dib, Coco Lafripouille, Foucauld Baschet, Alexis Geslin, Dora D’Errico, Edouard Michower, Celia La Luna, Hortense Leclercq, Marie Turpin, Quentin Estève, Fabien Celier, Reda Agoumi, Tristan Henry, Pierre Amelot, Tom Maddalena, Eymard Houdeville, Michel Khouri, Isaure Debavalaere, Bla Bla\nMerci de nous avoir lus, et merci pour vos retours toujours plus nombreux qui nous donnent de la force pour pédaler dans les montées !\nA bientôt,\nBenjamin & Guilhem"
+  },
+  {
+   "n": 4,
+   "icon": "🛕",
+   "title": "De Bagan à Bangkok — 2 mois, 2 projets, 1 600 km",
+   "body": "*2 mois, 2 projets, 1.600 kms*\nChers amis,\nDéjà deux mois sur la route, comme le temps passe vite sur un vélo !\n\nDe Bagan (Myanmar) nous avons finalement rejoint Bangkok. Les frontières avec l'Inde et la Chine ayant récemment fermé, la Thaïlande était notre unique moyen de sortir via une frontière terrestre.\nRetour donc dans cette lettre sur ce 2ème mois, marqué par les visites de deux projets de lutte contre la pauvreté et d'accès à l'entrepreneuriat très différents, développés par Entrepreneurs du Monde (Rangoun, Myanmar) et la Fondation Positive Planet (Pa'an, Myanmar)\n\n# En vidéo, un résumé de ce deuxième mois de projet\n\n<video src=\"https://vimeo.com/210805195?share=copy\">*La vidéo du deuxième mois de projet est disponible, découvrez la ici !*</video>\n\nQuel accueil des habitants sur place ? Quelles conditions ? Quel est l'état des routes ?Comment créé-t-on une coopérative agricole ?\nEn vidéo encore une fois, revivez notre périple birman et thaï, nos difficultés et nos petites victoires, nos impressions, ce qui nous a touchés, dépaysés et impressionnés ainsi qu'une présentation des deux programmes partenaires rencontrés.\n\n# Retour à Rangoun et passage chez Sont Oo Tehtwin, une institution de microfinance solidaire\nCap plein sud. La première étape a en effet été de redescendre les 600 kilomètres qui nous séparent de Rangoun, en revenant sur nos pas, presque à contrecœur. Nous profitons de l'occasion pour passer quelques jours supplémentaires chez Sont Oo Tehtwin un programme de microfinance sociale destiné à des familles parmi les plus vulnérables de la périphérie de Rangoon.\nLes prêts commencent à moins de 100 dollars, remboursables dans des périodes de six mois à deux ans. Après chaque remboursement, le bénéficiaire est libre d'emprunter à nouveau. Avec le temps, il pourra avoir accès à de plus gros emprunts pour développer son entreprise.\nNous avons été frappés par la proximité entre le staff et les \"bénéficiaires\", l'IMF entretient une relation très proche avec chacun des entrepreneurs soutenus, en leur apportant tout l'accompagnement nécessaire pour les rendre autonomes financièrement (formations, suivis,... )\nMais que fait-on vraiment avec moins de 100 dollars ? Peut-on réellement entreprendre ? Nous vous avions posté les vidéos des premiers entrepreneurs financés ici. Ce mois-ci découvrez l'histoire de Htwe Htwe, qui a ouvert son restaurant grâce à un prêt de 200 USD.\nComme Htwe Htwe, ce sont plus de 2.500 entrepreneurs qui ont été accompagnés par Sont Oo Tehtwin pour près de 320.000 USD de prêts. Quelques unes de ces histoires sont disponibles sur notre site : [www.auboutdesoie.com](http://www.auboutdesoie.com/)\n# Juste avant la frontière, rencontre avec la coopérative BYTM, un projet de la Fondation Positive Planet\nAprès 3 jours de terrain chez Sont Oo Tehtwin, nous remontons en selle et filons vers l'est. A 300 kilomètres de là, non loin de la frontière thaï, nous attend le deuxième programme partenaire.\nComment lutter contre la pauvreté et faciliter l'accès à l'entrepreneuriat dans une ancienne zone de conflit ethnique ?\nC'est la question sur laquelle s'est arrêtée Positive Planet en créant une coopérative agricole à Pa'an. Son objectif est d'aider les habitants d'une trentaine de villages isolés à centraliser leur épargne pour fournir des prêts à ceux d'entre eux qui n'ont pas le capital nécessaire pour lancer leur entreprise.\nAprès 3 ans de travail et alors que Positive Planet se retire du programme, la coopérative est pleinement opérationnelle et entièrement gérée par des locaux. Elle compte près de 1.600 membres et a déjà a pu prêter un total de 15.000 \\$ à 23 entrepreneurs souhaitant développer leurs activités.\nLes sources de financement de la coopérative proviennent directement des villageois qui y placent leur épargne et en détiennent 100% du capital. L'attribution des prêts se fait par ailleurs par un board de villageois élu.\nLes équipes de Positive Planet ont enfin effectué des études et testé grandeur nature une dizaine d'activités agricoles \"demo farm\" pour faire le point sur les activités les plus rentables et les plus à mêmes de rembourser les emprunts.\n# Ils ont emprunté auprès de la coopérative, découvrez leur histoire !\nMais quel impact concret sur le terrain ? Grâce à la réactivité et la disponibilité des équipes, nous avons passé deux jours dans ces villages à la rencontre des habitants. Voici deux témoignages d'emprunteurs !\n\n[Tun Tun Win - élevage de poulet](https://vimeo.com/210152011)\nmontant du prêt : 1700 \\$\n\n[U Maung Myint - élevage de poisson](https://vimeo.com/210893365)\nmontant du prêt : 700 \\$\n\n# Premières impressions, premières observations\nLes deux programmes, malgré leur objectif commun d'inclusion financière, développent deux approches radicalement différentes de lutte contre la pauvreté. Nous en profitons ici pour vous livrer ici nos impressions.\nL'impact positif de la coopérative agricole développée par Positive Planet nous saute aux yeux. D'une part les bénéficiaires de prêts ont pu lancer une nouvelle activité rapidement, et d'autre part ils sont formés afin de faire fonctionner la coopérative après le retrait de la Fondation, après seulement 3 ans de présence sur le terrain.\nNous avons cependant noté au moins deux limites à ce modèle. Seuls quelques membres de la coopérative (23 sur 1600) ont pu avoir accès à un emprunt. Les fonds de la coopérative provenant uniquement des villageois, ils sont en effet assez limités. En pratique, il semblerait que ce sont des membres parmi les plus aisés qui ont pour l'instant pu emprunter. Les villageois font en outre preuve d'une certaine méfiance vis-à-vis de ce système, qui leur est nouveau ; et en l'absence de la fondation, nous nous interrogeons sur la capacité de la coopérative à s'étendre aux villages alentours.\nDans un style très différent, l'impact du programme de microfinance solidaire \"Sont Oo Tehtwin\" développé par Entrepreneurs du Monde nous a paru indiscutable. Les bénéficiaires rencontrés, vivant pour la plupart sous le seuil de pauvreté, ont tous pu développer une activité rentable grâce aux prêts contractés et nouer une vraie relation de proximité avec l'institution qui les conseille et les forme. Dans toutes nos rencontres nous avons également constaté une évolution du niveau de vie après quelques années de prêts\nLes montants prêtés sont souvent négligeables comparés au capital investi par les micro-entrepreneurs et sont rarement utilisés pour des investissements de long terme. Ils servent le plus souvent à financer le besoin en fonds de roulement de l'entreprise (achat de stocks ou de matière première nécessaire au processus de production). Il faudra donc plusieurs cycles d'emprunts pour constater un développement significatif de l'entreprise et une amélioration du niveau de vie.\nDe notre visite de Dala, nous retenons donc que si la microfinance permet rarement de créer des entreprises très profitables et à forte croissante, elle donne les moyens aux familles les plus vulnérables de stabiliser leur revenu et de sortir progressivement de la pauvreté. Le bénéficiaire \"type\" est ainsi la \"femme au foyer\", lançant son entreprise depuis son domicile pour arrondir les fins de mois du couple.\n# Passage en Thaïlande, et suite du programme\n\nDe Pa'an, nous descendons d'abord sur des grands axes vers Moulmein, cité coloniale britannique et Mudon, puis empruntons des petits chemins de terre caillouteux sur plusieurs centaines de kilomètres pour atteindre le Col des 3 Pagodes et arriver à Htee Kee, point de passage vers la Thaïlande\n\nSi nous gagnons en qualité de route dès notre entrée en Thaïlande, nous n'y retrouverons jamais l'authenticité du Myanmar. Presque jusqu'à Bangkok nous longerons la \"Death Railway\" construite par les japonais pendant la Seconde Guerre Mondiale, qui doit son nom aux dizaines de milliers de Prisonniers de Guerre alliés morts pour la construire. Les rizières verdoyantes et leurs multiples canaux laissent progressivement place aux larges autoroutes de la mégalopole.\n\nDe Bangkok, nous sommes actuellement en route vers Dhaka, pour rencontrer la Grameen Bank fondée par le Professeur Muhammad Yunus, foyer de la microfinance. La suite dans un prochain épisode !\n## Nos partenaires\n## Nos généreux crowdfunders !\nCharles Henry Rouaud, Henry Bonner, René Mouterdien, Frederic Baschet, Marie-Aimée Dufour, Catherine Apra, Miho Funatsu, Véronique Baschet, Quentin Perry, Ambroise Idoine, Philippe Apra, Sébastien Méraud, Vincent Desvignes, Serge Bigotto, Antoine Tissier, Eriko Hagio, Inès Vallette, Jean-Louis Apra, Cécile Perry, Joachim Apra, Vianney Desvignes, Catherine Tordeur, Georges Dib, Coco Lafripouille, Foucauld Baschet, Alexis Geslin, Dora D’Errico, Edouard Michower, Celia La Luna, Hortense Leclercq, Marie Turpin, Quentin Estève, Fabien Celier, Reda Agoumi, Tristan Henry, Pierre Amelot, Tom Maddalena, Eymard Houdeville, Michel Khouri, Isaure Debavalaere, Bla Bla\nMerci de nous avoir lus, et merci pour vos retours toujours plus nombreux qui nous donnent de la force pour pédaler dans les montées !\nA bientôt,\nBenjamin & Guilhem"
+  },
+  {
+   "n": 5,
+   "icon": "🇧🇩",
+   "title": "Dacca et la Grameen — la capitale de la microfinance et du social business",
+   "body": "Après 3 mois, nous voilà dans la capitale de la microfinance et du social business !\nChers amis,\nBien arrivés au Bangladesh après 1.600 kms en Asie du Sud-Est, nous en avons profité pour poser nos vélos et faire un petit tour d'horizon de la Grameen Bank et de ses programmes. Après tout, si Dhaka est la capitale des tuk-tuks, c'est aussi l'épicentre de la microfinance !\nDès nos tout premiers pas le Bangladesh ne nous a pas laissé indifférents.\n\nAvec ses rickshaws multicolores, ses barres d'immeuble, ses bidonvilles ainsi que l'activité permanente de ses 15 millions d'habitants, Dhaka est sans hésitation notre plus gros choc culturel jusqu'à présent.\nPour notre plus grand bonheur, nous avons ainsi pu nous perdre dans \"South Dhaka\" la vieille ville, arpenter les différents quartiers et checkpoints d'une ville décidément pas comme les autres !\n\n# En vidéo, un résumé de notre passage chez la Grameen\n\nEn vidéo encore une fois, revivez notre passage auprès des programmes de la Grameen, un des premiers \"social business\", pionnier de la microfinance.\nPendant 10 jours, nous avons arpenté les étages de la tour Grameen, questionné les fondateurs et sommes partis sur le terrain voir les programmes. Tout est là !\n\n# De la microfinance au social business\nLa Grameen et l'histoire des 27\\$ du Professeur Yunus (cf vidéo ci-dessus) ont été pour nous un des événements déclencheurs du projet. S'il est possible de changer de manière durable la vie des gens avec de si faibles montants, nous devions le voir de nos propres yeux.\nBien que nous ne savions pas vraiment si nous aurions l'occasion de les rencontrer lors de notre passage au Bangladesh, un coup de téléphone nous confirmera au matin du 3ème jour que nous sommes attendus dans la Grameen Tower, une tour de 20 étages au plein centre de Dhaka. Nous ne remercierons jamais assez notre partenaire la Fondation Grameen Crédit Agricole pour cette très belle opportunité.\nLes chiffres de la Grameen Bank sont impressionnants et donnent facilement le vertige lorsqu'on s'imagine que tout cela a commencé avec 27\\$.\n- 9 millions d'emprunteurs au Bangladesh, sur la base de la confiance et sans collatéral\n- 70% des micro-entrepreneurs soutenus ont dépassé le seuil de pauvreté.\n- 97% du capital sont détenus par les micro entrepreneurs eux-mêmes\nCependant, nous nous attendions à de tels chiffres de la Grameen et à des process très bien rôdés. Tous les programmes que nous avons vu  jusqu'ici s'en inspiraient...\nCe que nous retenons avant tout, c'est à quel point le fait de fournir du crédit est anecdotique dans les activités de la Grameen.\nLa Grameen n'a pas commencé à faire des prêts  pour maximiser son profit mais pour répondre à un problème social. A chaque nouveau problème social qui apparaît elle créée une entité nouvelle pour trouver des solutions concrètes : Grameen Telecom pour faciliter l'accès aux téléphones portables dans les villages reculés, Grameen Shakti pour l'accès à l'énergie et le solaire, Grameen Danone, Grameen Textile, la liste est longue...\nCe qui nous a le plus impressionné chez la Grameen c'est donc cette faculté à tester au plus proche du terrain des programmes sociaux sur de petits échantillons, perfectionner leur fonctionnement et les reproduire à très grande échelle. Certes, la microfinance a rendu la Grameen célèbre, mais c'est cette constante démarche entrepreneuriale qui la place à la pointe du \"social business\".\n# Le programme \"New Entrepreneurs\" : investir en capital dans des entreprises des enfants de micro-entrepreneurs.\n## Les origines du programme\nIl y a 40 ans, la Grameen Bank proposait ses premiers prêts dans les villages reculés du Bangladesh : des petites sommes pour des micro-entrepreneurs le plus souvent illettrés et sans éducation.\nAujourd'hui et depuis quatre ans déjà, ils lancent un programme pilote qui consiste à investir en fonds propres (et non à prêter) auprès d'entreprises développées par les fils de ces premiers micro-entrepreneurs soutenus par la Grameen. L'objectif est clair : lutter contre le taux de chômage élevé des moins de 30 ans au Bangladesh, d'où le slogan \"we are not job seekers, we are job givers\".\nL'évolution sociale d'une génération à l'autre est très impressionnante. Grâce aux prêts de la Grameen, les parents illettrés développaient le plus souvent une activité de subsistance. Leurs enfants grâce au soutien en capital reçu par le programme développent des petites entreprises beaucoup plus proches de ce que nous connaissons en Europe.\nAux potentiels \"New Entrepreneurs\", voici l'argument du Pr Yunus :\n\"Si vos parents illettrés ont pu devenir entrepreneurs pour vous donner une éducation et vous élever, pourquoi vous, les jeunes, vous ne pourriez pas à votre tour développer votre entreprise et créer du travail pour les autres ?\"\nEn poussant un peu plus loin, s'ils entreprennent dans ces conditions, nous n'avons plus d'excuse en France !\n## Et financièrement ?\nPour mieux comprendre les rouages du programme nous sommes allés sur le terrain près de Dhamraï, un village à 60 kms de Dhaka.\nLa Grameen Trust investit minoritairement dans des entreprises montées par les enfants des Grameen Members. Comme ses investissements sont faits pour des raisons sociales et non financières, elle s'interdit tout profit ou dividende et récupérera au bout de trois ans exactement le même montant que celui investi, augmenté d'un \"transfer fee\" équivalent à 20% du montant de l'investissement pour couvrir les coûts. Plus concrètement, cela ressemble à un prêt à un taux de 6,3% par an, ce qui est bien plus faible que ce propose les institutions de microfinance sur place.\nLes \"New Entrepreneurs\" disposent qui plus est d'un accompagnement régulier, sont poussés à faire des business plan et à tenir une comptabilité solide par les agents sur le terrain.\n## Découvrez leur histoire !\nLeurs mères ont emprunté moins de 100\\$ auprès de la Grameen il y a 30 ans, aujourd'hui la Grameen Trust s'associe au capital de leur entreprise. Quelles conséquences ? Quelle évolution sociale ? Découvrez-le en vidéo !\n\n[**Liton - réparation de voitures**](https://vimeo.com/217833274)\nmontant investi par la Grameen Trust : \\$ 1,200\n[lien vidéo](https://vimeo.com/217833274)\n\n[**Md Saïful Islam - fabricant de vêtements**](https://vimeo.com/214447114)\nmontant investi par la Grameen Trust : \\$ 600\n[lien vidéo](https://vimeo.com/214447114)\n\n# L'avis des cyclos, ce qu'on retient du programme...\nDepuis nos vélos, il nous est difficile de porter un jugement critique sur la Grameen, tant la structure est gigantesque et ses champs d'action variés. Nous retenons trois leçons de notre passage à la Grameen :\n1 - Le plus important dans la microfinance n'est pas de fournir du crédit, mais d'apporter l'oxygène financier, social et humain pour aider les micro-entrepreneurs à prendre confiance en eux, développer un business et sortir dignement de la pauvreté en prenant leur vie en main.\n2 - Pour tout projet il ne faut pas craindre de commencer petit, tester un concept sur un petit échantillon et prendre son temps pour améliorer le processus avant de l'étendre sur une plus grande échelle.\n3 - Soyons progressistes, le changement est possible. La Grameen, qui a changé la vie de millions de personnes, est née de la volonté d'un seul homme qui a entraîné dans son sillage un très large mouvement.\n## Nos partenaires\n## Nos généreux crowdfunders !\nCharles Henry Rouaud, Henry Bonner, René Mouterdien, Frederic Baschet, Marie-Aimée Dufour, Catherine Apra, Miho Funatsu, Véronique Baschet, Quentin Perry, Ambroise Idoine, Philippe Apra, Sébastien Méraud, Vincent Desvignes, Serge Bigotto, Antoine Tissier, Eriko Hagio, Inès Vallette, Jean-Louis Apra, Cécile Perry, Joachim Apra, Vianney Desvignes, Catherine Tordeur, Georges Dib, Coco Lafripouille, Foucauld Baschet, Alexis Geslin, Dora D’Errico, Edouard Michower, Celia La Luna, Hortense Leclercq, Marie Turpin, Quentin Estève, Fabien Celier, Reda Agoumi, Tristan Henry, Pierre Amelot, Tom Maddalena, Eymard Houdeville, Michel Khouri, Isaure Debavalaere, Bla Bla\nNous partons dans les prochains jours vers l'Inde et Calcutta à 350 kms à l'ouest de Dhaka pour rejoindre notre partenaire STEP,\nMerci de nous avoir lus,\nA bientôt,\nBenjamin & Guilhem"
+  },
+  {
+   "n": 6,
+   "icon": "🇮🇳",
+   "title": "De Dacca à Calcutta",
+   "body": "Chers amis,\nUn mois de plus et nos vélos ont tenu bon.\nCette newsletter est un tournant pour nous, ce sera la dernière concernant l'Asie du sud-est, puisque nous nous envolons prochainement pour le Kirghizistan, en Asie centrale !\n\nAprès 2 semaines passées à Dhaka (Bangladesh), il est temps de remonter sur nos vélos pour quelques centaines de kilomètres, direction l'Inde et Calcutta. Nous y avons en effet rendez-vous pour rencontrer de nouveaux microentrepreneurs avec notre prochain partenaire STEP (Sampurna Training & Entrepreneurship Program), un programme développé en collaboration avec Entrepreneurs du Monde. Comme la plupart de nos partenaires, il s'agit d'un organisme à but non lucratif de microfinance sociale.\nCe fut une brève étape à vélo, de quelques jours seulement, essentiellement au Bangladesh.\n\n# En vidéo, un résumé de notre expérience au Bangladesh et en Inde\n\nLes Bangladais nous un peu surpris et intimidé au départ. Ça se bouscule, se marche dessus.... mais il faut bien s'adapter à la surpopulation du pays !\nSur la route, nous n'avons rencontré que des personnes extrêmement curieuses, gentilles et attentionnées qui nous offraient spontanément de l'aide, un vrai plaisir !\nLes routes y étaient particulièrement chargées et bruyantes, un doux mélange de rickshaws, camions et autres tuks-tuks !\n\n# L'étape sur la carte\n# Sampurna Training & Entrepreneurship Programme\nArrivés à Calcutta, nous avons été accueilli par Abhijit, le directeur de STEP, qui est présent depuis sa création.\nEntrepreneurs du Monde (EdM) soutient financièrement et techniquement le programme depuis sa création. Sa mission est d'améliorer les conditions de vie des famille pauvres des bidonvilles de Calcutta. En dix ans, STEP s'est développé et compte aujourd'hui plus de 6.000 emprunteurs (\"partners\" comme ils les appellent), auxquels sont proposés des conseils de santé, des formations pour gérer leur business, accompagnant ainsi l'objectif de sensibilisation sociale.\nSTEP doit faire face à une concurrence féroce dans une région où de nombreux établissements proposent des services de microfinance. Ils ne peuvent offrir des taux d'intérêts aussi bas que les banques, qui prennent moins en charge les clients. Malgré ces défis, le programme croît et touche toujours plus de personnes dans les environs de Calcutta.\n# Ils ont emprunté auprès de STEP, découvrez leur histoire !\nNous avons eu l'occasion de rencontrer certains des bénéficiaires du programme, pour attester de son efficacité. Voici deux témoignages !\n\n[**Anamika & Riju Sarkar - purifient de l'eau**](https://vimeo.com/217840527)\nmontant du prêt : 750 \\$\n\n[**Karim Gazi - collecteur de déchet**](https://vimeo.com/217838287)\nmontant du prêt : 120 \\$\n\nCalcutta sera notre dernière étape en Asie du Sud-Est, et le sous-continent indien nous manquera. Nous nous sommes désormais envolés vers Bishkek au Kirghizistan, où nous commencons la deuxième partie du projet en Asie Centrale, nous y roulerons pour rencontrer d'autres microentrepreneurs auprès d'Oxus Microfinance.\n## Nos partenaires\n## Nos généreux crowdfunders !\nCharles Henry Rouaud, Henry Bonner, René Mouterdien, Frederic Baschet, Marie-Aimée Dufour, Catherine Apra, Miho Funatsu, Véronique Baschet, Quentin Perry, Ambroise Idoine, Philippe Apra, Sébastien Méraud, Vincent Desvignes, Serge Bigotto, Antoine Tissier, Eriko Hagio, Inès Vallette, Jean-Louis Apra, Cécile Perry, Joachim Apra, Vianney Desvignes, Catherine Tordeur, Georges Dib, Coco Lafripouille, Foucauld Baschet, Alexis Geslin, Dora D’Errico, Edouard Michower, Celia La Luna, Hortense Leclercq, Marie Turpin, Quentin Estève, Fabien Celier, Reda Agoumi, Tristan Henry, Pierre Amelot, Tom Maddalena, Eymard Houdeville, Michel Khouri, Isaure Debavalaere, Bla Bla\nMerci de nous avoir lus et de nous suivre, nous pensons à vous sur nos vélos,\nA bientôt,\nBenjamin & Guilhem"
+  },
+  {
+   "n": 7,
+   "icon": "🚲",
+   "title": "Premiers coups de pédale en Asie centrale — Kirghizistan : de Bichkek à Sary-Tash",
+   "body": "<unknown url=\"https://app.notion.com/p/6169b510f0244a05ace0dfb0f0d6d256#979828f84895490ea6cda1b2a1972bae\" alt=\"bookmark\"/>\nKirghizistan : De Bishkek à Sary Tash\nChers amis,\nL'Asie du Sud-Est est derrière nous désormais.\nDepuis Bishkek, la capitale du Kirghizistan, nous avons en effet entamé la deuxième partie de notre projet en Asie Centrale pour y découvrir auprès de notre partenaire Oxus une nouvelle facette de la microfinance.\nA nous montagnes, chevaux, kurut, kalpaks et autres spécialités kirghizes !\nSur près de 1,000 kms, dans trois villes différentes (Bishkek, Osh et Jalal Abad) nous sommes partis à la rencontre des micro-entrepreneurs soutenus par Oxus pour finalement quitter le pays par le sud et rejoindre le Tadjikistan.\nNous avons été prévenus dès notre arrivée : fini le terrain plat et les rizières asiatiques, c'est bien par les montagnes qu'il faudra passer avec plusieurs cols à plus de 3,000 mètres.\nRetour sur ce dernier mois de traversée et nos dernières découvertes !\n# En vidéo, un résumé de notre périple kirghize\n\nEn vidéo, revivez notre traversée à vélo du Kirghizistan, nos rencontres, nos petites victoires, nos petites galères, les paysages magnifiques d'Asie Centrale et surtout les témoignages des micro entrepreneurs rencontrés !\nBien que nous n'y ayons pas vu beaucoup de soie, force est de constater que ce pays est fascinant sous toutes ses coutures !\n\n# Faire du vélo au Kirghizistan, c'est comment ?\nOn peut difficilement imaginer un changement plus fort que de passer du Bangladesh aux montagnes kirghizes ! D'une part un des pays les plus densément peuplé, où chaque arrêt est rapidement synonyme d'attroupement autour de nos vélos ; d'autre part un pays à la population nomade et éparse, où l'on fait facilement 50 kilomètres sans croiser le moindre village. Nous n'en sommes pas moins bien accueillis, et l'isolement rend sans doute l'effort plus agréable.\nAvec 90% de son territoire couvert de montagnes, le Kirghizistan offre des paysages incroyables. Mais mieux vaut une vidéo qu'un trop long discours.\nChaque kilomètre est plus chèrement payé que dans les plaines d'Asie du Sud-Est, et chaque effort se solde par l'arrivée à un col où de superbes paysages s'offrent à nous.\nPause près du lac Toktogoul, Kirghizistan\nAvec ses chevaux sauvage, ses bergers et leurs troupeaux en transhumance, ses yourtes et ses bâtiments communistes, le Kirghizistan nous a vraiment bluffé !\n# Quid de la microfinance au Kirghizistan ? L'avis des cyclos !\nA peine arrivés à Bishkek, nous faisons ainsi la rencontre des équipes d'Oxus Kirghizistan.\nCréée en 2006, cette institution de microfinance soutient plus de 5000 micro entrepreneurs pour un prêt moyen d'environ 1000 €.\nLe Kirghizistan, fortement dépendant de la Russie, est une victime collatérale de la baisse du rouble et des sanctions européennes qui ont frappé le pays en 2015. IL connaît ainsi un taux de chômage très élevé, et ce sont près de 80% des 18-30 ans qui partent en Russie pour trouver un emploi et envoyer de l'argent à leurs familles.\nOxus Kirghizistan, comme tous les autres acteurs du secteur, a souffert de cette crise qui crédibilise d'autant plus son action auprès des entrepreneurs. Le pays compte plus de 400 organisations de microfinance et Oxus Kirghizistan est une des rares organisations à avoir une dimension sociale ! Comment cela se passe sur le terrain ? Une vraie proximité entre les agents de crédit et les entrepreneurs, un suivi des clients et une mesure régulière des performances sociales.\n# Ils ont emprunté auprès d'Oxus, découvrez leur histoire !\nQui sont ces entrepreneurs soutenus par Oxus ? Quel impact concret a pu avoir l'emprunt sur leur business ? Découvrez leur histoire !\n\n[Tibelkaev - lebechkas](https://www.youtube.com/watch?v=zE_JY1bW0OA)\nmontant emprunté : 1 400 €\nAprès avoir enchaîné les petits boulots, en Russie notamment, Tibelkaev a investi dans un four à pain pour cuire des lebechkas, le pain traditionnel, et a désormais son propre commerce. Il gagne près de 100€ par jour et espère pouvoir acheter sa maison dans un futur proche...\n\n[Nurniza - kalpaks](https://www.youtube.com/watch?v=847_J9lmqCA)\nmontant emprunté : 1 000 €\nLes kalpaks sont les chapeaux kyrgyz traditionnels. Depuis deux ans, Nurniza achète des bouts de tissu qu'elle coud pour revendre les fameux chapeaux au bazar. Grâce au prêt d'Oxus elle aimerait acheter une machine pour pouvoir créer elle-même les motifs des kalpaks et ainsi développer son entreprise.\n\n# Nos partenaires\n# Nos généreux crowdfunders !\nCharles Henry Rouaud, Henry Bonner, René Mouterdien, Frederic Baschet, Marie-Aimée Dufour, Catherine Apra, Miho Funatsu, Véronique Baschet, Quentin Perry, Ambroise Idoine, Philippe Apra, Sébastien Méraud, Vincent Desvignes, Serge Bigotto, Antoine Tissier, Eriko Hagio, Inès Vallette, Jean-Louis Apra, Cécile Perry, Joachim Apra, Vianney Desvignes, Catherine Tordeur, Georges Dib, Coco Lafripouille, Foucauld Baschet, Alexis Geslin, Dora D’Errico, Edouard Michower, Celia La Luna, Hortense Leclercq, Marie Turpin, Quentin Estève, Fabien Celier, Reda Agoumi, Tristan Henry, Pierre Amelot, Tom Maddalena, Eymard Houdeville, Michel Khouri, Isaure Debavalaere, Bla Bla, Philippine Apra\nNous faisons maintenant route vers le Tadjikistan à travers les montagnes du Pamir et ses nombreux cols à plus de 4.000 mètres ! Prochaine étape : Douchanbé, la capitale tadjike, où nous rencontrerons d'autres acteurs de la microfinance.\nMerci de nous avoir lus,\nA bientôt,\nBenjamin & Guilhem"
+  },
+  {
+   "n": 8,
+   "icon": "🗻",
+   "title": "Dans les montagnes du Pamir — Tadjikistan : de Sary-Tash à Douchanbé",
+   "body": "Tajikistan : De Sary Tash à Dushanbe\nChers amis,\nPour rallier la capitale tadjike nous n'avions qu'une option : emprunter la Route du Pamir, la deuxième route la plus haute du monde, plus généralement connue sous le nom de \"Pamir Highway\".\nConstruite à travers les montagnes par les soviétiques dans les années 1930, cette  \"highway\" est trop peu goudronnée et trop étroite pour ressembler à une autoroute. Le terme \"high way\" est en effet à comprendre au sens de \"route haute\", avec ses quelques passages à plus de 4,000 mètres, dominés par les nombreux 6,000 de la région ! Retour dans cette newsletter sur la traversée !\nIl nous faudra un peu plus de 3 semaines pour parcourir sur nos vélos les 1,200 kms qui séparaient Oxus notre partenaire microfinance basé à Dushanbé, de la frontière kirghize. 7 jours lunaires sur les plateaux ;  7 jours le long de la frontière afghane et du fleuve qui la longe et une grosse semaine pour quitter les montagnes et rejoindre la capitale tadjike.\n# En vidéo, un résumé de notre traversée des montagnes\n\nLe Tajikistan est jusqu'à présent le pays de tous les superlatifs : le plus gratifiant, le plus éprouvant pour nous et pour nos vélos, mais c'est aussi là que nous avons trouvé  les plus mauvaises routes et les plus beaux paysages,\nDes bergers, des montagnes, des chutes d'eau, pas mal de galères, un peu de vélo et quelques pincées de microfinance. En vidéo revivez le sixième mois du projet !\n\n# Retour sur notre périple à vélo !\n## Les pieds sur les pédales, la tête dans les nuages\n\nPremière difficulté : franchir la frontière tadjike, perchée à plus de 4,200 mètres suite à un no man's land interminable ! Pendant une semaine nous roulerons plein sud, sur des plateaux lunaires à plus de 4,000 mètres.\n\nLes jambes souffrent certes, mais les yeux n'en perdent pas une miette ! Entre les rares villages nous croisons de temps en temps la route de bergers accompagnés de leurs troupeaux. Pour ce qui concerne le ravitaillement, nous emportons 2-3 jours de nourriture avec nous et trouvons facilement de l'eau dans les nombreuses rivières des alentours !\n\n## Premières difficultés techniques\n\nNous redescendons dans la vallée en longeant le corridor Afghan du Wakhan, une étroite bande de terre séparant le Tajikistan du Pakistan. Nous étions prévenus, si les paysages sont grandioses, l'état de la route est lui chaotique. Pistes de sable, cailloux, ruisseaux, tout y passe !\n\nLes premières tâches de verdure de la vallée tout juste retrouvées, les difficultés techniques s'enchaînent. Une vingtaine de crevaisons et des plaquettes de frein HS entament légèrement notre moral même si l'hospitalité tadjike et la beauté des paysages nous aident à vite reprendre le dessus.\n\n# Enfin à Dushanbé, notre rencontre avec Oxus Tajikistan !\n\n600 kilomètres et bien des crevaisons plus tard, nous quittons enfin nos montagnes pour arriver à Dushanbé et rencontrer notre partenaire microfinance Oxus.\nCréée en 2007, cette institution de microfinance s'est fixée la mission de fournir des prêts à des entrepreneurs ruraux exclus du système financier classique.\n\n## Crise économique et insertion sociale !\nEn 2017, il soutiennent ainsi plus de 13,000 micro-entrepreneurs pour un prêt moyen de \\$1,200.\nLe Tadjikistan, fortement dépendant de la Russie, est une victime collatérale de la baisse du rouble et des sanctions européennes qui ont frappé le pays en 2015. Il connaît ainsi un taux de chômage très élevé, spécialement dans les zones rurales.\nDans ce contexte, la mission d'Oxus de favoriser l'accès à l'entrepreneuriat dans les villages reculés nous paraît d'autant plus importante. En effet, plus de 80% des bénéficiaires des programmes d'Oxus vivent dans des zones rurales.\nAutre force majeure : l'attention toute particulière portée sur les femmes (38% des clientes), dans un pays où la religion et l'état d'esprit ne tolèrent pas forcément l'entrepreneuriat et l'émancipation féminine.\n# Ils ont emprunté auprès d'Oxus, découvrez leur histoire !\nQui sont ces entrepreneurs soutenus par Oxus ? Quel impact concret a pu avoir l'emprunt sur leur business ? Découvrez leur histoire !\n\n**Mansurova - a créé son restaurant**\nmontant emprunté : 1 400 €\n[lien vidéo](https://www.youtube.com/watch?v=yJHBHqg6-pg&feature=youtu.be)\nIl y a 5 ans, elle empruntait \\$1,500 et partait en Chine acheter du matériel de cuisine pour lancer son restaurant. Aujourd'hui elle a une cinquantaine de tables et 6 employés sous ses ordres. Retour sur le parcours de cette entrepreneuse pleine de vie !\n\n**Pirmatov - a lancé sa plantation de tomates**\nmontant emprunté : 3 800 €\n[lien vidéo](https://youtu.be/Ld6Jvc8kxaw)\nPirmatov travaille avec Oxus Tadjikistan depuis sa création il y a une dizaine d'années. Après quelques années à enchaîner des petits travaux (chauffeur, ...), il a lancé sa plantation grâce à un petit prêt et exporte aujourd'hui ses tomates jusqu'au Kazakhstan...\n\n# Nos partenaires\n# Nos généreux crowdfunders !\nCharles Henry Rouaud, Henry Bonner, René Mouterdien, Frederic Baschet, Marie-Aimée Dufour, Catherine Apra, Miho Funatsu, Véronique Baschet, Quentin Perry, Ambroise Idoine, Philippe Apra, Sébastien Méraud, Vincent Desvignes, Serge Bigotto, Antoine Tissier, Eriko Hagio, Inès Vallette, Jean-Louis Apra, Cécile Perry, Joachim Apra, Vianney Desvignes, Catherine Tordeur, Georges Dib, Coco Lafripouille, Foucauld Baschet, Alexis Geslin, Dora D’Errico, Edouard Michower, Celia La Luna, Hortense Leclercq, Marie Turpin, Quentin Estève, Fabien Celier, Reda Agoumi, Tristan Henry, Pierre Amelot, Tom Maddalena, Eymard Houdeville, Michel Khouri, Isaure Debavalaere, Bla Bla, Philippine Apra\nNous faisons maintenant route vers l'Ouzbékistan et le Kazakhstan, les deux derniers pays de notre parcours ! En ligne de mire, nous souhaitons rallier Aktaou, sur les bords de la Mer Caspienne. Mais avant cela il nous faudra d'abord traverser les déserts ouzbeks et kazakhs. A très vite de l'autre côté.\nMerci de nous avoir lus,\nA bientôt,\nBenjamin & Guilhem"
+  },
+  {
+   "n": 9,
+   "icon": "🏁",
+   "title": "Pari tenu ! De Douchanbé à la Mer Caspienne (Kazakhstan)",
+   "body": "De Dushanbé (Tajikistan) à la Mer Caspienne (Kazakhstan)\nChers amis,\nNous tenions à remercier chacun d'entre vous de nous avoir aidés à rendre ce projet un peu fou réalisable. Car c'est désormais officiel :\n\nAprès un peu moins de 6 000 kilomètres, 9 pays traversés, 7 mois à vélo, 6 projets solidaires et une cinquantaine de micro-entrepreneurs rencontrés, nous avons passé la ligne d'arrivée de notre voyage en vélo en atteignant Aktaou au Kazakhstan sur les bords de la Mer Caspienne.  Une chose est sûre, sans votre soutien à tous, nous n'aurions jamais pu atteindre cet objectif.\n\nNous prendrons le temps de conclure de manière plus générale sur le projet, son impact et nos impressions mais cela sera sans doute le sujet d'une autre newsletter.\nRetour sur cette dernière étape qui nous a amené à traverser nos deux derniers pays : l'Ouzbekistan et le Kazakhstan.\n\n# En vidéo, un résumé de notre traversée des déserts kazakhs et ouzbeks\n\nNous pensions vraiment avoir fait le plus dur dans les montagnes tadjikes, mais l'Ouzbekistan et le Kazakhstan nous ont largement apporté leur lot de dépaysement et de surprise.\nDes déserts, des chameaux, des madrassas, beaucoup de vélo et quelques pincées de microfinance. En vidéo revivez le septième mois du projet !\n\n# Retour sur notre périple à vélo !\n## A l'assaut du désert...\nNous le savions en quittant le Tajikistan, la route devant nous ne serait bordée que de sable et de cailloux, étouffée par la chaleur des mois de juillet et août. Pendant un peu plus d'un mois, les déserts kazakhs et ouzbeks n'en ont pas fini de nous surprendre.\nRejoints par Corentin, le frère de Guilhem ce n'est donc plus à deux mais à trois vélos que nous avons mené notre expédition pour rejoindre les villes-joyaux de la Route de la Soie que sont Samarcande, Boukhara et Khiva.\n\n## Rouler pendant les heures fraîches\nLa meilleure solution que nous avons trouvée pour nous protéger de la chaleur est de pédaler très tôt le matin (dès 5h !) et en fin d'après-midi.\nNos journées étaient ainsi principalement organisées selon la présence sur la route de \"chaihanas\", les maisons de thé locales qui nous permettent de nous abriter du soleil et de nous ravitailler en eau.\nAvec un point d'ombre et un possible ravitaillement en eau en moyenne tous les 60 kilomètres au Kazakhstan, il faut en effet bien prévoir la logistique et les pauses (surtout au déjeuner pour ne pas nous retrouver bloqués au soleil sans eau et sous la chaleur).\nHeureusement, un groupe de cyclistes nous avait transmis un document PDF recensant tous les lieux ombragés présents sur la route kazakhe et leur kilométrage.\n## Mais de belles récompenses !\n\n# La microfinance est aussi en France ! Retour sur notre rencontre avec Mme Marie Nowak, fondatrice de l'ADIE\n\nNotre périple à vélo touche donc à sa fin. D'Aktaou, sur les bords de la Mer Caspienne, nous avons pris un avion pour Charles de Gaulle à Paris.\nMais la microfinance ne se limite pas aux pays en voie de développement. Elle existe notamment en France depuis la fin des années 1980 grâce à Mme Maria Nowak, que nous avons eu la chance d'interviewer avant notre départ. Une de ses fortes convictions : \"se battre pour un droit constitutionnel à entreprendre\".\n\n## Maria Nowak, un modèle de courage\n\nMaria NOWAK est aussi appelée la \"banquière de l'espoir\". Quand elle fonde l'ADIE (Association Pour le Droit à l'Initiative Economique) en 1989 pour introduire la microfinance en France, personne n'y croit. 30 ans plus tard, c'est plus de 100 000 entrepreneurs (dont un quart ne sachant ni lire ni écrire!) qui ont été financés pour monter leur entreprise. Avec un taux de remboursement record !\n\n## Le témoignage du mois : découvrez le parcours d'une micro-entrepreneuse kirghize  soutenue par Oxus\n\n**Nargiza - tisseuse de \"toshoks\"**\nmontant emprunté : 800 €\n\n\"toshoks\" : tapis traditionnels kirghizes\nToute sa vie Nargiza a été professeur d'histoire dans une petite bourgade aux alentours de Bishkek. Grâce à un prêt d'Oxus, elle s'est récemment lancée avec son mari dans la production de \"toshoks\", les tapis traditionnels kirghizes.\nPortrait haut en couleur de l'aventure entrepreneuriale dans laquelle s'est lancée cette mère de 3 enfants !\n\n# Ils parlent de nous, merci à eux pour leur soutien !\n# Nos partenaires\n# Nos généreux crowdfunders !\nCharles Henry Rouaud, Henry Bonner, René Mouterdien, Frederic Baschet, Marie-Aimée Dufour, Catherine Apra, Miho Funatsu, Véronique Baschet, Quentin Perry, Ambroise Idoine, Philippe Apra, Sébastien Méraud, Vincent Desvignes, Serge Bigotto, Antoine Tissier, Eriko Hagio, Inès Vallette, Jean-Louis Apra, Cécile Perry, Joachim Apra, Vianney Desvignes, Catherine Tordeur, Georges Dib, Coco Lafripouille, Foucauld Baschet, Alexis Geslin, Dora D’Errico, Edouard Michower, Celia La Luna, Hortense Leclercq, Marie Turpin, Quentin Estève, Fabien Celier, Reda Agoumi, Tristan Henry, Pierre Amelot, Tom Maddalena, Eymard Houdeville, Michel Khouri, Isaure Debavalaere, Bla Bla, Philippine Apra\nVous l'aurez compris, nous sommes bien rentrés à Paris et il nous faudra un peu de temps pour remettre nos idées en place et prendre un peu de recul sur ce projet.\nMerci de nous avoir lus, et merci pour toutes vos réactions lors de notre dernière newsletter,\nA bientôt,\nBenjamin & Guilhem"
+  }
+ ],
+ "interviews": [
+  {
+   "n": 1,
+   "name": "Mi Mi Lett",
+   "activity": "Le salon de coiffure",
+   "country": "Myanmar",
+   "flag": "🇲🇲",
+   "url": "https://vimeo.com/203705223"
+  },
+  {
+   "n": 2,
+   "name": "Daw Aye Aye Thain",
+   "activity": "Les snacks à la banane",
+   "country": "Myanmar",
+   "flag": "🇲🇲",
+   "url": "https://vimeo.com/201519806"
+  },
+  {
+   "n": 3,
+   "name": "Soe Win",
+   "activity": "La fabrication de sauces",
+   "country": "Myanmar",
+   "flag": "🇲🇲",
+   "url": "https://vimeo.com/203670015"
+  },
+  {
+   "n": 4,
+   "name": "Htwe Htwe",
+   "activity": "Le stand de jus de fruits",
+   "country": "Myanmar",
+   "flag": "🇲🇲",
+   "url": "https://vimeo.com/210152457"
+  },
+  {
+   "n": 5,
+   "name": "Tun Tun Win",
+   "activity": "L'élevage de poules",
+   "country": "Myanmar",
+   "flag": "🇲🇲",
+   "url": "https://vimeo.com/210152011"
+  },
+  {
+   "n": 6,
+   "name": "U Maung Myint",
+   "activity": "L'élevage de poissons",
+   "country": "Myanmar",
+   "flag": "🇲🇲",
+   "url": "https://vimeo.com/210893365"
+  },
+  {
+   "n": 7,
+   "name": "Mohamed Saiful Islam",
+   "activity": "La fabrication de t-shirts",
+   "country": "Bangladesh",
+   "flag": "🇧🇩",
+   "url": "https://vimeo.com/214447114"
+  },
+  {
+   "n": 8,
+   "name": "Liton",
+   "activity": "La réparation de tracteurs",
+   "country": "Bangladesh",
+   "flag": "🇧🇩",
+   "url": "https://vimeo.com/217833274"
+  },
+  {
+   "n": 9,
+   "name": "Karim Gazi",
+   "activity": "Le recyclage de métaux",
+   "country": "Inde",
+   "flag": "🇮🇳",
+   "url": "https://vimeo.com/217838287"
+  },
+  {
+   "n": 10,
+   "name": "Anamika & Riju Sarkar",
+   "activity": "La purification d'eau",
+   "country": "Inde",
+   "flag": "🇮🇳",
+   "url": "https://vimeo.com/217840527"
+  },
+  {
+   "n": 11,
+   "name": "Tibelkaev",
+   "activity": "Les lipiochkas",
+   "country": "Kirghizistan",
+   "flag": "🇰🇬",
+   "url": "https://www.youtube.com/watch?v=zE_JY1bW0OA"
+  },
+  {
+   "n": 12,
+   "name": "Nurniza",
+   "activity": "Les kalpaks",
+   "country": "Kirghizistan",
+   "flag": "🇰🇬",
+   "url": "https://www.youtube.com/watch?v=847_J9lmqCA"
+  },
+  {
+   "n": 13,
+   "name": "Mansurova Savriya",
+   "activity": "Le restaurant",
+   "country": "Tadjikistan",
+   "flag": "🇹🇯",
+   "url": "https://www.youtube.com/watch?v=yJHBHqg6-pg"
+  },
+  {
+   "n": 14,
+   "name": "Pirmatov",
+   "activity": "La production de tomates",
+   "country": "Tadjikistan",
+   "flag": "🇹🇯",
+   "url": "https://www.youtube.com/watch?v=Ld6Jvc8kxaw"
+  },
+  {
+   "n": 15,
+   "name": "Nargiza",
+   "activity": "Les toshoks",
+   "country": "Kirghizistan",
+   "flag": "🇰🇬",
+   "url": "https://www.youtube.com/watch?v=5fZPX8jWEwY"
+  }
+ ],
+ "soundtrack": [
+  {
+   "title": "City of the Sun — Intro (The XX cover)",
+   "seq": "Introduction ▶️",
+   "url": "https://www.youtube.com/watch?v=IKFr6m950cQ"
+  },
+  {
+   "title": "The Palms — Push Off",
+   "seq": "Myanmar 🇲🇲",
+   "url": "https://www.youtube.com/watch?v=MgZoNI0VmdA"
+  },
+  {
+   "title": "David Tobin — Organic Infusion 4",
+   "seq": "Myanmar 🇲🇲",
+   "url": "https://www.audionetwork.com/browse/m/track/organic-infusion_1020821"
+  },
+  {
+   "title": "Tom Rosenthal — As Luck Would Have It",
+   "seq": "Myanmar 🇲🇲",
+   "url": "https://www.youtube.com/watch?v=GXF4a27ouqc"
+  },
+  {
+   "title": "Sons of the East — Into the Sun",
+   "seq": "Thaïlande 🇹🇭",
+   "url": "https://www.youtube.com/watch?v=_m89rVfUn5s"
+  },
+  {
+   "title": "Passenger — Coins in a Fountain",
+   "seq": "Bangladesh 🇧🇩",
+   "url": "https://www.youtube.com/watch?v=-yDWjtrgkb0"
+  },
+  {
+   "title": "Needtobreathe — Keep Your Eyes Open (Acoustic)",
+   "seq": "Kirghizistan 🇰🇬",
+   "url": "https://www.youtube.com/watch?v=5gy_eCv8tE8"
+  },
+  {
+   "title": "Tom Rosenthal — Run for Those Hills, Babe",
+   "seq": "Kirghizistan 🇰🇬",
+   "url": "https://www.youtube.com/watch?v=Jofq1Fvrm9s"
+  },
+  {
+   "title": "Tom Rosenthal — Have We Met Before",
+   "seq": "Kirghizistan 🇰🇬",
+   "url": "https://www.youtube.com/watch?v=PoUf7cP61gY"
+  },
+  {
+   "title": "Gizmo Varillas — Freedom for a Change (Live Sofar London)",
+   "seq": "Tadjikistan 🇹🇯",
+   "url": "https://www.youtube.com/watch?v=8Ov8kmFXe_M"
+  },
+  {
+   "title": "Yom — Eldorado 54",
+   "seq": "Tadjikistan 🇹🇯",
+   "url": "https://www.youtube.com/watch?v=BYBVmDIZtSg"
+  },
+  {
+   "title": "Beirut — East Harlem (Live @ NPR Tiny Desk)",
+   "seq": "Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿",
+   "url": "https://www.youtube.com/watch?v=Z0UISCEe52Y"
+  },
+  {
+   "title": "Orelsan — Épilogue",
+   "seq": "Conclusion 🏁",
+   "url": "https://www.youtube.com/watch?v=04XNJqau9_c"
+  },
+  {
+   "title": "Switchfoot — Who We Are (Live @ 107.7 The End)",
+   "seq": "Conclusion 🏁",
+   "url": "https://www.youtube.com/watch?v=P-nN2mri3To"
+  }
+ ],
+ "partners": [
+  {
+   "name": "Fondation Grameen Crédit Agricole",
+   "url": "https://www.gca-foundation.org/"
+  },
+  {
+   "name": "Entrepreneurs du Monde",
+   "url": "https://www.entrepreneursdumonde.org/fr/"
+  },
+  {
+   "name": "Positive Planet",
+   "url": "https://positiv.ngo/"
+  },
+  {
+   "name": "STEP",
+   "url": "https://sampurna.co.in/"
+  },
+  {
+   "name": "Oxus",
+   "url": "https://www.oxusnetwork.org/"
+  }
+ ],
+ "articles": [
+  {
+   "title": "8 000 km à vélo le long de la Route de la Soie",
+   "source": "Le Parisien",
+   "date": "31 décembre 2016",
+   "url": "https://www.leparisien.fr/paris-75/8-000-km-a-velo-le-long-de-la-route-de-la-soie-31-12-2016-6509877.php"
+  },
+  {
+   "title": "L'heure du départ pour « Au bout de soie »",
+   "source": "Association L'enfant@l'hôpital",
+   "date": "12 janvier 2017",
+   "url": "https://www.enfant-hopital.org/news/lheure-du-depart-pour-au-bout-de-soie/"
+  },
+  {
+   "title": "Au Bout de Soie, le périple micro solidaire à vélo",
+   "source": "Le Monde des grandes écoles",
+   "date": "3 juillet 2017",
+   "url": "https://www.mondedesgrandesecoles.fr/bout-de-soie-periple-micro-solidaire-a-velo/"
+  },
+  {
+   "title": "Nos 8 000 km à vélo pour soutenir des micro-entrepreneurs",
+   "source": "Les Echos Start",
+   "date": "3 novembre 2017",
+   "url": "https://start.lesechos.fr/societe/engagement-societal/nos-8000-km-a-velo-pour-soutenir-des-micro-entrepreneurs-1178033"
+  }
+ ],
+ "links": {
+  "mcma": "https://www.mc-ma.org/",
+  "notion": "https://quentinperry.notion.site/Au-bout-de-soie-2b643569b3764175a3bfeb06253171d3"
+ }
+}
+</script>
+<script>
+(function(){
+"use strict";
+var DATA = JSON.parse(document.getElementById("abds-data").textContent);
+var $ = function(id){ return document.getElementById(id); };
+
+/* ---------- helpers ---------- */
+function esc(s){
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function hostOf(url){
+  try{ return new URL(url).hostname.replace(/^www\./,""); }catch(e){ return ""; }
+}
+function videoId(url){
+  var m;
+  if(!url) return null;
+  if(url.indexOf("vimeo.com")>-1){
+    m = url.match(/vimeo\.com\/(\d+)/); return m? {type:"vimeo", id:m[1]} : null;
+  }
+  m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
+  return m? {type:"youtube", id:m[1]} : null;
+}
+function embedUrl(v, autoplay){
+  if(v.type==="youtube") return "https://www.youtube-nocookie.com/embed/"+v.id+(autoplay?"?autoplay=1":"");
+  return "https://player.vimeo.com/video/"+v.id+(autoplay?"?autoplay=1":"");
+}
+
+/* ---------- modal player ---------- */
+var backdrop=$("backdrop"), stage=$("modalStage"), mTitle=$("modalTitle"), mSrc=$("modalSrc");
+function openModal(title, url){
+  var v = videoId(url);
+  mTitle.textContent = title;
+  stage.innerHTML = "";
+  mSrc.innerHTML = "";
+  if(v){
+    stage.innerHTML = '<iframe src="'+esc(embedUrl(v,true))+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="'+esc(title)+'"></iframe>';
+    mSrc.innerHTML = 'Problème d’affichage ? <a target="_blank" rel="noopener" href="'+esc(url)+'">Ouvrir la vidéo dans un nouvel onglet</a>.';
+  } else {
+    stage.innerHTML = '<div class="fallback"><b>Cette piste s’écoute sur son site d’origine</b><a class="btn gold" target="_blank" rel="noopener" href="'+esc(url)+'">Ouvrir le lecteur externe</a></div>';
+  }
+  backdrop.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeModal(){
+  backdrop.classList.remove("open");
+  stage.innerHTML="";
+  document.body.style.overflow="";
+}
+$("modalClose").addEventListener("click", closeModal);
+backdrop.addEventListener("click", function(e){ if(e.target===backdrop) closeModal(); });
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
+
+/* ---------- hero & film ---------- */
+$("heroPitch").textContent = DATA.pitch;
+$("filmLink").href = DATA.film.url;
+$("footerFilm").href = DATA.film.url;
+$("notionLink").href = DATA.links.notion;
+
+$("mainPoster").addEventListener("click", function(){
+  var f = document.createElement("iframe");
+  f.src = embedUrl({type:"youtube", id:DATA.film.youtubeId}, true);
+  f.allow = "autoplay; fullscreen; picture-in-picture";
+  f.allowFullscreen = true;
+  f.title = "Au bout de soie — le film";
+  $("mainPlayer").innerHTML = "";
+  $("mainPlayer").appendChild(f);
+});
+$("teaserBtn").addEventListener("click", function(){
+  openModal("Le teaser — Au bout de soie", DATA.film.teaserUrl);
+});
+
+/* ---------- goals & route & team ---------- */
+$("goals").innerHTML = DATA.goals.map(function(g,i){
+  return '<div class="goal"><div class="num">OBJECTIF '+(i+1)+'</div><p>'+esc(g)+'</p></div>';
+}).join("");
+
+$("route").innerHTML = DATA.route.map(function(r,i){
+  return '<div class="step"><span class="idx">'+(i+1)+' / '+DATA.route.length+'</span>'+
+    '<div class="flag">'+r.flag+'</div><h4>'+esc(r.country)+'</h4><p>'+esc(r.stage)+'</p></div>';
+}).join("");
+
+$("team").innerHTML = '<div class="avatar">🚴‍♂️</div><div><h3>'+esc(DATA.team.names)+'</h3><p>'+esc(DATA.team.desc)+'</p></div>';
+
+/* ---------- interviews ---------- */
+var countries = [];
+DATA.interviews.forEach(function(it){ if(countries.indexOf(it.country)<0) countries.push(it.country); });
+$("filters").innerHTML = '<button class="chip on" data-c="*">Tous</button>' + countries.map(function(c){
+  return '<button class="chip" data-c="'+esc(c)+'">'+esc(c)+'</button>';
+}).join("");
+function renderInterviews(filter){
+  $("interviews").innerHTML = DATA.interviews.filter(function(it){
+    return filter==="*" || it.country===filter;
+  }).map(function(it){
+    return '<div class="card" data-country="'+esc(it.country)+'">'+
+      '<div class="top"><span class="where">'+it.flag+' '+esc(it.country)+'</span><span class="no">N°'+it.n+'</span></div>'+
+      '<h4>'+esc(it.name)+'</h4><div class="act">'+esc(it.activity)+'</div>'+
+      '<button class="watch" data-url="'+esc(it.url)+'" data-title="'+esc(it.name+' — '+it.activity)+'">'+
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>Regarder</button></div>';
+  }).join("");
+  Array.prototype.forEach.call($("interviews").querySelectorAll(".watch"), function(b){
+    b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
+  });
+}
+renderInterviews("*");
+Array.prototype.forEach.call($("filters").querySelectorAll(".chip"), function(ch){
+  ch.addEventListener("click", function(){
+    Array.prototype.forEach.call($("filters").querySelectorAll(".chip"), function(c){ c.classList.remove("on"); });
+    ch.classList.add("on");
+    renderInterviews(ch.getAttribute("data-c"));
+  });
+});
+
+/* ---------- mini markdown renderer ---------- */
+function inline(s){
+  s = esc(s);
+  s = s.split("\\$").join("$");
+  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function(_,t,u){ return '<a target="_blank" rel="noopener" href="'+u+'">'+t+'</a>'; });
+  s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  s = s.replace(/\*([^*\n]+)\*/g, "<em>$1</em>");
+  return s;
+}
+function renderMd(src){
+  var lines = src.split("\n"), out = [], para = [], list = null;
+  function flushP(){ if(para.length){ out.push("<p>"+para.map(inline).join("<br>")+"</p>"); para=[]; } }
+  function flushL(){ if(list){ out.push("<ul><li>"+list.map(inline).join("</li><li>")+"</li></ul>"); list=null; } }
+  lines.forEach(function(l){
+    var t = l.trim(), h;
+    if(!t){ flushP(); flushL(); return; }
+    if((h = t.match(/^(#{1,3})\s+(.*)$/))){
+      flushP(); flushL();
+      var tag = h[1].length===1 ? "h2" : (h[1].length===2 ? "h2" : "h3");
+      out.push("<"+tag+">"+inline(h[2])+"</"+tag+">");
+      return;
+    }
+    if(t === "---"){ flushP(); flushL(); out.push("<hr>"); return; }
+    if(/^[-*]\s+/.test(t)){ flushP(); if(!list) list=[]; list.push(t.replace(/^[-*]\s+/,"")); return; }
+    if(/^>\s?/.test(t)){ flushP(); flushL(); out.push("<blockquote>"+inline(t.replace(/^>\s?/,""))+"</blockquote>"); return; }
+    flushL(); para.push(t);
+  });
+  flushP(); flushL();
+  return out.join("\n");
+}
+
+/* ---------- newsletters ---------- */
+$("newsList").innerHTML = DATA.newsletters.map(function(n){
+  return '<details class="nl" id="nl'+n.n+'"><summary>'+
+    '<span class="em">'+n.icon+'</span>'+
+    '<span class="meta"><span>Newsletter N° '+n.n+'</span><b>'+esc(n.title)+'</b></span>'+
+    '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'+
+    '</summary><div class="nl-body">'+renderMd(n.body)+'</div></details>';
+}).join("");
+
+/* ---------- musique ---------- */
+var order = ["Introduction ▶️","Myanmar 🇲🇲","Thaïlande 🇹🇭","Bangladesh 🇧🇩","Inde 🇮🇳","Kirghizistan 🇰🇬","Tadjikistan 🇹🇯","Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿","Conclusion 🏁"];
+var groups = {};
+DATA.soundtrack.forEach(function(t){ (groups[t.seq] = groups[t.seq] || []).push(t); });
+var seqs = order.filter(function(s){ return groups[s]; });
+Object.keys(groups).forEach(function(s){ if(seqs.indexOf(s)<0) seqs.push(s); });
+$("music").innerHTML = seqs.map(function(s){
+  var tracks = groups[s];
+  return '<div class="mgroup"><h3>'+esc(s)+' <span class="cnt">'+tracks.length+'</span></h3>'+
+    tracks.map(function(t){
+      var v = videoId(t.url), ext = v? "" : " ext";
+      return '<div class="track'+ext+'"><span class="host">'+esc(hostOf(t.url))+'</span>'+
+        '<span class="t">'+esc(t.title)+'</span>'+
+        (v
+          ? '<button class="pbtn" data-url="'+esc(t.url)+'" data-title="'+esc(t.title)+'" aria-label="Écouter '+esc(t.title)+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg></button>'
+          : '<a class="pbtn" target="_blank" rel="noopener" href="'+esc(t.url)+'" aria-label="Ouvrir '+esc(t.title)+'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7M3 6h18M3 12h18M3 18h18"/></svg></a>')+
+        '</div>';
+    }).join("") + '</div>';
+}).join("");
+Array.prototype.forEach.call($("music").querySelectorAll("button.pbtn"), function(b){
+  b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
+});
+
+/* ---------- partenaires, presse, liens ---------- */
+var initials = function(name){ return name.split(/\s+/).map(function(w){ return w[0]; }).join("").slice(0,2).toUpperCase(); };
+$("partners").innerHTML = DATA.partners.map(function(p){
+  return '<a class="partner" target="_blank" rel="noopener" href="'+esc(p.url)+'">'+
+    '<span class="dot">'+esc(initials(p.name))+'</span><span><b>'+esc(p.name)+'</b><span>'+esc(hostOf(p.url))+'</span></span></a>';
+}).join("");
+
+$("articles").innerHTML = DATA.articles.map(function(a){
+  return '<div class="article"><a target="_blank" rel="noopener" href="'+esc(a.url)+'">'+esc(a.title)+'</a>'+
+    '<span class="src">— '+esc(a.source)+' · '+esc(a.date)+'</span></div>';
+}).join("");
+
+$("more").innerHTML = '<span style="color:var(--muted);font-size:14.5px;margin-right:14px">Envie de soutenir la microfinance solidaire ?</span>'+
+  '<a class="btn" target="_blank" rel="noopener" href="'+esc(DATA.links.mcma)+'">Micro-crédit Macro-action (MCMA) ↗</a>'+
+  '<a class="btn ghost" target="_blank" rel="noopener" href="'+esc(DATA.links.notion)+'">Page Notion du projet ↗</a>';
+})();
+</script>
+</body>
+</html>
