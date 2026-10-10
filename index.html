@@ -264,7 +264,7 @@
       <div class="stat"><b>6 000 km</b><span data-i18n="statBike">à vélo</span></div>
       <div class="stat"><b>8 pays</b><span data-i18n="statSilk">Route de la Soie</span></div>
       <div class="stat"><b>7 mois</b><span data-i18n="statRoad">sur la route</span></div>
-      <div class="stat"><b>100</b><span data-i18n="statEnt">micro-entrepreneurs</span></div>
+      <div class="stat"><b>~50</b><span data-i18n="statEnt">micro-entrepreneurs</span></div>
     </div>
     <a class="cta" href="#film">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
@@ -848,7 +848,10 @@ var T = {
     stages:["Yangon → Bagan: Sont Oo Tehtwin (Entrepreneurs du Monde)","Bagan → Bangkok","Dhaka: Grameen Bank and the Grameen Crédit Agricole Foundation","Kolkata → STEP and Oxus","Bishkek → Sary-Tash","Sary-Tash → Dushanbe, through the Pamir mountains","Samarkand, Bukhara, Khiva","Kazakh deserts → Aktau, on the Caspian Sea"],
     activities:{"Le salon de coiffure":"The hairdressing salon","Les snacks à la banane":"Banana snacks","La fabrication de sauces":"Sauce making","Le stand de jus de fruits":"The fruit juice stand","L'élevage de poules":"Chicken farming","L'élevage de poissons":"Fish farming","La fabrication de t-shirts":"T-shirt making","La réparation de tracteurs":"Tractor repair","Le recyclage de métaux":"Metal recycling","La purification d'eau":"Water purification","Les lipiochkas":"Lipioshka breads","Les kalpaks":"The kalpaks","Le restaurant":"The restaurant","La production de tomates":"Tomato growing","Les toshoks":"The toshoks"},
     nlTitles:{"1":"60 days to go","2":"Three weeks before departure","3":"Our first 800 kilometres!","4":"From Bagan to Bangkok: 2 months, 2 projects, 1,600 km","5":"Dhaka and Grameen: the capital of microfinance and social business","6":"From Dhaka to Kolkata","7":"First pedals in Central Asia, Kyrgyzstan: Bishkek to Sary-Tash","8":"In the Pamir mountains, Tajikistan: Sary-Tash to Dushanbe","9":"Mission accomplished! From Dushanbe to the Caspian Sea (Kazakhstan)"},
-    seqs:{"Introduction ▶️":"Introduction ▶️","Myanmar 🇲🇲":"Myanmar 🇲🇲","Thaïlande 🇹🇭":"Thailand 🇹🇭","Bangladesh 🇧🇩":"Bangladesh 🇧🇩","Inde 🇮🇳":"India 🇮🇳","Kirghizistan 🇰🇬":"Kyrgyzstan 🇰🇬","Tadjikistan 🇹🇯":"Tajikistan 🇹🇯","Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿":"Uzbekistan 🇺🇿 – Kazakhstan 🇰🇿","Conclusion 🏁":"Conclusion 🏁"}
+    seqs:{"Introduction ▶️":"Introduction ▶️","Myanmar 🇲🇲":"Myanmar 🇲🇲","Thaïlande 🇹🇭":"Thailand 🇹🇭","Bangladesh 🇧🇩":"Bangladesh 🇧🇩","Inde 🇮🇳":"India 🇮🇳","Kirghizistan 🇰🇬":"Kyrgyzstan 🇰🇬","Tadjikistan 🇹🇯":"Tajikistan 🇹🇯","Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿":"Uzbekistan 🇺🇿 – Kazakhstan 🇰🇿","Conclusion 🏁":"Conclusion 🏁"},
+    articleTitles:["8,000 km by bike along the Silk Road","Time to depart for “Au bout de soie”","Au bout de soie, the solidarity microfinance journey by bike","Our 8,000 km by bike to support micro-entrepreneurs"],
+    articleDates:["December 31, 2016","January 12, 2017","July 3, 2017","November 3, 2017"],
+    partnerNames:{"Fondation Grameen Crédit Agricole":"Grameen Crédit Agricole Foundation"}
   }
 };
 
@@ -1012,15 +1015,18 @@ function renderMusic(){
 function renderPartners(){
   var initials = function(name){ return name.split(/\s+/).map(function(w){ return w[0]; }).join("").slice(0,2).toUpperCase(); };
   $("partners").innerHTML = DATA.partners.map(function(p){
+    var nm = (LANG==="en" && T.en.partnerNames[p.name]) ? T.en.partnerNames[p.name] : p.name;
     return '<a class="partner" target="_blank" rel="noopener" href="'+esc(p.url)+'">'+
-      '<span class="dot">'+esc(initials(p.name))+'</span><span><b>'+esc(p.name)+'</b><span>'+esc(hostOf(p.url))+'</span></span></a>';
+      '<span class="dot">'+esc(initials(p.name))+'</span><span><b>'+esc(nm)+'</b><span>'+esc(hostOf(p.url))+'</span></span></a>';
   }).join("");
 }
 
 function renderArticles(){
-  $("articles").innerHTML = DATA.articles.map(function(a){
-    return '<div class="article"><a target="_blank" rel="noopener" href="'+esc(a.url)+'">'+esc(a.title)+'</a>'+
-      '<span class="src">'+esc(a.source)+' · '+esc(a.date)+'</span></div>';
+  $("articles").innerHTML = DATA.articles.map(function(a,i){
+    var t = (LANG==="en" && T.en.articleTitles[i]) ? T.en.articleTitles[i] : a.title;
+    var d = (LANG==="en" && T.en.articleDates[i]) ? T.en.articleDates[i] : a.date;
+    return '<div class="article"><a target="_blank" rel="noopener" href="'+esc(a.url)+'">'+esc(t)+'</a>'+
+      '<span class="src">'+esc(a.source)+' · '+esc(d)+'</span></div>';
   }).join("");
 }
 
