@@ -224,6 +224,10 @@
     .hero{padding:64px 18px 72px}
     .nl-body{padding:6px 18px 20px}
   }
+  /* Langue */
+  .lang{display:inline-flex;align-items:center;margin-left:8px;flex:none;border:1px solid rgba(255,255,255,.28);border-radius:99px;overflow:hidden;background:transparent;cursor:pointer;padding:0}
+  .lang span{padding:5px 10px;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#d8cdb4;background:transparent}
+  .lang span.on{background:#c99a3f;color:#241c0d}
 </style>
 </head>
 <body>
@@ -234,13 +238,14 @@
     Au bout de soie
   </a>
   <div class="links">
-    <a href="#film">Le film</a>
-    <a href="#aventure">L’aventure</a>
-    <a href="#portraits">Portraits</a>
-    <a href="#newsletters">Newsletters</a>
-    <a href="#musique">Bande-son</a>
-    <a href="#partenaires">Partenaires</a>
-    <a href="#presse">Presse</a>
+    <a href="#film" data-i18n="navFilm">Le film</a>
+    <a href="#aventure" data-i18n="navJourney">L’aventure</a>
+    <a href="#portraits" data-i18n="navPortraits">Portraits</a>
+    <a href="#newsletters" data-i18n="navNews">Newsletters</a>
+    <a href="#musique" data-i18n="navMusic">Bande-son</a>
+    <a href="#partenaires" data-i18n="navPartners">Partenaires</a>
+    <a href="#presse" data-i18n="navPress">Presse</a>
+    <button class="lang" id="langBtn" aria-label="Language / Langue"><span id="langFr" class="on">FR</span><span id="langEn">EN</span></button>
   </div>
 </nav>
 
@@ -252,18 +257,18 @@
     <circle cx="620" cy="470" r="4" fill="#e9c06a"/><circle cx="340" cy="640" r="3" fill="#c99a3f" opacity=".6"/><circle cx="1040" cy="520" r="3" fill="#c99a3f" opacity=".6"/>
   </svg>
   <div class="wrap">
-    <span class="kicker">Le film &amp; l’aventure</span>
+    <span class="kicker" data-i18n="kicker">Le film &amp; l’aventure</span>
     <h1>Au bout de <em>soie</em></h1>
     <p class="pitch" id="heroPitch"></p>
     <div class="stats">
-      <div class="stat"><b>6 000 km</b><span>à vélo</span></div>
-      <div class="stat"><b>8 pays</b><span>Route de la Soie</span></div>
-      <div class="stat"><b>7 mois</b><span>sur la route</span></div>
-      <div class="stat"><b>~50</b><span>micro-entrepreneurs</span></div>
+      <div class="stat"><b>6 000 km</b><span data-i18n="statBike">à vélo</span></div>
+      <div class="stat"><b>8 pays</b><span data-i18n="statSilk">Route de la Soie</span></div>
+      <div class="stat"><b>7 mois</b><span data-i18n="statRoad">sur la route</span></div>
+      <div class="stat"><b>~50</b><span data-i18n="statEnt">micro-entrepreneurs</span></div>
     </div>
     <a class="cta" href="#film">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-      Voir le film
+      <span data-i18n="cta">Voir le film</span>
     </a>
   </div>
 </header>
@@ -271,45 +276,45 @@
 <main>
   <section id="film">
     <div class="sec-head">
-      <span class="over">Le film</span>
-      <h2>« Au bout de soie »</h2>
-      <p class="sub">Documentaire de l’aventure, sous-titres en français, à activer sur YouTube.</p>
+      <span class="over" data-i18n="filmOver">Le film</span>
+      <h2 data-i18n="filmH2">« Au bout de soie »</h2>
+      <p class="sub" data-i18n="filmSub">Documentaire de l’aventure, sous-titres en français, à activer sur YouTube.</p>
     </div>
     <div class="player-frame" id="mainPlayer">
       <div class="player-poster" id="mainPoster">
         <div class="play">
           <div class="btn-round"><svg width="30" height="30" viewBox="0 0 24 24" fill="#241c0d" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg></div>
-          <b>Lancer le film</b>
-          <span>Au bout de soie, version finale</span>
+          <b data-i18n="play">Lancer le film</b>
+          <span data-i18n="playSub">Au bout de soie, version finale</span>
         </div>
       </div>
     </div>
     <div class="film-note">
-      <span>▶ <a id="filmLink" target="_blank" rel="noopener">Regarder directement sur YouTube</a></span>
+      <span>▶ <a id="filmLink" target="_blank" rel="noopener" data-i18n="watchYt">Regarder directement sur YouTube</a></span>
     </div>
     <div class="teaser">
-      <h3>Le teaser 📼</h3>
-      <p>Sous-titres disponibles en français et en anglais, à activer sur YouTube.</p>
+      <h3 data-i18n="teaserH">Le teaser 📼</h3>
+      <p data-i18n="teaserP">Sous-titres disponibles en français et en anglais, à activer sur YouTube.</p>
       <button class="btn ghost" id="teaserBtn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-        Voir le teaser
+        <span data-i18n="teaserBtn">Voir le teaser</span>
       </button>
     </div>
   </section>
 
   <section id="aventure">
     <div class="sec-head">
-      <span class="over">Le projet</span>
-      <h2>Deux objectifs, un vélo</h2>
+      <span class="over" data-i18n="projOver">Le projet</span>
+      <h2 data-i18n="projH2">Deux objectifs, un vélo</h2>
     </div>
     <div class="goal-grid" id="goals"></div>
 
     <div class="route-wrap">
       <div class="route-line">
-        L’itinéraire
+        <span data-i18n="itin">L’itinéraire</span>
         <svg viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 C100,12 120,4 200,12 C280,20 300,12 400,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 7"/></svg>
       </div>
-      <p class="sub" style="color:var(--muted);margin:-10px 0 18px">6 000 km à vélo à travers 8 pays de la Route de la Soie, du Myanmar aux bords de la Mer Caspienne.</p>
+      <p class="sub" style="color:var(--muted);margin:-10px 0 18px" data-i18n="routeSub">6 000 km à vélo à travers 8 pays de la Route de la Soie, du Myanmar aux bords de la Mer Caspienne.</p>
       <div class="route" id="route"></div>
     </div>
 
@@ -318,9 +323,9 @@
 
   <section id="portraits">
     <div class="sec-head">
-      <span class="over">Témoignages</span>
-      <h2>Portraits de micro-entrepreneurs</h2>
-      <p class="sub">Les interviews complètes filmées au fil de la route : coiffeurs, éleveurs, restauratrices, tisseuses… ils racontent ce que le microcrédit a changé dans leur vie.</p>
+      <span class="over" data-i18n="voicesOver">Témoignages</span>
+      <h2 data-i18n="portraitsH2">Portraits de micro-entrepreneurs</h2>
+      <p class="sub" data-i18n="portraitsSub">Les interviews complètes filmées au fil de la route : coiffeurs, éleveurs, restauratrices, tisseuses… ils racontent ce que le microcrédit a changé dans leur vie.</p>
     </div>
     <div class="chips" id="filters"></div>
     <div class="cards" id="interviews"></div>
@@ -328,34 +333,35 @@
 
   <section id="newsletters">
     <div class="sec-head">
-      <span class="over">La newsletter</span>
-      <h2>Revivez le voyage, étape par étape</h2>
-      <p class="sub">9 numéros, du compte à rebours du départ à la ligne d’arrivée à Aktaou.</p>
+      <span class="over" data-i18n="newsOver">La newsletter</span>
+      <h2 data-i18n="newsH2">Revivez le voyage, étape par étape</h2>
+      <p class="sub" data-i18n="newsSub">9 numéros, du compte à rebours du départ à la ligne d’arrivée à Aktaou.</p>
+    <p class="sub" id="nlFrNote" data-i18n="newsFrNote" style="color:var(--muted);font-size:14px;margin:-6px 0 18px;display:none"></p>
     </div>
     <div class="news-list" id="newsList"></div>
   </section>
 
   <section id="musique">
     <div class="sec-head">
-      <span class="over">La bande-son</span>
-      <h2>Les titres du film</h2>
-      <p class="sub">La playlist classée par séquence du film.</p>
+      <span class="over" data-i18n="musicOver">La bande-son</span>
+      <h2 data-i18n="musicH2">Les titres du film</h2>
+      <p class="sub" data-i18n="musicSub">La playlist classée par séquence du film.</p>
     </div>
     <div class="music-groups" id="music"></div>
   </section>
 
   <section id="partenaires">
     <div class="sec-head">
-      <span class="over">Sur le terrain</span>
-      <h2>Les partenaires de terrain</h2>
+      <span class="over" data-i18n="partnersOver">Sur le terrain</span>
+      <h2 data-i18n="partnersH2">Les partenaires de terrain</h2>
     </div>
     <div class="partners" id="partners"></div>
   </section>
 
   <section id="presse">
     <div class="sec-head">
-      <span class="over">Pour aller plus loin</span>
-      <h2>Ils en ont parlé</h2>
+      <span class="over" data-i18n="pressOver">Pour aller plus loin</span>
+      <h2 data-i18n="pressH2">Ils en ont parlé</h2>
     </div>
     <div class="articles" id="articles"></div>
     <div class="more" id="more"></div>
@@ -366,15 +372,15 @@
   <div class="wrap">
     <div>
       <div class="brand">Au bout de soie</div>
-      <p>Site construit à partir de la page du projet. Pour toute question, contactez Guilhem ou Quentin via la <a id="notionLink" target="_blank" rel="noopener">page Notion du projet</a>.</p>
+      <p data-i18n-html="footerP">Site construit à partir de la page du projet. Pour toute question, contactez Guilhem ou Quentin via la <a id="notionLink" target="_blank" rel="noopener">page Notion du projet</a>.</p>
     </div>
-    <a class="btn gold" id="footerFilm" target="_blank" rel="noopener">▶ Revoir le film</a>
+    <a class="btn gold" id="footerFilm" target="_blank" rel="noopener" data-i18n="watchAgain">▶ Revoir le film</a>
   </div>
 </footer>
 
 <div class="backdrop" id="backdrop">
   <div class="modal" role="dialog" aria-modal="true">
-    <div class="bar"><b id="modalTitle"></b><button class="x" id="modalClose" aria-label="Fermer">×</button></div>
+    <div class="bar"><b id="modalTitle"></b><button class="x" id="modalClose" aria-label="Fermer" data-i18n-aria="close">×</button></div>
     <div class="stage" id="modalStage"></div>
     <div class="src" id="modalSrc"></div>
   </div>
@@ -770,7 +776,83 @@ function embedUrl(v, autoplay){
   return "https://player.vimeo.com/video/"+v.id+(autoplay?"?autoplay=1":"");
 }
 
-/* ---------- modal player ---------- */
+/* ---------- langue ---------- */
+var LANG;
+try{ LANG = window.localStorage.getItem("abds-lang"); }catch(e){ LANG = null; }
+if(LANG!=="fr" && LANG!=="en"){ LANG = "fr"; }
+
+var T = {
+  fr: {
+    title:"Au bout de soie : le film et l’aventure",
+    desc:"Le documentaire Au bout de soie : 6 000 km à vélo sur la Route de la Soie pour promouvoir la microfinance solidaire. Film, portraits de micro-entrepreneurs, newsletters et bande-son.",
+    navFilm:"Le film", navJourney:"L’aventure", navPortraits:"Portraits", navNews:"Newsletters", navMusic:"Bande-son", navPartners:"Partenaires", navPress:"Presse",
+    kicker:"Le film & l’aventure",
+    statBike:"à vélo", statSilk:"Route de la Soie", statRoad:"sur la route", statEnt:"micro-entrepreneurs",
+    cta:"Voir le film",
+    filmOver:"Le film", filmH2:"« Au bout de soie »", filmSub:"Documentaire de l’aventure, sous-titres en français, à activer sur YouTube.",
+    play:"Lancer le film", playSub:"Au bout de soie, version finale", watchYt:"Regarder directement sur YouTube",
+    teaserH:"Le teaser 📼", teaserP:"Sous-titres disponibles en français et en anglais, à activer sur YouTube.", teaserBtn:"Voir le teaser",
+    projOver:"Le projet", projH2:"Deux objectifs, un vélo", itin:"L’itinéraire",
+    routeSub:"6 000 km à vélo à travers 8 pays de la Route de la Soie, du Myanmar aux bords de la Mer Caspienne.",
+    voicesOver:"Témoignages", portraitsH2:"Portraits de micro-entrepreneurs",
+    portraitsSub:"Les interviews complètes filmées au fil de la route : coiffeurs, éleveurs, restauratrices, tisseuses… ils racontent ce que le microcrédit a changé dans leur vie.",
+    newsOver:"La newsletter", newsH2:"Revivez le voyage, étape par étape",
+    newsSub:"9 numéros, du compte à rebours du départ à la ligne d’arrivée à Aktaou.",
+    newsFrNote:"",
+    musicOver:"La bande-son", musicH2:"Les titres du film", musicSub:"La playlist classée par séquence du film.",
+    partnersOver:"Sur le terrain", partnersH2:"Les partenaires de terrain",
+    pressOver:"Pour aller plus loin", pressH2:"Ils en ont parlé",
+    footerP:"Site construit à partir de la page du projet. Pour toute question, contactez Guilhem ou Quentin via la <a id=\"notionLink\" target=\"_blank\" rel=\"noopener\">page Notion du projet</a>.",
+    watchAgain:"▶ Revoir le film", close:"Fermer",
+    all:"Tous", watch:"Regarder", noLabel:"N°", issue:"Newsletter N° ", goalLabel:"OBJECTIF ",
+    problemPre:"Problème d’affichage ? ", problemLink:"Ouvrir la vidéo dans un nouvel onglet",
+    fallbackTitle:"Cette piste s’écoute sur son site d’origine", fallbackBtn:"Ouvrir le lecteur externe",
+    iframeFilmTitle:"Au bout de soie : le film", teaserModalTitle:"Au bout de soie : le teaser",
+    listenAria:"Écouter ", openAria:"Ouvrir ",
+    wantSupport:"Envie de soutenir la microfinance solidaire ?",
+    notionBtn:"Page Notion du projet ↗", mcmaBtn:"Micro-crédit Macro-action (MCMA) ↗"
+  },
+  en: {
+    title:"Au bout de soie: the film and the journey",
+    desc:"The documentary Au bout de soie: 6,000 km by bike along the Silk Road to promote solidarity microfinance. The film, micro-entrepreneur portraits, newsletters and soundtrack.",
+    navFilm:"The film", navJourney:"The journey", navPortraits:"Portraits", navNews:"Newsletters", navMusic:"Soundtrack", navPartners:"Partners", navPress:"Press",
+    kicker:"The film and the journey",
+    statBike:"by bike", statSilk:"Silk Road", statRoad:"on the road", statEnt:"micro-entrepreneurs",
+    cta:"Watch the film",
+    filmOver:"The film", filmH2:"“Au bout de soie”", filmSub:"The documentary of the journey, French subtitles available on YouTube.",
+    play:"Play the film", playSub:"Au bout de soie, final cut", watchYt:"Watch directly on YouTube",
+    teaserH:"The teaser 📼", teaserP:"French and English subtitles available on YouTube.", teaserBtn:"Watch the teaser",
+    projOver:"The project", projH2:"Two goals, one bike", itin:"The route",
+    routeSub:"6,000 km by bike across 8 countries of the Silk Road, from Myanmar to the shores of the Caspian Sea.",
+    voicesOver:"Field voices", portraitsH2:"Micro-entrepreneur portraits",
+    portraitsSub:"Full interviews filmed along the way: hairdressers, farmers, restaurant owners, weavers… they tell what microcredit changed in their lives.",
+    newsOver:"The newsletter", newsH2:"Relive the journey, stage by stage",
+    newsSub:"9 issues, from the pre-departure countdown to the finish line in Aktau.",
+    newsFrNote:"The original newsletters are in French.",
+    musicOver:"The soundtrack", musicH2:"Songs from the film", musicSub:"The playlist, ordered by film sequence.",
+    partnersOver:"On the ground", partnersH2:"Field partners",
+    pressOver:"To go further", pressH2:"In the press",
+    footerP:"This site is built from the project page. For any question, contact Guilhem or Quentin via the <a id=\"notionLink\" target=\"_blank\" rel=\"noopener\">project's Notion page</a>.",
+    watchAgain:"▶ Watch the film again", close:"Close",
+    all:"All", watch:"Watch", noLabel:"No. ", issue:"Issue ", goalLabel:"GOAL ",
+    problemPre:"Display issue? ", problemLink:"Open the video in a new tab",
+    fallbackTitle:"This track plays on its original site", fallbackBtn:"Open the external player",
+    iframeFilmTitle:"Au bout de soie: the film", teaserModalTitle:"Au bout de soie: the teaser",
+    listenAria:"Play ", openAria:"Open ",
+    wantSupport:"Want to support solidarity microfinance?",
+    notionBtn:"The project's Notion page ↗", mcmaBtn:"Micro-crédit Macro-action (MCMA) ↗",
+    pitch:"6,000 km by bike along the Silk Road to promote solidarity microfinance, from Myanmar to Bangladesh, from Kyrgyzstan to the Black Sea.",
+    goals:["Help 1,000 people permanently escape poverty, alongside 4 microfinance professionals (Entrepreneurs du Monde, Positive Planet, Oxus and FGCA).","Draw on these entrepreneurs' experience and share their success stories through a web series following their encounters and adventures."],
+    teamDesc:"Childhood friends, they cycled the Silk Road for 8 months, meeting microfinance institutes and the micro-entrepreneurs they support.",
+    countries:{"Myanmar":"Myanmar","Thaïlande":"Thailand","Bangladesh":"Bangladesh","Inde":"India","Kirghizistan":"Kyrgyzstan","Tadjikistan":"Tajikistan","Ouzbékistan":"Uzbekistan","Kazakhstan":"Kazakhstan"},
+    stages:["Yangon → Bagan: Sont Oo Tehtwin (Entrepreneurs du Monde)","Bagan → Bangkok","Dhaka: Grameen Bank and the Grameen Crédit Agricole Foundation","Kolkata → STEP and Oxus","Bishkek → Sary-Tash","Sary-Tash → Dushanbe, through the Pamir mountains","Samarkand, Bukhara, Khiva","Kazakh deserts → Aktau, on the Caspian Sea"],
+    activities:{"Le salon de coiffure":"The hairdressing salon","Les snacks à la banane":"Banana snacks","La fabrication de sauces":"Sauce making","Le stand de jus de fruits":"The fruit juice stand","L'élevage de poules":"Chicken farming","L'élevage de poissons":"Fish farming","La fabrication de t-shirts":"T-shirt making","La réparation de tracteurs":"Tractor repair","Le recyclage de métaux":"Metal recycling","La purification d'eau":"Water purification","Les lipiochkas":"Lipioshka breads","Les kalpaks":"The kalpaks","Le restaurant":"The restaurant","La production de tomates":"Tomato growing","Les toshoks":"The toshoks"},
+    nlTitles:{"1":"60 days to go","2":"Three weeks before departure","3":"Our first 800 kilometres!","4":"From Bagan to Bangkok: 2 months, 2 projects, 1,600 km","5":"Dhaka and Grameen: the capital of microfinance and social business","6":"From Dhaka to Kolkata","7":"First pedals in Central Asia, Kyrgyzstan: Bishkek to Sary-Tash","8":"In the Pamir mountains, Tajikistan: Sary-Tash to Dushanbe","9":"Mission accomplished! From Dushanbe to the Caspian Sea (Kazakhstan)"},
+    seqs:{"Introduction ▶️":"Introduction ▶️","Myanmar 🇲🇲":"Myanmar 🇲🇲","Thaïlande 🇹🇭":"Thailand 🇹🇭","Bangladesh 🇧🇩":"Bangladesh 🇧🇩","Inde 🇮🇳":"India 🇮🇳","Kirghizistan 🇰🇬":"Kyrgyzstan 🇰🇬","Tadjikistan 🇹🇯":"Tajikistan 🇹🇯","Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿":"Uzbekistan 🇺🇿 – Kazakhstan 🇰🇿","Conclusion 🏁":"Conclusion 🏁"}
+  }
+};
+
+/* ---------- lecteur modal ---------- */
 var backdrop=$("backdrop"), stage=$("modalStage"), mTitle=$("modalTitle"), mSrc=$("modalSrc");
 function openModal(title, url){
   var v = videoId(url);
@@ -779,9 +861,9 @@ function openModal(title, url){
   mSrc.innerHTML = "";
   if(v){
     stage.innerHTML = '<iframe src="'+esc(embedUrl(v,true))+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="'+esc(title)+'"></iframe>';
-    mSrc.innerHTML = 'Problème d’affichage ? <a target="_blank" rel="noopener" href="'+esc(url)+'">Ouvrir la vidéo dans un nouvel onglet</a>.';
+    mSrc.innerHTML = esc(T[LANG].problemPre)+'<a target="_blank" rel="noopener" href="'+esc(url)+'">'+esc(T[LANG].problemLink)+'</a>.';
   } else {
-    stage.innerHTML = '<div class="fallback"><b>Cette piste s’écoute sur son site d’origine</b><a class="btn gold" target="_blank" rel="noopener" href="'+esc(url)+'">Ouvrir le lecteur externe</a></div>';
+    stage.innerHTML = '<div class="fallback"><b>'+esc(T[LANG].fallbackTitle)+'</b><a class="btn gold" target="_blank" rel="noopener" href="'+esc(url)+'">'+esc(T[LANG].fallbackBtn)+'</a></div>';
   }
   backdrop.classList.add("open");
   document.body.style.overflow="hidden";
@@ -795,65 +877,16 @@ $("modalClose").addEventListener("click", closeModal);
 backdrop.addEventListener("click", function(e){ if(e.target===backdrop) closeModal(); });
 document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
 
-/* ---------- hero & film ---------- */
-$("heroPitch").textContent = DATA.pitch;
-$("filmLink").href = DATA.film.url;
-$("footerFilm").href = DATA.film.url;
-$("notionLink").href = DATA.links.notion;
-
-$("mainPoster").addEventListener("click", function(){
-  var f = document.createElement("iframe");
-  f.src = embedUrl({type:"youtube", id:DATA.film.youtubeId}, true);
-  f.allow = "autoplay; fullscreen; picture-in-picture";
-  f.allowFullscreen = true;
-  f.title = "Au bout de soie : le film";
-  $("mainPlayer").innerHTML = "";
-  $("mainPlayer").appendChild(f);
-});
-$("teaserBtn").addEventListener("click", function(){
-  openModal("Au bout de soie : le teaser", DATA.film.teaserUrl);
-});
-
-/* ---------- goals & route & team ---------- */
-$("goals").innerHTML = DATA.goals.map(function(g,i){
-  return '<div class="goal"><div class="num">OBJECTIF '+(i+1)+'</div><p>'+esc(g)+'</p></div>';
-}).join("");
-
-$("route").innerHTML = DATA.route.map(function(r,i){
-  return '<div class="step"><span class="idx">'+(i+1)+' / '+DATA.route.length+'</span>'+
-    '<div class="flag">'+r.flag+'</div><h4>'+esc(r.country)+'</h4><p>'+esc(r.stage)+'</p></div>';
-}).join("");
-
-$("team").innerHTML = '<div class="avatar">🚴‍♂️</div><div><h3>'+esc(DATA.team.names)+'</h3><p>'+esc(DATA.team.desc)+'</p></div>';
-
-/* ---------- interviews ---------- */
-var countries = [];
-DATA.interviews.forEach(function(it){ if(countries.indexOf(it.country)<0) countries.push(it.country); });
-$("filters").innerHTML = '<button class="chip on" data-c="*">Tous</button>' + countries.map(function(c){
-  return '<button class="chip" data-c="'+esc(c)+'">'+esc(c)+'</button>';
-}).join("");
-function renderInterviews(filter){
-  $("interviews").innerHTML = DATA.interviews.filter(function(it){
-    return filter==="*" || it.country===filter;
-  }).map(function(it){
-    return '<div class="card" data-country="'+esc(it.country)+'">'+
-      '<div class="top"><span class="where">'+it.flag+' '+esc(it.country)+'</span><span class="no">N°'+it.n+'</span></div>'+
-      '<h4>'+esc(it.name)+'</h4><div class="act">'+esc(it.activity)+'</div>'+
-      '<button class="watch" data-url="'+esc(it.url)+'" data-title="'+esc(it.name+', '+it.activity)+'">'+
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>Regarder</button></div>';
-  }).join("");
-  Array.prototype.forEach.call($("interviews").querySelectorAll(".watch"), function(b){
-    b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
-  });
-}
-renderInterviews("*");
-Array.prototype.forEach.call($("filters").querySelectorAll(".chip"), function(ch){
-  ch.addEventListener("click", function(){
-    Array.prototype.forEach.call($("filters").querySelectorAll(".chip"), function(c){ c.classList.remove("on"); });
-    ch.classList.add("on");
-    renderInterviews(ch.getAttribute("data-c"));
-  });
-});
+/* ---------- libellés dynamiques ---------- */
+function norm(s){ return String(s).replace(/’/g,"'"); }
+function countryLabel(c){ return (LANG==="en" && T.en.countries[c]) ? T.en.countries[c] : c; }
+function stageOf(i){ return (LANG==="en" && T.en.stages[i]) ? T.en.stages[i] : DATA.route[i].stage; }
+function activityOf(it){ var k = norm(it.activity); return (LANG==="en" && T.en.activities[k]) ? T.en.activities[k] : it.activity; }
+function seqLabel(s){ return (LANG==="en" && T.en.seqs[s]) ? T.en.seqs[s] : s; }
+function nlTitle(n){ return (LANG==="en" && T.en.nlTitles[n.n]) ? T.en.nlTitles[n.n] : n.title; }
+function pitchText(){ return (LANG==="en") ? T.en.pitch : DATA.pitch; }
+function teamDesc(){ return (LANG==="en") ? T.en.teamDesc : DATA.team.desc; }
+function goalsText(){ return (LANG==="en") ? T.en.goals : DATA.goals; }
 
 /* ---------- mini markdown renderer ---------- */
 function inline(s){
@@ -886,53 +919,189 @@ function renderMd(src){
   return out.join("\n");
 }
 
-/* ---------- newsletters ---------- */
-$("newsList").innerHTML = DATA.newsletters.map(function(n){
-  return '<details class="nl" id="nl'+n.n+'"><summary>'+
-    '<span class="em">'+n.icon+'</span>'+
-    '<span class="meta"><span>Newsletter N° '+n.n+'</span><b>'+esc(n.title)+'</b></span>'+
-    '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'+
-    '</summary><div class="nl-body">'+renderMd(n.body)+'</div></details>';
-}).join("");
+/* ---------- rendu ---------- */
+var curFilter = "*";
 
-/* ---------- musique ---------- */
-var order = ["Introduction ▶️","Myanmar 🇲🇲","Thaïlande 🇹🇭","Bangladesh 🇧🇩","Inde 🇮🇳","Kirghizistan 🇰🇬","Tadjikistan 🇹🇯","Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿","Conclusion 🏁"];
-var groups = {};
-DATA.soundtrack.forEach(function(t){ (groups[t.seq] = groups[t.seq] || []).push(t); });
-var seqs = order.filter(function(s){ return groups[s]; });
-Object.keys(groups).forEach(function(s){ if(seqs.indexOf(s)<0) seqs.push(s); });
-$("music").innerHTML = seqs.map(function(s){
-  var tracks = groups[s];
-  return '<div class="mgroup"><h3>'+esc(s)+' <span class="cnt">'+tracks.length+'</span></h3>'+
-    tracks.map(function(t){
-      var v = videoId(t.url), ext = v? "" : " ext";
-      return '<div class="track'+ext+'"><span class="host">'+esc(hostOf(t.url))+'</span>'+
-        '<span class="t">'+esc(t.title)+'</span>'+
-        (v
-          ? '<button class="pbtn" data-url="'+esc(t.url)+'" data-title="'+esc(t.title)+'" aria-label="Écouter '+esc(t.title)+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg></button>'
-          : '<a class="pbtn" target="_blank" rel="noopener" href="'+esc(t.url)+'" aria-label="Ouvrir '+esc(t.title)+'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7M3 6h18M3 12h18M3 18h18"/></svg></a>')+
-        '</div>';
-    }).join("") + '</div>';
-}).join("");
-Array.prototype.forEach.call($("music").querySelectorAll("button.pbtn"), function(b){
-  b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
+function renderGoals(){
+  var g = goalsText();
+  $("goals").innerHTML = g.map(function(x,i){
+    return '<div class="goal"><div class="num">'+esc(T[LANG].goalLabel)+(i+1)+'</div><p>'+esc(x)+'</p></div>';
+  }).join("");
+}
+
+function renderRoute(){
+  $("route").innerHTML = DATA.route.map(function(r,i){
+    return '<div class="step"><span class="idx">'+(i+1)+' / '+DATA.route.length+'</span>'+
+      '<div class="flag">'+r.flag+'</div><h4>'+esc(countryLabel(r.country))+'</h4><p>'+esc(stageOf(i))+'</p></div>';
+  }).join("");
+}
+
+function renderTeam(){
+  $("team").innerHTML = '<div class="avatar">🚴‍♂️</div><div><h3>'+esc(DATA.team.names)+'</h3><p>'+esc(teamDesc())+'</p></div>';
+}
+
+function renderFilters(){
+  var countries = [];
+  DATA.interviews.forEach(function(it){ if(countries.indexOf(it.country)<0) countries.push(it.country); });
+  $("filters").innerHTML = '<button class="chip'+(curFilter==="*"?" on":"")+'" data-c="*">'+esc(T[LANG].all)+'</button>' + countries.map(function(c){
+    return '<button class="chip'+(curFilter===c?" on":"")+'" data-c="'+esc(c)+'">'+esc(countryLabel(c))+'</button>';
+  }).join("");
+  Array.prototype.forEach.call($("filters").querySelectorAll(".chip"), function(ch){
+    ch.addEventListener("click", function(){
+      curFilter = ch.getAttribute("data-c");
+      renderFilters();
+      renderInterviews(curFilter);
+    });
+  });
+}
+
+function renderInterviews(filter){
+  $("interviews").innerHTML = DATA.interviews.filter(function(it){
+    return filter==="*" || it.country===filter;
+  }).map(function(it){
+    var act = activityOf(it), nm = it.name+", "+act;
+    return '<div class="card" data-country="'+esc(it.country)+'">'+
+      '<div class="top"><span class="where">'+it.flag+' '+esc(countryLabel(it.country))+'</span><span class="no">'+esc(T[LANG].noLabel)+it.n+'</span></div>'+
+      '<h4>'+esc(it.name)+'</h4><div class="act">'+esc(act)+'</div>'+
+      '<button class="watch" data-url="'+esc(it.url)+'" data-title="'+esc(nm)+'">'+
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>'+esc(T[LANG].watch)+'</button></div>';
+  }).join("");
+  Array.prototype.forEach.call($("interviews").querySelectorAll(".watch"), function(b){
+    b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
+  });
+}
+
+function renderNewsletters(){
+  var openIds = [];
+  Array.prototype.forEach.call($("newsList").querySelectorAll("details[open]"), function(d){ openIds.push(d.id); });
+  $("newsList").innerHTML = DATA.newsletters.map(function(n){
+    return '<details class="nl" id="nl'+n.n+'"><summary>'+
+      '<span class="em">'+n.icon+'</span>'+
+      '<span class="meta"><span>'+esc(T[LANG].issue)+n.n+'</span><b>'+esc(nlTitle(n))+'</b></span>'+
+      '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'+
+      '</summary><div class="nl-body">'+renderMd(n.body)+'</div></details>';
+  }).join("");
+  openIds.forEach(function(id){ var d = document.getElementById(id); if(d) d.open = true; });
+}
+
+var ORDER = ["Introduction ▶️","Myanmar 🇲🇲","Thaïlande 🇹🇭","Bangladesh 🇧🇩","Inde 🇮🇳","Kirghizistan 🇰🇬","Tadjikistan 🇹🇯","Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿","Conclusion 🏁"];
+
+function renderMusic(){
+  var groups = {};
+  DATA.soundtrack.forEach(function(t){ (groups[t.seq] = groups[t.seq] || []).push(t); });
+  var seqs = ORDER.filter(function(s){ return groups[s]; });
+  Object.keys(groups).forEach(function(s){ if(seqs.indexOf(s)<0) seqs.push(s); });
+  $("music").innerHTML = seqs.map(function(s){
+    var tracks = groups[s];
+    return '<div class="mgroup"><h3>'+esc(seqLabel(s))+' <span class="cnt">'+tracks.length+'</span></h3>'+
+      tracks.map(function(t){
+        var v = videoId(t.url), ext = v? "" : " ext";
+        return '<div class="track'+ext+'"><span class="host">'+esc(hostOf(t.url))+'</span>'+
+          '<span class="t">'+esc(t.title)+'</span>'+
+          (v
+            ? '<button class="pbtn" data-url="'+esc(t.url)+'" data-title="'+esc(t.title)+'" aria-label="'+esc(T[LANG].listenAria+t.title)+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg></button>'
+            : '<a class="pbtn" target="_blank" rel="noopener" href="'+esc(t.url)+'" aria-label="'+esc(T[LANG].openAria+t.title)+'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7M3 6h18M3 12h18M3 18h18"/></svg></a>')+
+          '</div>';
+      }).join("") + '</div>';
+  }).join("");
+  Array.prototype.forEach.call($("music").querySelectorAll("button.pbtn"), function(b){
+    b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
+  });
+}
+
+function renderPartners(){
+  var initials = function(name){ return name.split(/\s+/).map(function(w){ return w[0]; }).join("").slice(0,2).toUpperCase(); };
+  $("partners").innerHTML = DATA.partners.map(function(p){
+    return '<a class="partner" target="_blank" rel="noopener" href="'+esc(p.url)+'">'+
+      '<span class="dot">'+esc(initials(p.name))+'</span><span><b>'+esc(p.name)+'</b><span>'+esc(hostOf(p.url))+'</span></span></a>';
+  }).join("");
+}
+
+function renderArticles(){
+  $("articles").innerHTML = DATA.articles.map(function(a){
+    return '<div class="article"><a target="_blank" rel="noopener" href="'+esc(a.url)+'">'+esc(a.title)+'</a>'+
+      '<span class="src">'+esc(a.source)+' · '+esc(a.date)+'</span></div>';
+  }).join("");
+}
+
+function renderMore(){
+  $("more").innerHTML = '<span style="color:var(--muted);font-size:14.5px;margin-right:14px">'+esc(T[LANG].wantSupport)+'</span>'+
+    '<a class="btn" target="_blank" rel="noopener" href="'+esc(DATA.links.mcma)+'">'+esc(T[LANG].mcmaBtn)+'</a>'+
+    '<a class="btn ghost" target="_blank" rel="noopener" href="'+esc(DATA.links.notion)+'">'+esc(T[LANG].notionBtn)+'</a>';
+}
+
+function renderDynamic(){
+  $("heroPitch").textContent = pitchText();
+  renderGoals();
+  renderRoute();
+  renderTeam();
+  renderFilters();
+  renderInterviews(curFilter);
+  renderNewsletters();
+  renderMusic();
+  renderPartners();
+  renderArticles();
+  renderMore();
+}
+
+/* ---------- textes statiques ---------- */
+function applyStatic(){
+  var dict = T[LANG];
+  document.title = dict.title;
+  var md = document.querySelector('meta[name="description"]');
+  if(md) md.setAttribute("content", dict.desc);
+  document.documentElement.setAttribute("lang", LANG);
+  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function(el){
+    var k = el.getAttribute("data-i18n");
+    if(typeof dict[k] === "string") el.textContent = dict[k];
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-html]"), function(el){
+    var k = el.getAttribute("data-i18n-html");
+    if(typeof dict[k] === "string") el.innerHTML = dict[k];
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-aria]"), function(el){
+    var k = el.getAttribute("data-i18n-aria");
+    if(typeof dict[k] === "string") el.setAttribute("aria-label", dict[k]);
+  });
+  var note = document.getElementById("nlFrNote");
+  if(note){ note.textContent = dict.newsFrNote; note.style.display = dict.newsFrNote ? "" : "none"; }
+  var frb = document.getElementById("langFr"), enb = document.getElementById("langEn");
+  if(frb) frb.className = LANG==="fr" ? "on" : "";
+  if(enb) enb.className = LANG==="en" ? "on" : "";
+  var nl = document.getElementById("notionLink");
+  if(nl) nl.href = DATA.links.notion;
+}
+
+function setLang(l){
+  if(LANG===l) return;
+  LANG = l;
+  try{ window.localStorage.setItem("abds-lang", l); }catch(e){}
+  applyStatic();
+  renderDynamic();
+}
+document.getElementById("langFr").addEventListener("click", function(){ setLang("fr"); });
+document.getElementById("langEn").addEventListener("click", function(){ setLang("en"); });
+
+/* ---------- hero & film ---------- */
+$("filmLink").href = DATA.film.url;
+$("footerFilm").href = DATA.film.url;
+
+$("mainPoster").addEventListener("click", function(){
+  var f = document.createElement("iframe");
+  f.src = embedUrl({type:"youtube", id:DATA.film.youtubeId}, true);
+  f.allow = "autoplay; fullscreen; picture-in-picture";
+  f.allowFullscreen = true;
+  f.title = T[LANG].iframeFilmTitle;
+  $("mainPlayer").innerHTML = "";
+  $("mainPlayer").appendChild(f);
+});
+$("teaserBtn").addEventListener("click", function(){
+  openModal(T[LANG].teaserModalTitle, DATA.film.teaserUrl);
 });
 
-/* ---------- partenaires, presse, liens ---------- */
-var initials = function(name){ return name.split(/\s+/).map(function(w){ return w[0]; }).join("").slice(0,2).toUpperCase(); };
-$("partners").innerHTML = DATA.partners.map(function(p){
-  return '<a class="partner" target="_blank" rel="noopener" href="'+esc(p.url)+'">'+
-    '<span class="dot">'+esc(initials(p.name))+'</span><span><b>'+esc(p.name)+'</b><span>'+esc(hostOf(p.url))+'</span></span></a>';
-}).join("");
-
-$("articles").innerHTML = DATA.articles.map(function(a){
-  return '<div class="article"><a target="_blank" rel="noopener" href="'+esc(a.url)+'">'+esc(a.title)+'</a>'+
-    '<span class="src">'+esc(a.source)+' · '+esc(a.date)+'</span></div>';
-}).join("");
-
-$("more").innerHTML = '<span style="color:var(--muted);font-size:14.5px;margin-right:14px">Envie de soutenir la microfinance solidaire ?</span>'+
-  '<a class="btn" target="_blank" rel="noopener" href="'+esc(DATA.links.mcma)+'">Micro-crédit Macro-action (MCMA) ↗</a>'+
-  '<a class="btn ghost" target="_blank" rel="noopener" href="'+esc(DATA.links.notion)+'">Page Notion du projet ↗</a>';
+/* ---------- init ---------- */
+applyStatic();
+renderDynamic();
 })();
 </script>
 </body>

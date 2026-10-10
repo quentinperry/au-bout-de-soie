@@ -4,6 +4,8 @@ Site statique consacré au film **Au bout de soie** : le documentaire d'un péri
 
 Contenu : le film et le teaser, 15 portraits de micro-entrepreneurs (Myanmar, Bangladesh, Inde, Kirghizistan, Tadjikistan), les 9 newsletters de l'aventure, la bande-son, les partenaires, l'itinéraire et les articles de presse.
 
+Le site est bilingue : bouton FR / EN dans la barre de navigation.
+
 ## Le site
 
 https://quentinperry.github.io/au-bout-de-soie/
