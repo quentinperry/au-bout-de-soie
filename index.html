@@ -5,382 +5,562 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Au bout de soie : le film et l’aventure</title>
 <meta name="description" content="Le documentaire Au bout de soie : 6 000 km à vélo sur la Route de la Soie pour promouvoir la microfinance solidaire. Film, portraits de micro-entrepreneurs, newsletters et bande-son.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2322303f'/%3E%3Ccircle cx='50' cy='50' r='24' fill='none' stroke='%23c99a3f' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='7' fill='%23c99a3f'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#121d29">
+<meta property="og:title" content="Au bout de soie : le film et l’aventure">
+<meta property="og:description" content="6 000 km à vélo sur la Route de la Soie pour promouvoir la microfinance solidaire.">
+<meta property="og:image" content="https://i.ytimg.com/vi/DqpewFtuxPo/hqdefault.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23121d29'/%3E%3Cpath d='M14 64 C34 30 52 84 70 46 S86 36 88 36' fill='none' stroke='%23d4a24c' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='88' cy='36' r='7' fill='%23d4a24c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f6f0e4; --paper:#fffdf7; --ink:#2a2118; --muted:#7a6f5f;
-    --accent:#b3502f; --gold:#c99a3f; --deep:#22303f; --deep2:#2e4155;
-    --line:#e4dac6; --shadow:0 10px 30px rgba(42,33,24,.10);
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --paper:#f4ede0; --paper-2:#ece3d2; --card:#fffbf4; --ink:#1d1a16; --ink-2:#463e35; --muted:#6a6052;
+    --line:#ddd1bb; --line-2:#e8dfcd;
+    --night:#121d29; --night-2:#1a2939; --night-3:#24384c; --on-night:#efe6d4; --on-night-2:#b9ad95;
+    --silk:#d4a24c; --silk-2:#e7bf72; --silk-soft:#f3e2bd; --clay:#a9472a; --clay-2:#c45f3b;
+    --radius:18px; --radius-s:12px;
+    --shadow-s:0 1px 2px rgba(29,26,22,.06),0 2px 8px rgba(29,26,22,.05);
+    --shadow:0 2px 4px rgba(29,26,22,.04),0 12px 32px -8px rgba(29,26,22,.16);
+    --serif:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --nav-h:64px; --max:1140px;
+    --ease:cubic-bezier(.2,.7,.2,1);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
-  h1,h2,h3,h4{font-family:var(--serif);line-height:1.2;color:var(--ink)}
-  a{color:var(--accent)}
-  img{max-width:100%}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.15;color:var(--ink);letter-spacing:-.01em;
+    font-variation-settings:"opsz" 96}
+  a{color:var(--clay);text-underline-offset:3px}
+  img{max-width:100%;display:block}
+  button{font:inherit;color:inherit}
+  :focus-visible{outline:2.5px solid var(--silk);outline-offset:3px;border-radius:6px}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .skip{position:fixed;left:16px;top:-60px;z-index:200;background:var(--silk);color:var(--night);padding:10px 16px;
+    border-radius:10px;font-weight:600;text-decoration:none;transition:top .2s}
+  .skip:focus{top:12px}
+  [id]{scroll-margin-top:calc(var(--nav-h) + 12px)}
 
-  /* Nav */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(34,48,63,.96);backdrop-filter:blur(6px);
-    display:flex;align-items:center;gap:18px;padding:0 22px;height:56px;
-    box-shadow:0 2px 14px rgba(0,0,0,.25)}
-  .nav .brand{color:#f4e8cf;font-family:var(--serif);font-size:19px;letter-spacing:.4px;
-    display:flex;align-items:center;gap:9px;white-space:nowrap;text-decoration:none}
-  .nav .brand svg{flex:none}
-  .nav .links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
-  .nav .links::-webkit-scrollbar{display:none}
-  .nav .links a{color:#d8cdb4;text-decoration:none;font-size:13.5px;padding:6px 11px;border-radius:99px;white-space:nowrap;transition:.2s}
-  .nav .links a:hover{color:#fff;background:rgba(255,255,255,.12)}
+  /* ---------- Navigation ---------- */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:60;height:var(--nav-h);
+    transition:background .3s var(--ease),box-shadow .3s var(--ease),backdrop-filter .3s}
+  .nav.solid{background:rgba(18,29,41,.92);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);
+    box-shadow:0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.18)}
+  .nav .in{max-width:var(--max);height:100%;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--on-night);text-decoration:none;
+    font-family:var(--serif);font-size:20px;font-weight:500;white-space:nowrap;letter-spacing:-.01em}
+  .brand svg{flex:none}
+  .links{display:flex;align-items:center;gap:2px;margin-left:auto}
+  .links a{position:relative;color:var(--on-night-2);text-decoration:none;font-size:14px;font-weight:500;
+    padding:8px 12px;border-radius:99px;white-space:nowrap;transition:color .2s,background .2s}
+  .links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+  .links a.active{color:var(--silk-2)}
+  .links a.active::after{content:"";position:absolute;left:50%;bottom:2px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--silk)}
+  .lang{display:inline-flex;flex:none;margin-left:10px;padding:3px;border-radius:99px;background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.14)}
+  .lang button{border:0;background:transparent;color:var(--on-night-2);font-size:12px;font-weight:700;letter-spacing:.06em;
+    padding:5px 10px;border-radius:99px;cursor:pointer;transition:background .2s,color .2s}
+  .lang button:hover{color:#fff}
+  .lang button.on{background:var(--silk);color:var(--night)}
+  .menu-btn{display:none;margin-left:auto;width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);color:var(--on-night);cursor:pointer;align-items:center;justify-content:center}
+  .menu-btn svg{transition:transform .25s var(--ease)}
+  @media (max-width:960px){
+    .menu-btn{display:inline-flex}
+    .nav .in{gap:10px}
+    .nav .lang{margin-left:0}
+    .links{position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;margin:0;
+      padding:12px 16px 20px;background:rgba(18,29,41,.98);backdrop-filter:blur(12px);
+      box-shadow:0 20px 40px rgba(0,0,0,.35);transform:translateY(-8px);opacity:0;visibility:hidden;
+      transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s}
+    .nav.open .links{opacity:1;transform:none;visibility:visible}
+    .nav.open{background:rgba(18,29,41,.98)}
+    .links a{font-size:17px;padding:13px 14px;border-radius:12px}
+    .links a.active{background:rgba(212,162,76,.12)}
+    .links a.active::after{left:auto;right:16px;top:50%;bottom:auto;margin:-2px 0 0}
+  }
 
-  /* Hero */
-  .hero{position:relative;background:
-    radial-gradient(1200px 500px at 85% -10%,rgba(201,154,63,.28),transparent 60%),
-    radial-gradient(900px 480px at -10% 110%,rgba(179,80,47,.30),transparent 55%),
-    linear-gradient(160deg,var(--deep) 0%,var(--deep2) 60%,#18222c 100%);
-    color:#f2e9d6;padding:88px 22px 96px;overflow:hidden}
-  .hero .threads{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
-  .hero .wrap{position:relative;max-width:940px;margin:0 auto;text-align:center}
-  .hero .kicker{display:inline-block;font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;
-    color:var(--gold);border:1px solid rgba(201,154,63,.55);border-radius:99px;padding:5px 16px;margin-bottom:26px}
-  .hero h1{font-size:clamp(44px,8vw,84px);color:#f7efdc;font-weight:600;letter-spacing:.5px}
-  .hero h1 em{font-style:normal;color:var(--gold)}
-  .hero p.pitch{max-width:640px;margin:22px auto 0;font-size:clamp(16px,2.2vw,19px);color:#e8dcc0}
-  .hero .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:38px}
-  .hero .stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
-    border-radius:14px;padding:12px 20px;min-width:130px}
-  .hero .stat b{display:block;font-size:26px;font-family:var(--serif);color:var(--gold)}
-  .hero .stat span{font-size:12.5px;letter-spacing:.6px;text-transform:uppercase;color:#d9cba8}
-  .hero .cta{display:inline-flex;align-items:center;gap:10px;margin-top:40px;background:var(--gold);
-    color:#241c0d;font-weight:600;text-decoration:none;border-radius:99px;padding:14px 30px;
-    font-size:16px;transition:.2s;box-shadow:0 8px 24px rgba(0,0,0,.35)}
-  .hero .cta:hover{transform:translateY(-2px);background:#d8a94e}
-  .hero .cta svg{flex:none}
-
-  /* Sections */
-  section{max-width:1080px;margin:0 auto;padding:76px 22px 30px}
-  .sec-head{margin-bottom:34px}
-  .sec-head .over{color:var(--accent);font-size:12.5px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase}
-  .sec-head h2{font-size:clamp(28px,4vw,40px);margin-top:6px}
-  .sec-head p.sub{color:var(--muted);max-width:680px;margin-top:10px}
-
-  /* Film player */
-  .player-frame{background:var(--deep);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);position:relative}
-  .player-poster{position:relative;aspect-ratio:16/9;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:min(100svh,920px);display:flex;flex-direction:column;justify-content:flex-end;
+    color:var(--on-night);overflow:hidden;isolation:isolate;
     background:
-      radial-gradient(600px 300px at 70% 20%,rgba(201,154,63,.35),transparent 65%),
-      radial-gradient(500px 280px at 15% 90%,rgba(179,80,47,.4),transparent 60%),
-      linear-gradient(150deg,#22303f,#101820)}
-  .player-poster .play{display:flex;flex-direction:column;align-items:center;gap:16px;color:#f2e9d6}
-  .player-poster .play .btn-round{width:86px;height:86px;border-radius:50%;background:var(--gold);
-    display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:.2s}
-  .player-poster:hover .btn-round{transform:scale(1.06)}
-  .player-poster .play b{font-family:var(--serif);font-size:22px;font-weight:600}
-  .player-poster .play span{font-size:13.5px;color:#d8cdb4}
-  .player-frame iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
-  .film-note{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;margin-top:16px;
-    color:var(--muted);font-size:14px}
-  .film-note a{font-weight:600}
-  .teaser{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:16px;
-    padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;box-shadow:var(--shadow)}
-  .teaser h3{font-size:20px}
-  .teaser p{color:var(--muted);font-size:14px;flex:1 1 320px}
-  .teaser a.btn{flex:none}
-
-  /* Buttons */
-  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--deep);color:#f2e9d6;text-decoration:none;
-    border-radius:99px;padding:11px 22px;font-size:14.5px;font-weight:600;transition:.2s;border:0;cursor:pointer}
-  .btn:hover{background:var(--deep2)}
-  .btn.gold{background:var(--gold);color:#241c0d}
-  .btn.gold:hover{background:#d8a94e}
-  .btn.ghost{background:transparent;color:var(--deep);border:1.5px solid var(--deep)}
-  .btn.ghost:hover{background:rgba(34,48,63,.08)}
-
-  /* Aventure */
-  .goal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
-  .goal{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
-  .goal .num{font-family:var(--serif);font-size:15px;color:var(--gold);font-weight:700;letter-spacing:1px}
-  .goal p{margin-top:8px}
-  .route-wrap{margin-top:46px}
-  .route-line{display:flex;align-items:center;gap:8px;margin:0 4px 22px;color:var(--accent);font-size:14px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
-  .route-line svg{width:100%;height:24px;color:var(--accent)}
-  .route{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;counter-reset:step}
-  .step{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:14px;
-    padding:18px 18px 16px;box-shadow:var(--shadow)}
-  .step .flag{font-size:30px;line-height:1}
-  .step h4{margin-top:8px;font-size:17.5px}
-  .step p{font-size:13.5px;color:var(--muted);margin-top:5px}
-  .step .idx{position:absolute;top:14px;right:16px;font-family:var(--serif);font-size:14px;color:var(--gold);font-weight:700}
-  .team{margin-top:46px;background:var(--deep);border-radius:18px;color:#eee3c8;padding:34px 30px;
-    display:flex;flex-wrap:wrap;gap:26px;align-items:center;box-shadow:var(--shadow)}
-  .team .avatar{width:86px;height:86px;border-radius:50%;flex:none;background:
-    radial-gradient(circle at 30% 25%,#e9c06a,#b3502f);display:flex;align-items:center;justify-content:center;
-    font-size:40px;box-shadow:inset 0 -6px 14px rgba(0,0,0,.25)}
-  .team h3{color:#f7efdc;font-size:22px}
-  .team p{max-width:640px;font-size:15px;margin-top:8px;color:#d9cdb0}
-
-  /* Portraits */
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-  .chip{border:1.5px solid var(--line);background:var(--paper);border-radius:99px;padding:8px 16px;
-    font-size:14px;cursor:pointer;font-weight:600;color:var(--ink);transition:.18s}
-  .chip:hover{border-color:var(--accent);color:var(--accent)}
-  .chip.on{background:var(--deep);border-color:var(--deep);color:#f2e9d6}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;
-    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;transition:.2s}
-  .card:hover{transform:translateY(-3px)}
-  .card .top{display:flex;align-items:center;justify-content:space-between}
-  .card .where{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase}
-  .card .no{font-family:var(--serif);color:var(--gold);font-size:14px;font-weight:700}
-  .card h4{font-size:18.5px}
-  .card .act{color:var(--muted);font-size:14px;flex:1}
-  .card .watch{margin-top:12px;align-self:flex-start;display:inline-flex;align-items:center;gap:7px;
-    color:var(--accent);font-weight:700;font-size:14px;cursor:pointer;background:none;border:0;padding:0}
-  .card .watch:hover{text-decoration:underline}
-
-  /* Newsletters */
-  .news-list{display:flex;flex-direction:column;gap:14px;max-width:860px}
-  details.nl{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-  details.nl[open]{border-color:var(--gold)}
-  details.nl summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 22px;user-select:none}
-  details.nl summary::-webkit-details-marker{display:none}
-  details.nl .em{font-size:26px;flex:none}
-  details.nl .meta{flex:1}
-  details.nl .meta b{font-family:var(--serif);font-size:17.5px;font-weight:600;display:block}
-  details.nl .meta span{font-size:12.5px;color:var(--accent);font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
-  details.nl .chev{color:var(--muted);transition:.25s;flex:none}
-  details.nl[open] .chev{transform:rotate(180deg)}
-  .nl-body{padding:6px 26px 26px;border-top:1px dashed var(--line);font-size:15px;color:#3d3327}
-  .nl-body h2{font-size:20px;margin:26px 0 10px;color:var(--deep)}
-  .nl-body h3{font-size:16.5px;margin:22px 0 8px;color:var(--deep)}
-  .nl-body h2:first-child{margin-top:14px}
-  .nl-body p{margin:10px 0}
-  .nl-body ul{margin:10px 0 10px 22px}
-  .nl-body li{margin:4px 0}
-  .nl-body blockquote{border-left:3px solid var(--gold);background:#faf5e8;margin:12px 0;
-    padding:10px 16px;font-style:italic;color:#5c5240;border-radius:0 10px 10px 0}
-  .nl-body a{word-break:break-word}
-
-  /* Musique */
-  .music-groups{display:grid;gap:20px}
-  .mgroup h3{display:flex;align-items:center;gap:10px;font-size:18px;color:var(--deep);
-    border-bottom:2px solid var(--line);padding-bottom:8px;margin-bottom:4px}
-  .mgroup h3 .cnt{font-family:var(--sans);font-size:12px;color:var(--gold);font-weight:700;
-    background:#f1e6cb;border-radius:99px;padding:2px 10px}
-  .track{display:flex;align-items:center;gap:14px;padding:11px 6px;border-bottom:1px dashed var(--line)}
-  .track:last-child{border-bottom:0}
-  .track .t{flex:1;font-size:15px}
-  .track .host{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;font-weight:700}
-  .track .pbtn{width:38px;height:38px;border-radius:50%;flex:none;border:0;cursor:pointer;
-    background:var(--paper);border:1.5px solid var(--deep);color:var(--deep);
-    display:flex;align-items:center;justify-content:center;transition:.18s}
-  .track .pbtn:hover{background:var(--deep);color:var(--gold)}
-  .track.ext .pbtn{border-color:var(--gold);color:var(--gold)}
-  .track.ext .pbtn:hover{background:var(--gold);color:#241c0d}
-
-  /* Partenaires & presse */
-  .partners{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
-  .partner{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);
-    border-radius:14px;padding:18px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:.2s}
-  .partner:hover{transform:translateY(-3px);border-color:var(--gold)}
-  .partner .dot{width:44px;height:44px;flex:none;border-radius:50%;background:
-    linear-gradient(135deg,var(--gold),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:19px}
-  .partner b{font-size:15px}
-  .partner span{display:block;font-size:12px;color:var(--muted);margin-top:1px}
-  .articles{display:flex;flex-direction:column;gap:12px;max-width:820px}
-  .article{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;background:var(--paper);
-    border:1px solid var(--line);border-radius:12px;padding:16px 20px;box-shadow:var(--shadow)}
-  .article a{font-weight:600;font-size:15.5px;text-decoration:none}
-  .article a:hover{text-decoration:underline}
-  .article .src{color:var(--muted);font-size:13px}
-
-  .more{margin-top:26px}
-  .more .btn{margin-right:10px;margin-top:6px}
-
-  /* Footer */
-  footer{margin-top:80px;background:var(--deep);color:#cfc2a2;padding:44px 22px 54px}
-  footer .wrap{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:center}
-  footer .brand{font-family:var(--serif);color:#f2e9d6;font-size:20px}
-  footer p{font-size:13.5px;max-width:560px;margin-top:6px}
-  footer a{color:var(--gold)}
-
-  /* Modal */
-  .backdrop{position:fixed;inset:0;background:rgba(20,15,8,.72);backdrop-filter:blur(3px);
-    display:none;align-items:center;justify-content:center;z-index:100;padding:22px}
-  .backdrop.open{display:flex}
-  .modal{background:var(--deep);border-radius:16px;max-width:920px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden}
-  .modal .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;color:#e8dcc0}
-  .modal .bar b{font-size:14.5px;font-weight:600;font-family:var(--serif)}
-  .modal .bar .x{background:none;border:0;color:#e8dcc0;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;border-radius:8px}
-  .modal .bar .x:hover{background:rgba(255,255,255,.14)}
-  .modal .stage{aspect-ratio:16/9;background:#10161e}
-  .modal .stage iframe{width:100%;height:100%;border:0;display:block}
-  .modal .stage .fallback{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#d8cdb4;padding:20px;text-align:center}
-  .modal .src{padding:12px 18px;font-size:13px;color:#b7ab8d}
-  .modal .src a{color:var(--gold)}
-
-  @media (max-width:640px){
-    .nav .links a{padding:6px 8px;font-size:12.5px}
-    .hero{padding:64px 18px 72px}
-    .nl-body{padding:6px 18px 20px}
+      radial-gradient(900px 520px at 88% 8%,rgba(212,162,76,.22),transparent 62%),
+      radial-gradient(760px 520px at -6% 96%,rgba(196,95,59,.26),transparent 60%),
+      linear-gradient(170deg,#0f1823 0%,var(--night-2) 55%,#152231 100%)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;
+    background-image:radial-gradient(rgba(255,255,255,.5) .6px,transparent .8px);background-size:22px 22px;
+    mask-image:linear-gradient(180deg,transparent,#000 30%,#000 60%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 60%,transparent)}
+  .hero .wrap{max-width:var(--max);width:100%;margin:0 auto;padding:calc(var(--nav-h) + 72px) 20px 0}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--silk-2)}
+  .kicker::before{content:"";width:28px;height:1.5px;background:currentColor}
+  .hero h1{margin-top:18px;font-size:clamp(52px,10vw,128px);font-weight:400;line-height:.95;letter-spacing:-.03em;color:#f7f0e2;
+    font-variation-settings:"opsz" 144}
+  .hero h1 em{font-style:italic;color:var(--silk-2)}
+  .hero .pitch{max-width:580px;margin-top:26px;font-size:clamp(17px,2vw,20px);line-height:1.6;color:#dcd1bb}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .hero-route{position:relative;margin-top:44px;width:100%}
+  .hero-route svg{display:block;width:100%;height:auto;overflow:visible}
+  .hero-route .path{stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 2.6s .3s var(--ease) forwards}
+  .hero-route .dot{opacity:0;animation:pop .5s var(--ease) forwards}
+  .hero-route text{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;fill:#c9bda3}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{to{opacity:1}}
+  .stats{border-top:1px solid rgba(255,255,255,.1);background:rgba(10,16,24,.35);backdrop-filter:blur(4px)}
+  .stats .in{max-width:var(--max);margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:22px 4px 24px;display:flex;flex-direction:column;gap:2px}
+  .stat + .stat{padding-left:24px;border-left:1px solid rgba(255,255,255,.1)}
+  .stat b{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,38px);line-height:1.1;color:#f7f0e2;letter-spacing:-.02em}
+  .stat span{font-size:12.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--on-night-2)}
+  @media (max-width:700px){
+    .hero-route text{display:none}
+    .stats .in{grid-template-columns:1fr 1fr}
+    .stat:nth-child(3){padding-left:4px;border-left:0}
+    .stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1)}
   }
-  /* Langue */
-  .lang{display:inline-flex;align-items:center;margin-left:8px;flex:none;border:1px solid rgba(255,255,255,.28);border-radius:99px;overflow:hidden;background:transparent;cursor:pointer;padding:0}
-  .lang span{padding:5px 10px;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#d8cdb4;background:transparent}
-  .lang span.on{background:#c99a3f;color:#241c0d}
+
+  /* ---------- Boutons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 22px;border-radius:99px;
+    font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid transparent;cursor:pointer;
+    transition:transform .2s var(--ease),background .2s,border-color .2s,color .2s,box-shadow .2s;white-space:nowrap}
+  .btn svg{flex:none}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.gold{background:var(--silk);color:#1d1406;box-shadow:0 8px 24px -6px rgba(212,162,76,.55)}
+  .btn.gold:hover{background:var(--silk-2)}
+  .btn.line-light{color:var(--on-night);border-color:rgba(255,255,255,.28)}
+  .btn.line-light:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+  .btn.dark{background:var(--night);color:var(--on-night)}
+  .btn.dark:hover{background:var(--night-3)}
+  .btn.line{color:var(--ink);border-color:var(--line)}
+  .btn.line:hover{border-color:var(--ink);background:rgba(29,26,22,.03)}
+
+  /* ---------- Sections ---------- */
+  section{padding:104px 20px 8px}
+  .in-sec{max-width:var(--max);margin:0 auto}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-bottom:44px;max-width:760px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--clay);font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .eyebrow .n{font-family:var(--serif);font-style:italic;font-weight:400;font-size:15px;letter-spacing:0;text-transform:none;color:var(--muted)}
+  .sec-head h2{font-size:clamp(34px,5vw,54px);font-weight:400;letter-spacing:-.025em}
+  .sec-head h2 em{font-style:italic;color:var(--clay)}
+  .sec-head .sub{color:var(--muted);font-size:17px;max-width:640px}
+  .thread{display:block;width:100%;height:34px;color:var(--silk);opacity:.7}
+  .sec-sep{max-width:var(--max);margin:96px auto 0;padding:0 20px}
+
+  /* ---------- Film ---------- */
+  .film-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+  .player{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--night);box-shadow:var(--shadow);aspect-ratio:16/9}
+  .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .poster{position:absolute;inset:0;width:100%;border:0;cursor:pointer;display:flex;align-items:flex-end;justify-content:flex-start;
+    padding:clamp(18px,4vw,40px);text-align:left;color:#fff;background-color:var(--night);background-size:cover;background-position:center}
+  .poster::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,16,24,.15) 0%,rgba(10,16,24,.25) 45%,rgba(10,16,24,.88) 100%)}
+  .poster > *{position:relative}
+  .poster .round{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(68px,10vw,96px);aspect-ratio:1;border-radius:50%;
+    background:var(--silk);display:flex;align-items:center;justify-content:center;color:#1d1406;
+    box-shadow:0 0 0 10px rgba(212,162,76,.22),0 18px 40px rgba(0,0,0,.45);transition:transform .3s var(--ease),box-shadow .3s}
+  .poster:hover .round,.poster:focus-visible .round{transform:translate(-50%,-50%) scale(1.07);box-shadow:0 0 0 16px rgba(212,162,76,.18),0 18px 40px rgba(0,0,0,.45)}
+  .poster .cap b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(22px,3vw,32px);line-height:1.15}
+  .poster .cap span{font-size:14px;color:#d8ccb4}
+  .film-meta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;
+    background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);padding:18px 22px;box-shadow:var(--shadow-s)}
+  .film-meta .teaser{display:flex;align-items:center;gap:16px;min-width:0;flex:1 1 360px}
+  .film-meta .teaser .ic{width:48px;height:48px;flex:none;border-radius:14px;background:var(--silk-soft);color:var(--clay);
+    display:flex;align-items:center;justify-content:center}
+  .film-meta h3{font-size:19px}
+  .film-meta p{color:var(--muted);font-size:14.5px;line-height:1.5}
+  .film-meta .acts{display:flex;flex-wrap:wrap;gap:10px}
+
+  /* ---------- Aventure ---------- */
+  .goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .goal{position:relative;padding:30px 30px 30px 96px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);box-shadow:var(--shadow-s)}
+  .goal .num{position:absolute;left:28px;top:22px;font-family:var(--serif);font-size:52px;line-height:1;font-style:italic;color:var(--silk)}
+  .goal small{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);margin-bottom:6px}
+  .goal p{font-size:16.5px;color:var(--ink-2)}
+  .route-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin:72px 0 26px}
+  .route-head h3{font-size:clamp(26px,3vw,34px);font-weight:400}
+  .route-head p{color:var(--muted);max-width:520px}
+  .timeline{list-style:none;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:0;position:relative}
+  .timeline::before{content:"";position:absolute;left:calc(100%/16);right:calc(100%/16);top:27px;height:2px;
+    background:repeating-linear-gradient(90deg,var(--silk) 0 8px,transparent 8px 14px)}
+  .stop{position:relative;padding:0 8px;text-align:center}
+  .stop .pin{position:relative;width:56px;height:56px;margin:0 auto;border-radius:50%;background:var(--card);border:2px solid var(--silk);
+    display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1;box-shadow:0 0 0 6px var(--paper),var(--shadow-s)}
+  .stop .k{display:block;margin-top:14px;font-family:var(--serif);font-style:italic;color:var(--muted);font-size:14px}
+  .stop h4{font-size:18px;margin-top:2px}
+  .stop p{font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:6px}
+  .stop:first-child .pin,.stop:last-child .pin{background:var(--silk);border-color:var(--silk)}
+  @media (max-width:900px){
+    .timeline{grid-template-columns:1fr;gap:6px}
+    .timeline::before{display:none}
+    .stop{display:grid;grid-template-columns:56px 1fr;column-gap:18px;text-align:left;padding:6px 0 10px}
+    .stop:not(:last-child)::before{content:"";position:absolute;left:27px;top:66px;bottom:-2px;width:2px;
+      background:repeating-linear-gradient(180deg,var(--silk) 0 8px,transparent 8px 14px)}
+    .stop .pin{grid-row:span 3;margin:0}
+    .stop .k{margin-top:4px}
+    .stop p{margin-top:2px}
+  }
+  .team{margin-top:72px;position:relative;overflow:hidden;background:var(--night);color:var(--on-night);border-radius:24px;
+    padding:clamp(28px,5vw,52px);display:grid;grid-template-columns:auto 1fr;gap:28px 36px;align-items:center;box-shadow:var(--shadow)}
+  .team::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,162,76,.28),transparent 65%);pointer-events:none}
+  .team .avatar{width:104px;height:104px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:48px;
+    background:radial-gradient(circle at 30% 25%,var(--silk-2),var(--clay-2));box-shadow:0 0 0 8px rgba(255,255,255,.06)}
+  .team small{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--silk-2)}
+  .team h3{color:#f7f0e2;font-size:clamp(26px,3vw,34px);font-weight:400;margin-top:4px}
+  .team p{max-width:640px;margin-top:10px;color:#cfc3aa;font-size:16.5px}
+  @media (max-width:560px){ .team{grid-template-columns:1fr} .team .avatar{width:80px;height:80px;font-size:38px} }
+
+  /* ---------- Portraits ---------- */
+  .filters{display:flex;gap:8px;margin-bottom:28px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none;
+    mask-image:linear-gradient(90deg,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  .filters::-webkit-scrollbar{display:none}
+  @media (min-width:900px){ .filters{flex-wrap:wrap;mask-image:none;-webkit-mask-image:none} }
+  .chip{display:inline-flex;align-items:center;gap:8px;flex:none;border:1.5px solid var(--line);background:var(--card);border-radius:99px;
+    padding:8px 14px 8px 16px;font-size:14.5px;font-weight:600;cursor:pointer;color:var(--ink-2);transition:border-color .2s,background .2s,color .2s}
+  .chip:hover{border-color:var(--ink-2)}
+  .chip .c{font-size:12px;font-weight:700;min-width:22px;padding:1px 7px;border-radius:99px;background:var(--paper-2);color:var(--muted);text-align:center}
+  .chip[aria-pressed="true"]{background:var(--night);border-color:var(--night);color:var(--on-night)}
+  .chip[aria-pressed="true"] .c{background:var(--silk);color:var(--night)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+  .card{display:flex;flex-direction:column;text-align:left;width:100%;background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);
+    overflow:hidden;cursor:pointer;padding:0;box-shadow:var(--shadow-s);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .card .thumb{position:relative;aspect-ratio:16/10;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
+  .card .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,16,24,.55))}
+  .card .thumb .flag{position:absolute;font-size:56px;line-height:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+  .card .thumb.has-img .flag{display:none}
+  .card .thumb .play{position:absolute;z-index:1;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;background:rgba(255,251,244,.95);
+    color:var(--night);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.25);transition:transform .25s var(--ease),background .25s}
+  .card:hover .play{transform:scale(1.08);background:var(--silk)}
+  .card .thumb .no{position:absolute;z-index:1;left:14px;bottom:12px;font-family:var(--serif);font-style:italic;color:#fff;font-size:15px;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .card .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:3px}
+  .card .where{font-size:12px;font-weight:700;color:var(--clay);letter-spacing:.1em;text-transform:uppercase}
+  .card h4{font-size:20px;line-height:1.2}
+  .card .act{color:var(--muted);font-size:14.5px}
+
+  /* ---------- Newsletters ---------- */
+  .news{position:relative;display:flex;flex-direction:column;gap:12px;max-width:880px}
+  details.nl{background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);box-shadow:var(--shadow-s);transition:border-color .2s,box-shadow .2s}
+  details.nl:hover{border-color:var(--line)}
+  details.nl[open]{border-color:var(--silk);box-shadow:var(--shadow)}
+  details.nl summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:18px;padding:16px 20px;border-radius:var(--radius)}
+  details.nl summary::-webkit-details-marker{display:none}
+  details.nl .em{width:52px;height:52px;border-radius:14px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;font-size:24px}
+  details.nl[open] .em{background:var(--silk-soft)}
+  details.nl .meta{min-width:0}
+  details.nl .meta span{display:block;font-size:12px;color:var(--clay);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+  details.nl .meta b{display:block;font-family:var(--serif);font-size:clamp(17px,2vw,20px);font-weight:500;line-height:1.3;margin-top:2px}
+  details.nl .chev{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:transform .3s var(--ease),background .2s}
+  details.nl[open] .chev{transform:rotate(180deg);background:var(--night);border-color:var(--night);color:var(--silk)}
+  .nl-body{padding:8px clamp(20px,6vw,90px) 34px;border-top:1px solid var(--line-2);font-size:16.5px;line-height:1.75;color:var(--ink-2);max-width:none}
+  .nl-body > *{max-width:680px}
+  .nl-body h2{font-size:24px;margin:34px 0 10px;color:var(--ink);font-weight:500}
+  .nl-body h3{font-size:19px;margin:26px 0 6px;color:var(--ink);font-weight:500}
+  .nl-body h2:first-child{margin-top:24px}
+  .nl-body p{margin:12px 0}
+  .nl-body ul{margin:12px 0 12px 22px}
+  .nl-body li{margin:4px 0}
+  .nl-body strong{color:var(--ink)}
+  .nl-body blockquote{border-left:3px solid var(--silk);background:var(--paper);margin:16px 0;padding:12px 18px;font-family:var(--serif);font-style:italic;color:var(--ink-2);border-radius:0 12px 12px 0}
+  .nl-body a{word-break:break-word}
+  .nl-body .close-nl{margin-top:22px}
+  .nl-note{color:var(--muted);font-size:14.5px;font-style:italic}
+
+  /* ---------- Musique ---------- */
+  .music{columns:2 420px;column-gap:28px}
+  .mgroup{break-inside:avoid;margin-bottom:28px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);padding:8px 8px 6px;box-shadow:var(--shadow-s)}
+  .mgroup h3{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:19px;padding:12px 12px 10px}
+  .mgroup h3 .cnt{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--muted);background:var(--paper-2);border-radius:99px;padding:2px 10px}
+  .track{display:grid;grid-template-columns:40px 1fr;align-items:center;gap:14px;padding:8px 12px;border-radius:12px;transition:background .2s}
+  .track:hover{background:var(--paper)}
+  .track .t{font-size:15px;font-weight:500;line-height:1.35;color:var(--ink)}
+  .track .host{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-top:1px}
+  .pbtn{width:40px;height:40px;border-radius:50%;flex:none;cursor:pointer;background:var(--night);border:0;color:var(--silk-2);
+    display:flex;align-items:center;justify-content:center;transition:transform .2s var(--ease),background .2s}
+  .pbtn:hover{transform:scale(1.08);background:var(--night-3)}
+  .track.ext .pbtn{background:transparent;border:1.5px solid var(--line);color:var(--ink-2)}
+  .track.ext .pbtn:hover{border-color:var(--ink-2)}
+
+  /* ---------- Partenaires & presse ---------- */
+  .partners{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+  .partner{display:flex;flex-direction:column;gap:14px;padding:22px;background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);
+    text-decoration:none;color:var(--ink);box-shadow:var(--shadow-s);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+  .partner:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--silk)}
+  .partner .mono{width:52px;height:52px;border-radius:14px;background:var(--night);color:var(--silk-2);display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:20px;font-weight:500}
+  .partner b{font-size:16px;font-weight:600;line-height:1.3}
+  .partner .host{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--muted);margin-top:auto}
+  .press{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+  .article{display:grid;grid-template-columns:200px 1fr auto;gap:6px 28px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line);
+    text-decoration:none;color:var(--ink);transition:background .2s,padding .25s var(--ease)}
+  .article:hover{background:var(--card);padding-left:16px;padding-right:16px}
+  .article .src{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+  .article .src span{display:block;font-weight:400}
+  .article .ttl{font-family:var(--serif);font-size:clamp(19px,2.2vw,24px);line-height:1.3}
+  .article .go{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-2);transition:background .2s,color .2s,border-color .2s}
+  .article:hover .go{background:var(--night);border-color:var(--night);color:var(--silk-2)}
+  @media (max-width:700px){ .article{grid-template-columns:1fr auto} .article .src{grid-column:1/-1;display:flex;gap:6px} .article .src span::before{content:"· "} }
+
+  .support{margin:72px auto 0;max-width:var(--max);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;
+    padding:clamp(26px,4vw,40px);border-radius:24px;background:linear-gradient(135deg,var(--silk-soft),#efd6a6);border:1px solid #e3c88f}
+  .support h3{font-size:clamp(24px,3vw,32px);font-weight:400;max-width:460px}
+  .support .acts{display:flex;flex-wrap:wrap;gap:10px}
+  .support .btn.line{border-color:rgba(29,26,22,.25)}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:120px;background:var(--night);color:var(--on-night-2);padding:64px 20px 40px}
+  footer .in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+  footer .brand{font-size:30px}
+  footer p{font-size:14.5px;max-width:460px;margin-top:14px}
+  footer a{color:var(--silk-2)}
+  footer nav{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;align-content:start}
+  footer nav a{color:var(--on-night-2);text-decoration:none;font-size:15px;padding:4px 0}
+  footer nav a:hover{color:#fff}
+  footer .bottom{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.1);font-size:13px}
+  @media (max-width:760px){ footer .in{grid-template-columns:1fr} }
+
+  /* ---------- Retour en haut ---------- */
+  .totop{position:fixed;right:18px;bottom:18px;z-index:40;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--night);color:var(--silk-2);box-shadow:0 10px 24px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;
+    opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s var(--ease)}
+  .totop.show{opacity:1;transform:none;pointer-events:auto}
+
+  /* ---------- Modal ---------- */
+  .backdrop{position:fixed;inset:0;background:rgba(8,12,18,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+  .backdrop.open{display:flex;animation:fade .2s ease}
+  @keyframes fade{from{opacity:0}}
+  .modal{background:var(--night);border-radius:20px;max-width:980px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden;animation:rise .3s var(--ease)}
+  @keyframes rise{from{transform:translateY(14px) scale(.98);opacity:0}}
+  .modal .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 22px;color:var(--on-night)}
+  .modal .bar b{font-size:17px;font-weight:500;font-family:var(--serif);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .modal .x{flex:none;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);border:0;color:var(--on-night);cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .modal .x:hover{background:rgba(255,255,255,.16)}
+  .modal .stage{aspect-ratio:16/9;background:#0a1018}
+  .modal .stage iframe{width:100%;height:100%;border:0;display:block}
+  .modal .stage .fallback{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:var(--on-night);padding:20px;text-align:center;font-family:var(--serif);font-size:20px}
+  .modal .src{padding:12px 22px 16px;font-size:13.5px;color:var(--on-night-2)}
+  .modal .src:empty{display:none}
+  .modal .src a{color:var(--silk-2)}
+
+  /* ---------- Apparition au défilement ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in-view{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+    .reveal{opacity:1;transform:none}
+    .hero-route .path{stroke-dashoffset:0}
+    .hero-route .dot{opacity:1}
+  }
+  @media (max-width:640px){
+    section{padding-top:80px}
+    .sec-head{margin-bottom:32px}
+    .goal{padding:72px 22px 24px}
+    .goal .num{left:22px;top:18px}
+  }
 </style>
 </head>
 <body>
+<a class="skip" href="#film" data-i18n="skip">Aller au contenu</a>
 
-<nav class="nav">
-  <a class="brand" href="#top">
-    <svg width="22" height="22" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#c99a3f" stroke-width="6"/><circle cx="50" cy="50" r="10" fill="#c99a3f"/></svg>
-    Au bout de soie
-  </a>
-  <div class="links">
-    <a href="#film" data-i18n="navFilm">Le film</a>
-    <a href="#aventure" data-i18n="navJourney">L’aventure</a>
-    <a href="#portraits" data-i18n="navPortraits">Portraits</a>
-    <a href="#newsletters" data-i18n="navNews">Newsletters</a>
-    <a href="#musique" data-i18n="navMusic">Bande-son</a>
-    <a href="#partenaires" data-i18n="navPartners">Partenaires</a>
-    <a href="#presse" data-i18n="navPress">Presse</a>
-    <button class="lang" id="langBtn" aria-label="Language / Langue"><span id="langFr" class="on">FR</span><span id="langEn">EN</span></button>
+<nav class="nav" id="nav" aria-label="Navigation principale">
+  <div class="in">
+    <a class="brand" href="#top">
+      <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 66 C30 26 50 88 70 46 S88 34 92 34" fill="none" stroke="#d4a24c" stroke-width="8" stroke-linecap="round"/><circle cx="92" cy="34" r="8" fill="#d4a24c"/></svg>
+      Au bout de soie
+    </a>
+    <div class="links" id="navLinks">
+      <a href="#film" data-i18n="navFilm">Le film</a>
+      <a href="#aventure" data-i18n="navJourney">L’aventure</a>
+      <a href="#portraits" data-i18n="navPortraits">Portraits</a>
+      <a href="#newsletters" data-i18n="navNews">Newsletters</a>
+      <a href="#musique" data-i18n="navMusic">Bande-son</a>
+      <a href="#partenaires" data-i18n="navPartners">Partenaires</a>
+      <a href="#presse" data-i18n="navPress">Presse</a>
+    </div>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" id="langFr" class="on" aria-pressed="true" lang="fr">FR</button>
+      <button type="button" id="langEn" aria-pressed="false" lang="en">EN</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks" data-i18n-aria="menu" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path id="menuIc" d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <svg class="threads" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M-50,520 C200,380 340,640 620,470 C900,300 1040,520 1250,380" fill="none" stroke="#c99a3f" stroke-width="1.6" stroke-dasharray="3 9" opacity=".8"/>
-    <path d="M-50,560 C220,420 380,680 660,510 C940,340 1080,560 1250,420" fill="none" stroke="#e9c06a" stroke-width="1.1" stroke-dasharray="2 12" opacity=".55"/>
-    <path d="M-50,470 C180,330 360,580 640,410 C920,240 1060,470 1250,320" fill="none" stroke="#b3502f" stroke-width="1.2" stroke-dasharray="1 8" opacity=".5"/>
-    <circle cx="620" cy="470" r="4" fill="#e9c06a"/><circle cx="340" cy="640" r="3" fill="#c99a3f" opacity=".6"/><circle cx="1040" cy="520" r="3" fill="#c99a3f" opacity=".6"/>
-  </svg>
   <div class="wrap">
     <span class="kicker" data-i18n="kicker">Le film &amp; l’aventure</span>
-    <h1>Au bout de <em>soie</em></h1>
+    <h1>Au bout<br>de <em>soie</em></h1>
     <p class="pitch" id="heroPitch"></p>
-    <div class="stats">
+    <div class="actions">
+      <a class="btn gold" href="#film">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+        <span data-i18n="cta">Voir le film</span>
+      </a>
+      <a class="btn line-light" href="#aventure" data-i18n="ctaJourney">Découvrir l’aventure</a>
+    </div>
+    <div class="hero-route" aria-hidden="true">
+      <svg viewBox="0 0 1200 150" id="heroRoute">
+        <path class="path" d="M30,100 C110,40 170,40 190,62 S290,128 340,96 S450,30 490,56 S580,120 640,92 S760,26 790,48 S880,118 940,88 S1080,40 1170,70" fill="none" stroke="#d4a24c" stroke-width="2" stroke-linecap="round" stroke-dasharray="1600"/>
+      </svg>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="in">
       <div class="stat"><b>6 000 km</b><span data-i18n="statBike">à vélo</span></div>
-      <div class="stat"><b>8 pays</b><span data-i18n="statSilk">Route de la Soie</span></div>
-      <div class="stat"><b>7 mois</b><span data-i18n="statRoad">sur la route</span></div>
+      <div class="stat"><b data-i18n="statCountriesN">8 pays</b><span data-i18n="statSilk">Route de la Soie</span></div>
+      <div class="stat"><b data-i18n="statMonthsN">7 mois</b><span data-i18n="statRoad">sur la route</span></div>
       <div class="stat"><b>100</b><span data-i18n="statEnt">micro-entrepreneurs</span></div>
     </div>
-    <a class="cta" href="#film">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-      <span data-i18n="cta">Voir le film</span>
-    </a>
   </div>
 </header>
 
 <main>
   <section id="film">
-    <div class="sec-head">
-      <span class="over" data-i18n="filmOver">Le film</span>
-      <h2 data-i18n="filmH2">« Au bout de soie »</h2>
-      <p class="sub" data-i18n="filmSub">Documentaire de l’aventure, sous-titres en français, à activer sur YouTube.</p>
-    </div>
-    <div class="player-frame" id="mainPlayer">
-      <div class="player-poster" id="mainPoster">
-        <div class="play">
-          <div class="btn-round"><svg width="30" height="30" viewBox="0 0 24 24" fill="#241c0d" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg></div>
-          <b data-i18n="play">Lancer le film</b>
-          <span data-i18n="playSub">Au bout de soie, version finale</span>
+    <div class="in-sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="n">01</span><span data-i18n="filmOver">Le film</span></span>
+        <h2 data-i18n="filmH2">« Au bout de soie »</h2>
+        <p class="sub" data-i18n="filmSub">Documentaire de l’aventure, sous-titres en français, à activer sur YouTube.</p>
+      </div>
+      <div class="film-grid reveal">
+        <div class="player" id="mainPlayer">
+          <button class="poster" id="mainPoster" type="button">
+            <span class="round"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg></span>
+            <span class="cap"><b data-i18n="play">Lancer le film</b><span data-i18n="playSub">Au bout de soie, version finale</span></span>
+          </button>
+        </div>
+        <div class="film-meta">
+          <div class="teaser">
+            <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="15" height="14" rx="3"/><path d="M17 10l5-3v10l-5-3z"/></svg></span>
+            <div><h3 data-i18n="teaserH">Le teaser</h3><p data-i18n="teaserP">Sous-titres disponibles en français et en anglais, à activer sur YouTube.</p></div>
+          </div>
+          <div class="acts">
+            <button class="btn dark" id="teaserBtn" type="button">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+              <span data-i18n="teaserBtn">Voir le teaser</span>
+            </button>
+            <a class="btn line" id="filmLink" target="_blank" rel="noopener">
+              <span data-i18n="watchYt">Ouvrir sur YouTube</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="film-note">
-      <span>▶ <a id="filmLink" target="_blank" rel="noopener" data-i18n="watchYt">Regarder directement sur YouTube</a></span>
-    </div>
-    <div class="teaser">
-      <h3 data-i18n="teaserH">Le teaser 📼</h3>
-      <p data-i18n="teaserP">Sous-titres disponibles en français et en anglais, à activer sur YouTube.</p>
-      <button class="btn ghost" id="teaserBtn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-        <span data-i18n="teaserBtn">Voir le teaser</span>
-      </button>
     </div>
   </section>
 
   <section id="aventure">
-    <div class="sec-head">
-      <span class="over" data-i18n="projOver">Le projet</span>
-      <h2 data-i18n="projH2">Deux objectifs, un vélo</h2>
-    </div>
-    <div class="goal-grid" id="goals"></div>
-
-    <div class="route-wrap">
-      <div class="route-line">
-        <span data-i18n="itin">L’itinéraire</span>
-        <svg viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 C100,12 120,4 200,12 C280,20 300,12 400,12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 7"/></svg>
+    <div class="in-sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="n">02</span><span data-i18n="projOver">Le projet</span></span>
+        <h2 data-i18n-html="projH2">Deux objectifs, <em>un vélo</em></h2>
       </div>
-      <p class="sub" style="color:var(--muted);margin:-10px 0 18px" data-i18n="routeSub">6 000 km à vélo à travers 8 pays de la Route de la Soie, du Myanmar aux bords de la Mer Caspienne.</p>
-      <div class="route" id="route"></div>
-    </div>
+      <div class="goals reveal" id="goals"></div>
 
-    <div class="team" id="team"></div>
+      <div class="route-head reveal">
+        <h3 data-i18n="itin">L’itinéraire</h3>
+        <p data-i18n="routeSub">6 000 km à vélo à travers 8 pays de la Route de la Soie, du Myanmar aux bords de la Mer Caspienne.</p>
+      </div>
+      <ol class="timeline reveal" id="route"></ol>
+
+      <div class="team reveal" id="team"></div>
+    </div>
   </section>
 
   <section id="portraits">
-    <div class="sec-head">
-      <span class="over" data-i18n="voicesOver">Témoignages</span>
-      <h2 data-i18n="portraitsH2">Portraits de micro-entrepreneurs</h2>
-      <p class="sub" data-i18n="portraitsSub">Les interviews complètes filmées au fil de la route : coiffeurs, éleveurs, restauratrices, tisseuses… ils racontent ce que le microcrédit a changé dans leur vie.</p>
+    <div class="in-sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="n">03</span><span data-i18n="voicesOver">Témoignages</span></span>
+        <h2 data-i18n="portraitsH2">Portraits de micro-entrepreneurs</h2>
+        <p class="sub" data-i18n="portraitsSub">Les interviews complètes filmées au fil de la route : coiffeurs, éleveurs, restauratrices, tisseuses… ils racontent ce que le microcrédit a changé dans leur vie.</p>
+      </div>
+      <div class="filters" id="filters" role="group" data-i18n-aria="filterAria" aria-label="Filtrer par pays"></div>
+      <div class="cards" id="interviews" aria-live="polite"></div>
     </div>
-    <div class="chips" id="filters"></div>
-    <div class="cards" id="interviews"></div>
   </section>
 
   <section id="newsletters">
-    <div class="sec-head">
-      <span class="over" data-i18n="newsOver">La newsletter</span>
-      <h2 data-i18n="newsH2">Revivez le voyage, étape par étape</h2>
-      <p class="sub" data-i18n="newsSub">9 numéros, du compte à rebours du départ à la ligne d’arrivée à Aktaou.</p>
-    <p class="sub" id="nlFrNote" data-i18n="newsFrNote" style="color:var(--muted);font-size:14px;margin:-6px 0 18px;display:none"></p>
+    <div class="in-sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="n">04</span><span data-i18n="newsOver">La newsletter</span></span>
+        <h2 data-i18n="newsH2">Revivez le voyage, étape par étape</h2>
+        <p class="sub" data-i18n="newsSub">9 numéros, du compte à rebours du départ à la ligne d’arrivée à Aktaou.</p>
+        <p class="nl-note" id="nlFrNote" style="display:none"></p>
+      </div>
+      <div class="news" id="newsList"></div>
     </div>
-    <div class="news-list" id="newsList"></div>
   </section>
 
   <section id="musique">
-    <div class="sec-head">
-      <span class="over" data-i18n="musicOver">La bande-son</span>
-      <h2 data-i18n="musicH2">Les titres du film</h2>
-      <p class="sub" data-i18n="musicSub">La playlist classée par séquence du film.</p>
+    <div class="in-sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="n">05</span><span data-i18n="musicOver">La bande-son</span></span>
+        <h2 data-i18n="musicH2">Les titres du film</h2>
+        <p class="sub" data-i18n="musicSub">La playlist classée par séquence du film.</p>
+      </div>
+      <div class="music" id="music"></div>
     </div>
-    <div class="music-groups" id="music"></div>
   </section>
 
   <section id="partenaires">
-    <div class="sec-head">
-      <span class="over" data-i18n="partnersOver">Sur le terrain</span>
-      <h2 data-i18n="partnersH2">Les partenaires de terrain</h2>
+    <div class="in-sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="n">06</span><span data-i18n="partnersOver">Sur le terrain</span></span>
+        <h2 data-i18n="partnersH2">Les partenaires de terrain</h2>
+      </div>
+      <div class="partners reveal" id="partners"></div>
     </div>
-    <div class="partners" id="partners"></div>
   </section>
 
   <section id="presse">
-    <div class="sec-head">
-      <span class="over" data-i18n="pressOver">Pour aller plus loin</span>
-      <h2 data-i18n="pressH2">Ils en ont parlé</h2>
+    <div class="in-sec">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><span class="n">07</span><span data-i18n="pressOver">Pour aller plus loin</span></span>
+        <h2 data-i18n="pressH2">Ils en ont parlé</h2>
+      </div>
+      <div class="press reveal" id="articles"></div>
+      <div class="support reveal" id="more"></div>
     </div>
-    <div class="articles" id="articles"></div>
-    <div class="more" id="more"></div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="in">
     <div>
-      <div class="brand">Au bout de soie</div>
+      <div class="brand">
+        <svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 66 C30 26 50 88 70 46 S88 34 92 34" fill="none" stroke="#d4a24c" stroke-width="8" stroke-linecap="round"/><circle cx="92" cy="34" r="8" fill="#d4a24c"/></svg>
+        Au bout de soie
+      </div>
       <p data-i18n-html="footerP">Site construit à partir de la page du projet. Pour toute question, contactez Guilhem ou Quentin via la <a id="notionLink" target="_blank" rel="noopener">page Notion du projet</a>.</p>
     </div>
-    <a class="btn gold" id="footerFilm" target="_blank" rel="noopener" data-i18n="watchAgain">▶ Revoir le film</a>
+    <nav aria-label="Plan du site" data-i18n-aria="footerNav">
+      <a href="#film" data-i18n="navFilm">Le film</a>
+      <a href="#aventure" data-i18n="navJourney">L’aventure</a>
+      <a href="#portraits" data-i18n="navPortraits">Portraits</a>
+      <a href="#newsletters" data-i18n="navNews">Newsletters</a>
+      <a href="#musique" data-i18n="navMusic">Bande-son</a>
+      <a href="#partenaires" data-i18n="navPartners">Partenaires</a>
+      <a href="#presse" data-i18n="navPress">Presse</a>
+    </nav>
+    <div class="bottom">
+      <span>Au bout de soie · 2017</span>
+      <a class="btn gold" id="footerFilm" target="_blank" rel="noopener" data-i18n="watchAgain">▶ Revoir le film</a>
+    </div>
   </div>
 </footer>
 
+<button class="totop" id="toTop" type="button" data-i18n-aria="toTop" aria-label="Revenir en haut">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
 <div class="backdrop" id="backdrop">
-  <div class="modal" role="dialog" aria-modal="true">
-    <div class="bar"><b id="modalTitle"></b><button class="x" id="modalClose" aria-label="Fermer" data-i18n-aria="close">×</button></div>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bar"><b id="modalTitle"></b><button class="x" id="modalClose" type="button" aria-label="Fermer" data-i18n-aria="close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
     <div class="stage" id="modalStage"></div>
     <div class="src" id="modalSrc"></div>
   </div>
@@ -754,6 +934,7 @@
 "use strict";
 var DATA = JSON.parse(document.getElementById("abds-data").textContent);
 var $ = function(id){ return document.getElementById(id); };
+var each = function(list, fn){ Array.prototype.forEach.call(list, fn); };
 
 /* ---------- helpers ---------- */
 function esc(s){
@@ -775,6 +956,17 @@ function embedUrl(v, autoplay){
   if(v.type==="youtube") return "https://www.youtube-nocookie.com/embed/"+v.id+(autoplay?"?autoplay=1":"");
   return "https://player.vimeo.com/video/"+v.id+(autoplay?"?autoplay=1":"");
 }
+function ytThumb(id, q){ return "https://i.ytimg.com/vi/"+id+"/"+(q||"hqdefault")+".jpg"; }
+var PLAY = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>';
+var ARROW = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+
+/* Couleurs de vignette par pays (quand la vidéo n'a pas de miniature) */
+var TINT = {
+  "Myanmar":["#c98a2e","#7a3b1f"], "Bangladesh":["#2f6f62","#163a3a"], "Inde":["#c45f3b","#5b2a1c"],
+  "Kirghizistan":["#b8432f","#3b1d22"], "Tadjikistan":["#3f6a8a","#1a2939"], "Thaïlande":["#5a4a8a","#22203f"],
+  "Ouzbékistan":["#2e7a8a","#16323a"], "Kazakhstan":["#3a8ab0","#163447"]
+};
+function tint(c){ var t = TINT[c] || ["#24384c","#121d29"]; return "radial-gradient(120% 90% at 20% 10%,"+t[0]+","+t[1]+")"; }
 
 /* ---------- langue ---------- */
 var LANG;
@@ -785,62 +977,68 @@ var T = {
   fr: {
     title:"Au bout de soie : le film et l’aventure",
     desc:"Le documentaire Au bout de soie : 6 000 km à vélo sur la Route de la Soie pour promouvoir la microfinance solidaire. Film, portraits de micro-entrepreneurs, newsletters et bande-son.",
+    skip:"Aller au contenu", menu:"Menu", toTop:"Revenir en haut", footerNav:"Plan du site", filterAria:"Filtrer par pays",
     navFilm:"Le film", navJourney:"L’aventure", navPortraits:"Portraits", navNews:"Newsletters", navMusic:"Bande-son", navPartners:"Partenaires", navPress:"Presse",
     kicker:"Le film & l’aventure",
     statBike:"à vélo", statSilk:"Route de la Soie", statRoad:"sur la route", statEnt:"micro-entrepreneurs",
-    cta:"Voir le film",
-    filmOver:"Le film", filmH2:"« Au bout de soie »", filmSub:"Documentaire de l’aventure, sous-titres en français, à activer sur YouTube.",
-    play:"Lancer le film", playSub:"Au bout de soie, version finale", watchYt:"Regarder directement sur YouTube",
-    teaserH:"Le teaser 📼", teaserP:"Sous-titres disponibles en français et en anglais, à activer sur YouTube.", teaserBtn:"Voir le teaser",
-    projOver:"Le projet", projH2:"Deux objectifs, un vélo", itin:"L’itinéraire",
+    statCountriesN:"8 pays", statMonthsN:"7 mois",
+    cta:"Voir le film", ctaJourney:"Découvrir l’aventure",
+    filmOver:"Le film", filmH2:"« Au bout de soie »", filmSub:"Le documentaire de l’aventure. Sous-titres en français, à activer sur YouTube.",
+    play:"Lancer le film", playSub:"Au bout de soie, version finale", watchYt:"Ouvrir sur YouTube",
+    teaserH:"Le teaser", teaserP:"Sous-titres disponibles en français et en anglais, à activer sur YouTube.", teaserBtn:"Voir le teaser",
+    projOver:"Le projet", projH2:"Deux objectifs, <em>un vélo</em>", itin:"L’itinéraire",
     routeSub:"6 000 km à vélo à travers 8 pays de la Route de la Soie, du Myanmar aux bords de la Mer Caspienne.",
+    teamOver:"L’équipe",
     voicesOver:"Témoignages", portraitsH2:"Portraits de micro-entrepreneurs",
     portraitsSub:"Les interviews complètes filmées au fil de la route : coiffeurs, éleveurs, restauratrices, tisseuses… ils racontent ce que le microcrédit a changé dans leur vie.",
     newsOver:"La newsletter", newsH2:"Revivez le voyage, étape par étape",
     newsSub:"9 numéros, du compte à rebours du départ à la ligne d’arrivée à Aktaou.",
-    newsFrNote:"",
+    newsFrNote:"", closeNl:"Refermer ce numéro",
     musicOver:"La bande-son", musicH2:"Les titres du film", musicSub:"La playlist classée par séquence du film.",
     partnersOver:"Sur le terrain", partnersH2:"Les partenaires de terrain",
     pressOver:"Pour aller plus loin", pressH2:"Ils en ont parlé",
     footerP:"Site construit à partir de la page du projet. Pour toute question, contactez Guilhem ou Quentin via la <a id=\"notionLink\" target=\"_blank\" rel=\"noopener\">page Notion du projet</a>.",
     watchAgain:"▶ Revoir le film", close:"Fermer",
-    all:"Tous", watch:"Regarder", noLabel:"N°", issue:"Newsletter N° ", goalLabel:"OBJECTIF ",
+    all:"Tous", watch:"Regarder", noLabel:"N° ", issue:"Newsletter N° ", goalLabel:"Objectif ",
     problemPre:"Problème d’affichage ? ", problemLink:"Ouvrir la vidéo dans un nouvel onglet",
     fallbackTitle:"Cette piste s’écoute sur son site d’origine", fallbackBtn:"Ouvrir le lecteur externe",
     iframeFilmTitle:"Au bout de soie : le film", teaserModalTitle:"Au bout de soie : le teaser",
     listenAria:"Écouter ", openAria:"Ouvrir ",
     wantSupport:"Envie de soutenir la microfinance solidaire ?",
-    notionBtn:"Page Notion du projet ↗", mcmaBtn:"Micro-crédit Macro-action (MCMA) ↗"
+    notionBtn:"Page Notion du projet", mcmaBtn:"Micro-crédit Macro-action (MCMA)"
   },
   en: {
     title:"Au bout de soie: the film and the journey",
     desc:"The documentary Au bout de soie: 6,000 km by bike along the Silk Road to promote solidarity microfinance. The film, micro-entrepreneur portraits, newsletters and soundtrack.",
+    skip:"Skip to content", menu:"Menu", toTop:"Back to top", footerNav:"Site map", filterAria:"Filter by country",
     navFilm:"The film", navJourney:"The journey", navPortraits:"Portraits", navNews:"Newsletters", navMusic:"Soundtrack", navPartners:"Partners", navPress:"Press",
     kicker:"The film and the journey",
     statBike:"by bike", statSilk:"Silk Road", statRoad:"on the road", statEnt:"micro-entrepreneurs",
-    cta:"Watch the film",
-    filmOver:"The film", filmH2:"“Au bout de soie”", filmSub:"The documentary of the journey, French subtitles available on YouTube.",
-    play:"Play the film", playSub:"Au bout de soie, final cut", watchYt:"Watch directly on YouTube",
-    teaserH:"The teaser 📼", teaserP:"French and English subtitles available on YouTube.", teaserBtn:"Watch the teaser",
-    projOver:"The project", projH2:"Two goals, one bike", itin:"The route",
+    statCountriesN:"8 countries", statMonthsN:"7 months",
+    cta:"Watch the film", ctaJourney:"Discover the journey",
+    filmOver:"The film", filmH2:"“Au bout de soie”", filmSub:"The documentary of the journey. French subtitles available on YouTube.",
+    play:"Play the film", playSub:"Au bout de soie, final cut", watchYt:"Open on YouTube",
+    teaserH:"The teaser", teaserP:"French and English subtitles available on YouTube.", teaserBtn:"Watch the teaser",
+    projOver:"The project", projH2:"Two goals, <em>one bike</em>", itin:"The route",
     routeSub:"6,000 km by bike across 8 countries of the Silk Road, from Myanmar to the shores of the Caspian Sea.",
+    teamOver:"The team",
     voicesOver:"Field voices", portraitsH2:"Micro-entrepreneur portraits",
     portraitsSub:"Full interviews filmed along the way: hairdressers, farmers, restaurant owners, weavers… they tell what microcredit changed in their lives.",
     newsOver:"The newsletter", newsH2:"Relive the journey, stage by stage",
     newsSub:"9 issues, from the pre-departure countdown to the finish line in Aktau.",
-    newsFrNote:"The original newsletters are in French.",
+    newsFrNote:"The original newsletters are in French.", closeNl:"Close this issue",
     musicOver:"The soundtrack", musicH2:"Songs from the film", musicSub:"The playlist, ordered by film sequence.",
     partnersOver:"On the ground", partnersH2:"Field partners",
     pressOver:"To go further", pressH2:"In the press",
     footerP:"This site is built from the project page. For any question, contact Guilhem or Quentin via the <a id=\"notionLink\" target=\"_blank\" rel=\"noopener\">project's Notion page</a>.",
     watchAgain:"▶ Watch the film again", close:"Close",
-    all:"All", watch:"Watch", noLabel:"No. ", issue:"Issue ", goalLabel:"GOAL ",
+    all:"All", watch:"Watch", noLabel:"No. ", issue:"Issue ", goalLabel:"Goal ",
     problemPre:"Display issue? ", problemLink:"Open the video in a new tab",
     fallbackTitle:"This track plays on its original site", fallbackBtn:"Open the external player",
     iframeFilmTitle:"Au bout de soie: the film", teaserModalTitle:"Au bout de soie: the teaser",
     listenAria:"Play ", openAria:"Open ",
     wantSupport:"Want to support solidarity microfinance?",
-    notionBtn:"The project's Notion page ↗", mcmaBtn:"Micro-crédit Macro-action (MCMA) ↗",
+    notionBtn:"The project's Notion page", mcmaBtn:"Micro-crédit Macro-action (MCMA)",
     pitch:"6,000 km by bike along the Silk Road to promote solidarity microfinance, from Myanmar to Bangladesh, from Kyrgyzstan to the Black Sea.",
     goals:["Help 1,000 people permanently escape poverty, alongside 4 microfinance professionals (Entrepreneurs du Monde, Positive Planet, Oxus and FGCA).","Draw on these entrepreneurs' experience and share their success stories through a web series following their encounters and adventures."],
     teamDesc:"Childhood friends, they cycled the Silk Road for 8 months, meeting microfinance institutes and the micro-entrepreneurs they support.",
@@ -856,9 +1054,10 @@ var T = {
 };
 
 /* ---------- lecteur modal ---------- */
-var backdrop=$("backdrop"), stage=$("modalStage"), mTitle=$("modalTitle"), mSrc=$("modalSrc");
+var backdrop=$("backdrop"), stage=$("modalStage"), mTitle=$("modalTitle"), mSrc=$("modalSrc"), lastFocus=null;
 function openModal(title, url){
   var v = videoId(url);
+  lastFocus = document.activeElement;
   mTitle.textContent = title;
   stage.innerHTML = "";
   mSrc.innerHTML = "";
@@ -866,19 +1065,31 @@ function openModal(title, url){
     stage.innerHTML = '<iframe src="'+esc(embedUrl(v,true))+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="'+esc(title)+'"></iframe>';
     mSrc.innerHTML = esc(T[LANG].problemPre)+'<a target="_blank" rel="noopener" href="'+esc(url)+'">'+esc(T[LANG].problemLink)+'</a>.';
   } else {
-    stage.innerHTML = '<div class="fallback"><b>'+esc(T[LANG].fallbackTitle)+'</b><a class="btn gold" target="_blank" rel="noopener" href="'+esc(url)+'">'+esc(T[LANG].fallbackBtn)+'</a></div>';
+    stage.innerHTML = '<div class="fallback"><span>'+esc(T[LANG].fallbackTitle)+'</span><a class="btn gold" target="_blank" rel="noopener" href="'+esc(url)+'">'+esc(T[LANG].fallbackBtn)+' '+ARROW+'</a></div>';
   }
   backdrop.classList.add("open");
   document.body.style.overflow="hidden";
+  $("modalClose").focus();
 }
 function closeModal(){
+  if(!backdrop.classList.contains("open")) return;
   backdrop.classList.remove("open");
   stage.innerHTML="";
   document.body.style.overflow="";
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
 }
 $("modalClose").addEventListener("click", closeModal);
 backdrop.addEventListener("click", function(e){ if(e.target===backdrop) closeModal(); });
-document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
+document.addEventListener("keydown", function(e){
+  if(e.key==="Escape"){ closeModal(); closeMenu(); }
+  if(e.key==="Tab" && backdrop.classList.contains("open")){
+    var f = backdrop.querySelectorAll("button, a[href], iframe");
+    if(!f.length) return;
+    var first=f[0], last=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+});
 
 /* ---------- libellés dynamiques ---------- */
 function norm(s){ return String(s).replace(/’/g,"'"); }
@@ -909,7 +1120,7 @@ function renderMd(src){
     if(!t){ flushP(); flushL(); return; }
     if((h = t.match(/^(#{1,3})\s+(.*)$/))){
       flushP(); flushL();
-      var tag = h[1].length===1 ? "h2" : (h[1].length===2 ? "h2" : "h3");
+      var tag = h[1].length<=2 ? "h2" : "h3";
       out.push("<"+tag+">"+inline(h[2])+"</"+tag+">");
       return;
     }
@@ -925,34 +1136,64 @@ function renderMd(src){
 /* ---------- rendu ---------- */
 var curFilter = "*";
 
+function renderHeroRoute(){
+  var svg = $("heroRoute"), path = svg.querySelector(".path");
+  each(svg.querySelectorAll(".dot, text"), function(n){ n.parentNode.removeChild(n); });
+  if(!path.getTotalLength) return;
+  var L = path.getTotalLength(), n = DATA.route.length, ns = "http://www.w3.org/2000/svg";
+  DATA.route.forEach(function(r,i){
+    var p = path.getPointAtLength(L*(0.02 + 0.96*i/(n-1)));
+    var g = document.createElementNS(ns,"g");
+    g.setAttribute("class","dot");
+    g.style.animationDelay = (0.4 + 2.2*i/(n-1)).toFixed(2)+"s";
+    var end = (i===0 || i===n-1);
+    g.innerHTML = '<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="'+(end?9:6)+'" fill="'+(end?"#d4a24c":"#1a2939")+'" stroke="#d4a24c" stroke-width="2"/>';
+    var t = document.createElementNS(ns,"text");
+    t.setAttribute("x", p.x.toFixed(1));
+    t.setAttribute("y", (p.y + (p.y<80 ? -18 : 30)).toFixed(1));
+    t.setAttribute("text-anchor", i===0 ? "start" : (i===n-1 ? "end" : "middle"));
+    if(i===0) t.setAttribute("x", (p.x-10).toFixed(1));
+    if(i===n-1) t.setAttribute("x", (p.x+10).toFixed(1));
+    t.textContent = countryLabel(r.country);
+    g.appendChild(t);
+    svg.appendChild(g);
+  });
+}
+
 function renderGoals(){
   var g = goalsText();
   $("goals").innerHTML = g.map(function(x,i){
-    return '<div class="goal"><div class="num">'+esc(T[LANG].goalLabel)+(i+1)+'</div><p>'+esc(x)+'</p></div>';
+    return '<div class="goal"><span class="num">'+(i+1)+'</span><small>'+esc(T[LANG].goalLabel)+(i+1)+'</small><p>'+esc(x)+'</p></div>';
   }).join("");
 }
 
 function renderRoute(){
   $("route").innerHTML = DATA.route.map(function(r,i){
-    return '<div class="step"><span class="idx">'+(i+1)+' / '+DATA.route.length+'</span>'+
-      '<div class="flag">'+r.flag+'</div><h4>'+esc(countryLabel(r.country))+'</h4><p>'+esc(stageOf(i))+'</p></div>';
+    return '<li class="stop"><span class="pin" aria-hidden="true">'+r.flag+'</span>'+
+      '<span class="k">'+(i+1)+' / '+DATA.route.length+'</span><h4>'+esc(countryLabel(r.country))+'</h4><p>'+esc(stageOf(i))+'</p></li>';
   }).join("");
 }
 
 function renderTeam(){
-  $("team").innerHTML = '<div class="avatar">🚴‍♂️</div><div><h3>'+esc(DATA.team.names)+'</h3><p>'+esc(teamDesc())+'</p></div>';
+  $("team").innerHTML = '<div class="avatar" aria-hidden="true">🚴‍♂️</div><div><small>'+esc(T[LANG].teamOver)+'</small><h3>'+esc(DATA.team.names)+'</h3><p>'+esc(teamDesc())+'</p></div>';
 }
 
 function renderFilters(){
-  var countries = [];
-  DATA.interviews.forEach(function(it){ if(countries.indexOf(it.country)<0) countries.push(it.country); });
-  $("filters").innerHTML = '<button class="chip'+(curFilter==="*"?" on":"")+'" data-c="*">'+esc(T[LANG].all)+'</button>' + countries.map(function(c){
-    return '<button class="chip'+(curFilter===c?" on":"")+'" data-c="'+esc(c)+'">'+esc(countryLabel(c))+'</button>';
+  var countries = [], counts = {};
+  DATA.interviews.forEach(function(it){
+    if(countries.indexOf(it.country)<0) countries.push(it.country);
+    counts[it.country] = (counts[it.country]||0)+1;
+  });
+  function chip(key, label, n){
+    return '<button type="button" class="chip" data-c="'+esc(key)+'" aria-pressed="'+(curFilter===key)+'">'+esc(label)+'<span class="c">'+n+'</span></button>';
+  }
+  $("filters").innerHTML = chip("*", T[LANG].all, DATA.interviews.length) + countries.map(function(c){
+    return chip(c, countryLabel(c), counts[c]);
   }).join("");
-  Array.prototype.forEach.call($("filters").querySelectorAll(".chip"), function(ch){
+  each($("filters").querySelectorAll(".chip"), function(ch){
     ch.addEventListener("click", function(){
       curFilter = ch.getAttribute("data-c");
-      renderFilters();
+      each($("filters").querySelectorAll(".chip"), function(o){ o.setAttribute("aria-pressed", String(o===ch)); });
       renderInterviews(curFilter);
     });
   });
@@ -962,29 +1203,43 @@ function renderInterviews(filter){
   $("interviews").innerHTML = DATA.interviews.filter(function(it){
     return filter==="*" || it.country===filter;
   }).map(function(it){
-    var act = activityOf(it), nm = it.name+", "+act;
-    return '<div class="card" data-country="'+esc(it.country)+'">'+
-      '<div class="top"><span class="where">'+it.flag+' '+esc(countryLabel(it.country))+'</span><span class="no">'+esc(T[LANG].noLabel)+it.n+'</span></div>'+
-      '<h4>'+esc(it.name)+'</h4><div class="act">'+esc(act)+'</div>'+
-      '<button class="watch" data-url="'+esc(it.url)+'" data-title="'+esc(nm)+'">'+
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>'+esc(T[LANG].watch)+'</button></div>';
+    var act = activityOf(it), nm = it.name+", "+act, v = videoId(it.url);
+    var bg = (v && v.type==="youtube") ? 'url('+ytThumb(v.id,"mqdefault")+'), '+tint(it.country) : tint(it.country);
+    return '<button type="button" class="card" data-url="'+esc(it.url)+'" data-title="'+esc(nm)+'" aria-label="'+esc(T[LANG].watch+" : "+nm)+'">'+
+      '<span class="thumb'+(v && v.type==="youtube" ? " has-img" : "")+'" style="background-image:'+esc(bg)+'">'+
+        '<span class="flag" aria-hidden="true">'+it.flag+'</span>'+
+        '<span class="no">'+esc(T[LANG].noLabel)+it.n+'</span>'+
+        '<span class="play" aria-hidden="true">'+PLAY+'</span>'+
+      '</span>'+
+      '<span class="body"><span class="where">'+it.flag+' '+esc(countryLabel(it.country))+'</span>'+
+      '<h4>'+esc(it.name)+'</h4><span class="act">'+esc(act)+'</span></span></button>';
   }).join("");
-  Array.prototype.forEach.call($("interviews").querySelectorAll(".watch"), function(b){
+  each($("interviews").querySelectorAll(".card"), function(b){
     b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
   });
 }
 
 function renderNewsletters(){
   var openIds = [];
-  Array.prototype.forEach.call($("newsList").querySelectorAll("details[open]"), function(d){ openIds.push(d.id); });
+  each($("newsList").querySelectorAll("details[open]"), function(d){ openIds.push(d.id); });
   $("newsList").innerHTML = DATA.newsletters.map(function(n){
     return '<details class="nl" id="nl'+n.n+'"><summary>'+
-      '<span class="em">'+n.icon+'</span>'+
+      '<span class="em" aria-hidden="true">'+n.icon+'</span>'+
       '<span class="meta"><span>'+esc(T[LANG].issue)+n.n+'</span><b>'+esc(nlTitle(n))+'</b></span>'+
-      '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'+
-      '</summary><div class="nl-body">'+renderMd(n.body)+'</div></details>';
+      '<span class="chev" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>'+
+      '</summary><div class="nl-body">'+renderMd(n.body)+
+      '<p class="close-nl"><button type="button" class="btn line" data-close="nl'+n.n+'">'+esc(T[LANG].closeNl)+
+      ' <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg></button></p></div></details>';
   }).join("");
   openIds.forEach(function(id){ var d = document.getElementById(id); if(d) d.open = true; });
+  each($("newsList").querySelectorAll("[data-close]"), function(b){
+    b.addEventListener("click", function(){
+      var d = document.getElementById(b.getAttribute("data-close"));
+      d.open = false;
+      d.scrollIntoView({block:"start"});
+      d.querySelector("summary").focus();
+    });
+  });
 }
 
 var ORDER = ["Introduction ▶️","Myanmar 🇲🇲","Thaïlande 🇹🇭","Bangladesh 🇧🇩","Inde 🇮🇳","Kirghizistan 🇰🇬","Tadjikistan 🇹🇯","Ouzbékistan 🇺🇿 – Kazakhstan 🇰🇿","Conclusion 🏁"];
@@ -998,16 +1253,16 @@ function renderMusic(){
     var tracks = groups[s];
     return '<div class="mgroup"><h3>'+esc(seqLabel(s))+' <span class="cnt">'+tracks.length+'</span></h3>'+
       tracks.map(function(t){
-        var v = videoId(t.url), ext = v? "" : " ext";
-        return '<div class="track'+ext+'"><span class="host">'+esc(hostOf(t.url))+'</span>'+
-          '<span class="t">'+esc(t.title)+'</span>'+
+        var v = videoId(t.url);
+        return '<div class="track'+(v? "" : " ext")+'">'+
           (v
-            ? '<button class="pbtn" data-url="'+esc(t.url)+'" data-title="'+esc(t.title)+'" aria-label="'+esc(T[LANG].listenAria+t.title)+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg></button>'
-            : '<a class="pbtn" target="_blank" rel="noopener" href="'+esc(t.url)+'" aria-label="'+esc(T[LANG].openAria+t.title)+'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7M3 6h18M3 12h18M3 18h18"/></svg></a>')+
+            ? '<button type="button" class="pbtn" data-url="'+esc(t.url)+'" data-title="'+esc(t.title)+'" aria-label="'+esc(T[LANG].listenAria+t.title)+'">'+PLAY+'</button>'
+            : '<a class="pbtn" target="_blank" rel="noopener" href="'+esc(t.url)+'" aria-label="'+esc(T[LANG].openAria+t.title)+'">'+ARROW+'</a>')+
+          '<span><span class="t">'+esc(t.title)+'</span><span class="host">'+esc(hostOf(t.url))+'</span></span>'+
           '</div>';
       }).join("") + '</div>';
   }).join("");
-  Array.prototype.forEach.call($("music").querySelectorAll("button.pbtn"), function(b){
+  each($("music").querySelectorAll("button.pbtn"), function(b){
     b.addEventListener("click", function(){ openModal(b.getAttribute("data-title"), b.getAttribute("data-url")); });
   });
 }
@@ -1017,7 +1272,8 @@ function renderPartners(){
   $("partners").innerHTML = DATA.partners.map(function(p){
     var nm = (LANG==="en" && T.en.partnerNames[p.name]) ? T.en.partnerNames[p.name] : p.name;
     return '<a class="partner" target="_blank" rel="noopener" href="'+esc(p.url)+'">'+
-      '<span class="dot">'+esc(initials(p.name))+'</span><span><b>'+esc(nm)+'</b><span>'+esc(hostOf(p.url))+'</span></span></a>';
+      '<span class="mono" aria-hidden="true">'+esc(initials(p.name))+'</span><b>'+esc(nm)+'</b>'+
+      '<span class="host">'+esc(hostOf(p.url))+' '+ARROW+'</span></a>';
   }).join("");
 }
 
@@ -1025,19 +1281,21 @@ function renderArticles(){
   $("articles").innerHTML = DATA.articles.map(function(a,i){
     var t = (LANG==="en" && T.en.articleTitles[i]) ? T.en.articleTitles[i] : a.title;
     var d = (LANG==="en" && T.en.articleDates[i]) ? T.en.articleDates[i] : a.date;
-    return '<div class="article"><a target="_blank" rel="noopener" href="'+esc(a.url)+'">'+esc(t)+'</a>'+
-      '<span class="src">'+esc(a.source)+' · '+esc(d)+'</span></div>';
+    return '<a class="article" target="_blank" rel="noopener" href="'+esc(a.url)+'">'+
+      '<span class="src">'+esc(a.source)+'<span>'+esc(d)+'</span></span>'+
+      '<span class="ttl">'+esc(t)+'</span><span class="go" aria-hidden="true">'+ARROW+'</span></a>';
   }).join("");
 }
 
 function renderMore(){
-  $("more").innerHTML = '<span style="color:var(--muted);font-size:14.5px;margin-right:14px">'+esc(T[LANG].wantSupport)+'</span>'+
-    '<a class="btn" target="_blank" rel="noopener" href="'+esc(DATA.links.mcma)+'">'+esc(T[LANG].mcmaBtn)+'</a>'+
-    '<a class="btn ghost" target="_blank" rel="noopener" href="'+esc(DATA.links.notion)+'">'+esc(T[LANG].notionBtn)+'</a>';
+  $("more").innerHTML = '<h3>'+esc(T[LANG].wantSupport)+'</h3><div class="acts">'+
+    '<a class="btn dark" target="_blank" rel="noopener" href="'+esc(DATA.links.mcma)+'">'+esc(T[LANG].mcmaBtn)+' '+ARROW+'</a>'+
+    '<a class="btn line" target="_blank" rel="noopener" href="'+esc(DATA.links.notion)+'">'+esc(T[LANG].notionBtn)+' '+ARROW+'</a></div>';
 }
 
 function renderDynamic(){
   $("heroPitch").textContent = pitchText();
+  renderHeroRoute();
   renderGoals();
   renderRoute();
   renderTeam();
@@ -1057,24 +1315,26 @@ function applyStatic(){
   var md = document.querySelector('meta[name="description"]');
   if(md) md.setAttribute("content", dict.desc);
   document.documentElement.setAttribute("lang", LANG);
-  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function(el){
+  each(document.querySelectorAll("[data-i18n]"), function(el){
     var k = el.getAttribute("data-i18n");
     if(typeof dict[k] === "string") el.textContent = dict[k];
   });
-  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-html]"), function(el){
+  each(document.querySelectorAll("[data-i18n-html]"), function(el){
     var k = el.getAttribute("data-i18n-html");
     if(typeof dict[k] === "string") el.innerHTML = dict[k];
   });
-  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-aria]"), function(el){
+  each(document.querySelectorAll("[data-i18n-aria]"), function(el){
     var k = el.getAttribute("data-i18n-aria");
     if(typeof dict[k] === "string") el.setAttribute("aria-label", dict[k]);
   });
-  var note = document.getElementById("nlFrNote");
+  var note = $("nlFrNote");
   if(note){ note.textContent = dict.newsFrNote; note.style.display = dict.newsFrNote ? "" : "none"; }
-  var frb = document.getElementById("langFr"), enb = document.getElementById("langEn");
-  if(frb) frb.className = LANG==="fr" ? "on" : "";
-  if(enb) enb.className = LANG==="en" ? "on" : "";
-  var nl = document.getElementById("notionLink");
+  ["fr","en"].forEach(function(l){
+    var b = $(l==="fr" ? "langFr" : "langEn");
+    b.className = LANG===l ? "on" : "";
+    b.setAttribute("aria-pressed", String(LANG===l));
+  });
+  var nl = $("notionLink");
   if(nl) nl.href = DATA.links.notion;
 }
 
@@ -1084,14 +1344,15 @@ function setLang(l){
   try{ window.localStorage.setItem("abds-lang", l); }catch(e){}
   applyStatic();
   renderDynamic();
+  revealAll();
 }
-document.getElementById("langFr").addEventListener("click", function(){ setLang("fr"); });
-document.getElementById("langEn").addEventListener("click", function(){ setLang("en"); });
+$("langFr").addEventListener("click", function(){ setLang("fr"); });
+$("langEn").addEventListener("click", function(){ setLang("en"); });
 
-/* ---------- hero & film ---------- */
+/* ---------- film ---------- */
 $("filmLink").href = DATA.film.url;
 $("footerFilm").href = DATA.film.url;
-
+$("mainPoster").style.backgroundImage = "url("+ytThumb(DATA.film.youtubeId)+")";
 $("mainPoster").addEventListener("click", function(){
   var f = document.createElement("iframe");
   f.src = embedUrl({type:"youtube", id:DATA.film.youtubeId}, true);
@@ -1100,14 +1361,64 @@ $("mainPoster").addEventListener("click", function(){
   f.title = T[LANG].iframeFilmTitle;
   $("mainPlayer").innerHTML = "";
   $("mainPlayer").appendChild(f);
+  f.focus();
 });
 $("teaserBtn").addEventListener("click", function(){
   openModal(T[LANG].teaserModalTitle, DATA.film.teaserUrl);
 });
 
+/* ---------- navigation ---------- */
+var nav = $("nav"), menuBtn = $("menuBtn"), toTop = $("toTop");
+function closeMenu(){
+  nav.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded","false");
+  $("menuIc").setAttribute("d","M4 7h16M4 12h16M4 17h16");
+}
+menuBtn.addEventListener("click", function(){
+  var open = !nav.classList.contains("open");
+  nav.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", String(open));
+  $("menuIc").setAttribute("d", open ? "M6 6l12 12M18 6L6 18" : "M4 7h16M4 12h16M4 17h16");
+});
+each(document.querySelectorAll("#navLinks a"), function(a){ a.addEventListener("click", closeMenu); });
+document.addEventListener("click", function(e){ if(nav.classList.contains("open") && !nav.contains(e.target)) closeMenu(); });
+
+function onScroll(){
+  var y = window.scrollY || window.pageYOffset;
+  nav.classList.toggle("solid", y > 40);
+  toTop.classList.toggle("show", y > 900);
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+toTop.addEventListener("click", function(){ window.scrollTo({top:0}); document.querySelector(".brand").focus({preventScroll:true}); });
+
+/* section active dans la navigation */
+var navLinks = document.querySelectorAll("#navLinks a");
+var sections = Array.prototype.map.call(navLinks, function(a){ return document.querySelector(a.getAttribute("href")); });
+function spy(){
+  var y = (window.scrollY || window.pageYOffset) + window.innerHeight*0.35, cur = -1;
+  sections.forEach(function(s,i){ if(s && s.offsetTop <= y) cur = i; });
+  each(navLinks, function(a,i){
+    a.classList.toggle("active", i===cur);
+    if(i===cur) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current");
+  });
+}
+window.addEventListener("scroll", spy, {passive:true});
+window.addEventListener("resize", spy);
+
+/* apparition douce au défilement */
+var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(entries){
+  entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in-view"); io.unobserve(en.target); } });
+}, {rootMargin:"0px 0px -8% 0px"}) : null;
+function revealAll(){
+  each(document.querySelectorAll(".reveal:not(.in-view)"), function(el){ if(io) io.observe(el); else el.classList.add("in-view"); });
+}
+
 /* ---------- init ---------- */
 applyStatic();
 renderDynamic();
+revealAll();
+onScroll();
+spy();
 })();
 </script>
 </body>
